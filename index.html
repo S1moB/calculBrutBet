@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Calcul Salaire Brut en Net 2026 | Convertisseur Gratuit France</title>
+    <meta name="description" content="Outil de calcul et conversion de salaire brut net. Estimez votre salaire net mensuel, horaire ou annuel (cadre, non-cadre, SMIC 2026) avec prélèvement à la source.">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        :root {
+            --primary: #ef4444;
+            --primary-hover: #dc2626;
+            --secondary: #3b82f6;
+            --bg-color: #f3f4f6;
+            --card-bg: #ffffff;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+            --success: #10b981;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 2rem 1rem;
+            line-height: 1.5;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+            font-size: 2.2rem;
+        }
+
+        .seo-intro {
+            text-align: center;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        input[type="number"], select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover { background-color: var(--primary-hover); }
+
+        .btn-pdf {
+            background-color: var(--secondary);
+            margin-top: 1rem;
+        }
+
+        .btn-pdf:hover { background-color: #2563eb; }
+
+        /* Zone spécifique au rendu PDF */
+        #resultsContent {
+            background: white; /* Fond blanc forcé pour le PDF */
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .pdf-context {
+            background-color: #f8fafc;
+            border: 1px solid var(--border);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .results-header {
+            text-align: center;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 2px solid var(--success);
+            margin-bottom: 1.5rem;
+        }
+
+        .net-avant {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .net-apres {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--success);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 0.85rem 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th { color: var(--text-muted); font-weight: 600; }
+        
+        .history-section { margin-top: 2rem; border-top: 1px solid var(--border); padding-top: 1.5rem; }
+        .history-list { list-style: none; padding: 0; margin: 0; }
+        .history-list li { padding: 0.75rem 0; border-bottom: 1px dashed var(--border); font-size: 0.95rem; }
+    </style>
+</head>
+<body>
+
+    <h1>Calcul Salaire Brut en Net</h1>
+    <p class="seo-intro">Conversion de salaire brut en net pour la France (2026).</p>
+
+    <div class="container">
+        <div class="card">
+            <form id="calcForm">
+                <div class="form-group">
+                    <label for="periode">Période de calcul</label>
+                    <select id="periode">
+                        <option value="mensuel">Mensuel</option>
+                        <option value="horaire">Taux Horaire</option>
+                        <option value="annuel">Annuel</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="statut">Statut professionnel</label>
+                    <select id="statut">
+                        <option value="nonCadre">Non-cadre (~22%)</option>
+                        <option value="cadre">Cadre (~25%)</option>
+                        <option value="fonctionnaire">Fonctionnaire (~11%)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="brut">Salaire Brut (€)</label>
+                    <input type="number" id="brut" placeholder="Ex: 2500" required min="1" step="0.01">
+                </div>
+
+                <div class="form-group">
+                    <label for="tauxImposition">Taux de prélèvement à la source (%)</label>
+                    <input type="number" id="tauxImposition" placeholder="Ex: 0 pour non imposable" min="0" max="45" step="0.1" value="0">
+                </div>
+
+                <button type="submit">Calculer mon Net</button>
+            </form>
+
+            <div class="history-section">
+                <h3>Historique</h3>
+                <ul class="history-list" id="historyList"></ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div id="resultsContent">
+                <h2 style="margin-top: 0; color: var(--text-main); border-bottom: 2px solid var(--primary); padding-bottom: 10px;">
+                    Bilan de Simulation (France 2026)
+                </h2>
+                
+                <div class="pdf-context" id="pdfContext">
+                    <em>Veuillez lancer un calcul pour afficher les détails.</em>
+                </div>
+                
+                <div class="results-header">
+                    <div class="net-avant" id="netAvantResult">0.00 € Net avant impôt</div>
+                    <div class="net-apres" id="netApresResult">0.00 € Net après impôt</div>
+                </div>
+                
+                <table id="detailsTable">
+                    <thead>
+                        <tr>
+                            <th>Désignation de la charge</th>
+                            <th style="text-align: right;">Montant calculé</th>
+                        </tr>
+                    </thead>
+                    <tbody id="detailsBody">
+                        <tr>
+                            <td>Salaire Brut de base</td>
+                            <td style="text-align: right;">0.00 €</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <button class="btn-pdf" onclick="genPdf()">📄 Télécharger le Bilan PDF</button>
+        </div>
+        <div class="card seo-content" style="grid-column: 1 / -1;">
+            <h2>Comment fonctionne la conversion de salaire brut en net en 2026 ?</h2>
+            <p>Le passage du <strong>salaire brut au net</strong> implique la déduction des cotisations sociales (salariales) et de la CSG/CRDS de votre rémunération brute globale. En 2026, le taux moyen de prélèvement est d'environ 22% pour un salarié du secteur privé non-cadre, et grimpe à environ 25% pour un salarié disposant du statut cadre.</p>
+            
+            <h3>Le calcul du SMIC Brut en Net en 2026</h3>
+            <p>Notre calculateur intègre les données essentielles pour estimer rapidement le <strong>salaire net au SMIC</strong>, que ce soit sur une base <strong>horaire</strong>, <strong>mensuelle</strong> ou <strong>annuelle</strong>. Saisissez simplement le montant légal en vigueur en haut de page pour obtenir le détail complet de vos charges et de l'impôt à la source.</p>
+
+            <h3>Qu'est-ce que le prélèvement à la source (PAS) ?</h3>
+            <p>Le prélèvement à la source est l'impôt sur le revenu déduit directement de votre fiche de paie. Si vous ne connaissez pas votre taux, vous pouvez le trouver sur votre espace particulier impots.gouv.fr. Si vous n'êtes pas imposable, laissez simplement cette valeur à 0% dans notre simulateur.</p>
+        </div>
+    </div>
+
+    <script>
+        const TAUX = {
+            nonCadre: 0.22,
+            cadre: 0.25,
+            fonctionnaire: 0.11,
+            csg: 0.024,
+            crds: 0.005,
+            employeur: 1.42
+        };
+
+        const form = document.getElementById('calcForm');
+        let historique = JSON.parse(localStorage.getItem('calcHistoriqueFR')) || [];
+
+        function updateHistoryUI() {
+            const historyList = document.getElementById('historyList');
+            if(historique.length === 0) {
+                historyList.innerHTML = "<li style='color: var(--text-muted)'>Aucun calcul récent.</li>";
+                return;
+            }
+            historyList.innerHTML = historique.map(item => 
+                `<li>${item.periode} : Brut <strong>${item.brut}€</strong> ➔ Net <strong>${item.net}€</strong> <span style="font-size:0.8rem; color:var(--text-muted)">(PAS: ${item.impot}%)</span></li>`
+            ).join('');
+        }
+        updateHistoryUI();
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const brut = parseFloat(document.getElementById('brut').value);
+            const statutSelect = document.getElementById('statut');
+            const statut = statutSelect.value;
+            const statutText = statutSelect.options[statutSelect.selectedIndex].text;
+            const periode = document.getElementById('periode').value;
+            const tauxImpot = parseFloat(document.getElementById('tauxImposition').value) || 0;
+            
+            const tauxSocial = TAUX[statut];
+            const csgCrds = TAUX.csg + TAUX.crds;
+            const coutEmployeur = brut * TAUX.employeur;
+
+            const montantSocial = brut * tauxSocial;
+            const montantCsgCrds = brut * csgCrds;
+            const netAvantImpot = brut - montantSocial - montantCsgCrds;
+            const montantImpot = netAvantImpot * (tauxImpot / 100);
+            const netApresImpot = netAvantImpot - montantImpot;
+            const perLabel = periode.charAt(0).toUpperCase() + periode.slice(1);
+
+            // Mise à jour du contexte pour le PDF
+            document.getElementById('pdfContext').innerHTML = `
+                <strong>Période de rémunération :</strong> ${perLabel}<br>
+                <strong>Statut professionnel :</strong> ${statutText}<br>
+                <strong>Taux de prélèvement à la source appliqué :</strong> ${tauxImpot}%
+            `;
+
+            // Mise à jour de l'UI
+            document.getElementById('netAvantResult').textContent = `${netAvantImpot.toFixed(2)} € Net avant impôt`;
+            document.getElementById('netApresResult').textContent = `${netApresImpot.toFixed(2)} € Net après impôt`;
+            
+            document.getElementById('detailsBody').innerHTML = `
+                <tr>
+                    <td>Salaire Brut (${perLabel})</td>
+                    <td style="text-align: right;"><strong>${brut.toFixed(2)} €</strong></td>
+                </tr>
+                <tr>
+                    <td>Cotisations Sociales et charges salariales (~${(tauxSocial*100).toFixed(0)}%)</td>
+                    <td style="text-align: right; color: var(--primary)">- ${montantSocial.toFixed(2)} €</td>
+                </tr>
+                <tr>
+                    <td>CSG et CRDS (Taux légal 2.9%)</td>
+                    <td style="text-align: right; color: var(--primary)">- ${montantCsgCrds.toFixed(2)} €</td>
+                </tr>
+                <tr>
+                    <td>Impôt sur le revenu à la source (${tauxImpot}%)</td>
+                    <td style="text-align: right; color: var(--primary)">- ${montantImpot.toFixed(2)} €</td>
+                </tr>
+                <tr style="background-color: #f8fafc;">
+                    <td style="padding-top: 1.5rem;"><strong>Coût Total estimé pour l'Employeur</strong> (Charges patronales incluses)</td>
+                    <td style="text-align: right; padding-top: 1.5rem;"><strong>${coutEmployeur.toFixed(2)} €</strong></td>
+                </tr>
+            `;
+
+            // Historique
+            historique.unshift({ brut: brut.toFixed(2), net: netApresImpot.toFixed(2), periode: perLabel, impot: tauxImpot });
+            if (historique.length > 5) historique.pop();
+            localStorage.setItem('calcHistoriqueFR', JSON.stringify(historique));
+            updateHistoryUI();
+        });
+
+        function genPdf() {
+            const element = document.getElementById('resultsContent');
+            const opt = {
+                margin:       [0.5, 0.5, 0.5, 0.5], // Marges [haut, droite, bas, gauche]
+                filename:     'bilan_salaire_net_2026.pdf',
+                image:        { type: 'jpeg', quality: 1 },
+                html2canvas:  { scale: 2, useCORS: true, backgroundColor: '#ffffff' }, // Force le fond blanc
+                jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+            };
+            html2pdf().set(opt).from(element).save();
+        }
+    </script>
+</body>
+</html>
