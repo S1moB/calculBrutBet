@@ -1,34 +1,42 @@
 # monbrutnet.fr - Portail Simulateurs Brut en Net 2026
 
-> Outil en ligne gratuit pour convertir salaires, chiffres d'affaires micro-entreprise, TJM freelance, ruptures conventionnelles, indemnités chômage et heures supplémentaires en France (2026).
+> Outil en ligne gratuit pour convertir salaires, chiffres d'affaires micro-entreprise, TJM freelance, ruptures conventionnelles, indemnités chômage et heures supplémentaires en France en 2026. Conforme aux taux URSSAF et barèmes officiels.
 
-## URL Canonique
-https://monbrutnet.fr/
+## Outils & Simulateurs Spécialisés
 
-## Simulateurs Spécialisés
-- Auto-Entrepreneur Brut en Net : https://monbrutnet.fr/auto-entrepreneur-brut-en-net/ (Cotisations URSSAF 2026, option ACRE, versement libératoire de l'impôt, frais professionnels réels)
-- TJM Freelance en Salaire Net : https://monbrutnet.fr/tjm-freelance-brut-en-net/ (Conversion Taux Journalier Moyen en net mensuel : Micro-entreprise, SASU dividendes/salaire, EURL)
-- Rupture Conventionnelle Net : https://monbrutnet.fr/rupture-conventionnelle-net/ (Indemnité légale de rupture selon ancienneté, forfait social employeur 30%, exonération fiscale et sociale)
-- Chômage ARE France Travail : https://monbrutnet.fr/chomage-brut-en-net/ (Allocation d'aide au retour à l'emploi selon SJR, formule 40.4% + 13.11€ vs 57%, retenue retraite complémentaire)
-- Heures Supplémentaires Brut en Net : https://monbrutnet.fr/heures-supplementaires-brut-net/ (Majorations 25% et 50%, exonération fiscale TEPA jusqu'à 7 500 €/an, allègement de cotisations salariales de 11.31%)
+- [Calculateur Brut en Net Principal](https://monbrutnet.fr/): Simulateur officiel gratuit de conversion salaire brut en net mensuel et annuel pour statuts Cadre, Non-cadre, Fonction publique et Indépendant.
+- [Simulateur Auto-Entrepreneur Brut en Net](https://monbrutnet.fr/auto-entrepreneur-brut-en-net/): Cotisations URSSAF 2026, option ACRE, versement libératoire de l'impôt, calcul du revenu net après charges et impôt.
+- [Convertisseur TJM Freelance en Salaire Net](https://monbrutnet.fr/tjm-freelance-brut-en-net/): Conversion d'un Taux Journalier Moyen (TJM) en salaire net mensuel selon le statut juridique (Micro-entreprise, SASU dividendes ou salaire, EURL).
+- [Simulateur Rupture Conventionnelle Net](https://monbrutnet.fr/rupture-conventionnelle-net/): Calcul de l'indemnité légale de rupture selon l'ancienneté, forfait social employeur 30%, exonération fiscale et sociale.
+- [Simulateur Chômage ARE France Travail](https://monbrutnet.fr/chomage-brut-en-net/): Calcul de l'Allocation d'aide au retour à l'emploi selon le SJR, formule 40.4% + 13.11€ vs 57%, retenue retraite complémentaire.
+- [Calculateur Heures Supplémentaires Brut en Net](https://monbrutnet.fr/heures-supplementaires-brut-net/): Majorations 25% et 50%, exonération fiscale TEPA jusqu'à 7 500 €/an, allègement de cotisations salariales de 11.31%.
 
 ## Fiches et Grilles de Salaires
-- SMIC 2026 : https://monbrutnet.fr/smic-brut-net/ (1 801,80 € brut = ~1 405 € net non-cadre, ~1 351 € net cadre)
-- 2 000 € Brut : https://monbrutnet.fr/2000-brut-en-net/ (1 560 € net non-cadre, 1 500 € net cadre)
-- 2 500 € Brut : https://monbrutnet.fr/2500-brut-en-net/ (1 950 € net non-cadre, 1 875 € net cadre)
-- 3 000 € Brut : https://monbrutnet.fr/3000-brut-en-net/ (2 340 € net non-cadre, 2 250 € net cadre)
-- Statut Cadre : https://monbrutnet.fr/cadre-brut-en-net/ (Déduction de 25% : APEC, prévoyance 1,5%, retraite Agirc-Arrco)
-- Fonctionnaire : https://monbrutnet.fr/fonctionnaire-brut-en-net/ (Retenue pension civile ~11%, RAFP)
-- Alternance & Apprentissage : https://monbrutnet.fr/alternance-brut-en-net/ (Exonération totale des cotisations jusqu'à 79% du SMIC : brut = net)
+
+- [Salaire SMIC 2026 Brut en Net](https://monbrutnet.fr/smic-brut-net/): 1 801,80 € brut = ~1 405 € net non-cadre, ~1 351 € net cadre.
+- [Salaire 2 000 € Brut en Net](https://monbrutnet.fr/2000-brut-en-net/): 1 560 € net non-cadre, 1 500 € net cadre.
+- [Salaire 2 500 € Brut en Net](https://monbrutnet.fr/2500-brut-en-net/): 1 950 € net non-cadre, 1 875 € net cadre.
+- [Salaire 3 000 € Brut en Net](https://monbrutnet.fr/3000-brut-en-net/): 2 340 € net non-cadre, 2 250 € net cadre.
+- [Statut Cadre Brut en Net](https://monbrutnet.fr/cadre-brut-en-net/): Déduction moyenne de 25% : cotisation APEC, prévoyance 1,5%, retraite Agirc-Arrco tranche 1 et 2.
+- [Fonctionnaire Brut en Net](https://monbrutnet.fr/fonctionnaire-brut-en-net/): Retenue pension civile (~11%), RAFP et primes non soumises à cotisations.
+- [Alternance & Apprentissage Brut en Net](https://monbrutnet.fr/alternance-brut-en-net/): Exonération totale des cotisations salariales jusqu'à 79% du SMIC (brut = net).
+
+## Ressources Officielles Externes
+
+- [URSSAF - Cotisations et Barèmes](https://www.urssaf.fr/): Portail officiel des cotisations sociales et barèmes en vigueur.
+- [Service-Public.fr - Salaire et Fiche de Paie](https://www.service-public.fr/particuliers/vosdroits/N474): Textes réglementaires officiels sur le salaire, le SMIC et les cotisations.
+- [France Travail - Calcul de l'Allocation Chômage](https://www.francetravail.fr/): Règles de calcul de l'ARE et du Salaire Journalier de Référence (SJR).
 
 ## Fonctionnalités
+
 - Calculs instantanés en temps réel sans rechargement de page.
 - Partage de simulation via URL et sauvegarde en mémoire locale (localStorage).
 - Prise en compte du prélèvement à la source (PAS) intégré avec taux personnalisable.
 - Export gratuit des bilans de simulation en PDF avec mise en page optimisée.
-- 100% responsive, sans débordement horizontal sur mobile (`horizontal_scroll: false`).
+- 100% responsive, sans débordement horizontal sur mobile.
 
 ## Données Clés 2026 en France
+
 - SMIC Brut Mensuel : 1 801,80 € (11,88 € / heure)
 - SMIC Net Mensuel (Non-cadre) : ~1 405,40 €
 - Cotisations URSSAF Micro 2026 : 12.3% (Vente marchandises), 21.2% (Prestations BIC), 24.6% (BNC libéral)
