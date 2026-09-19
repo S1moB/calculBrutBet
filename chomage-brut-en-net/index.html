@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Calculateur Chômage Brut en Net 2026 : Allocation ARE | monbrutnet.fr</title>
+    <meta name="description" content="Calculez le montant net de votre allocation chômage France Travail (ARE 2026) : SJR, montant journalier, retenues retraite et CSG.">
+    
+    <link rel="canonical" href="https://monbrutnet.fr/chomage-brut-en-net/" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://monbrutnet.fr/chomage-brut-en-net/">
+    <meta property="og:title" content="Calculateur Chômage Brut en Net 2026 : Allocation ARE | monbrutnet.fr">
+    <meta property="og:description" content="Calculez le montant net de votre allocation chômage France Travail (ARE 2026) : SJR, montant journalier, retenues retraite et CSG.">
+    <meta property="og:image" content="https://monbrutnet.fr/og-image.jpg"> 
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Schema.org Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Accueil",
+              "item": "https://monbrutnet.fr/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "France Travail (ARE)",
+              "item": "https://monbrutnet.fr/chomage-brut-en-net/"
+            }
+          ]
+        },
+        {
+          "@type": "WebApplication",
+          "name": "Simulateur Allocation Chômage (ARE) 2026",
+          "url": "https://monbrutnet.fr/chomage-brut-en-net/",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "All",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary: #ef4444;
+            --primary-hover: #dc2626;
+            --secondary: #3b82f6;
+            --bg-color: #f3f4f6;
+            --card-bg: #ffffff;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+            --success: #10b981;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+        html, body { overflow-x: hidden; width: 100%; max-width: 100%; }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+
+        /* --- Header Navigation Bar --- */
+        .site-header {
+            background: #ffffff;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .brand-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: bold;
+            font-size: 1.15rem;
+        }
+        .brand-link svg { width: 32px; height: 32px; flex-shrink: 0; }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            overflow-x: auto;
+            max-width: 100%;
+            padding-bottom: 0.25rem;
+            -webkit-overflow-scrolling: touch;
+        }
+        .nav-link {
+            padding: 0.4rem 0.75rem;
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: all 0.15s ease;
+        }
+        .nav-link:hover { background: #f3f4f6; color: var(--text-main); }
+        .nav-link.active { background: #eff6ff; color: var(--secondary); border: 1px solid #bfdbfe; }
+
+        .main-wrapper {
+            padding: 1.5rem 0.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            padding: 0 0.5rem;
+        }
+        .breadcrumb a { color: var(--secondary); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .page-header h1 { margin: 0 0 0.5rem 0; font-size: 1.8rem; color: var(--text-main); }
+        .page-header p { color: var(--text-muted); max-width: 800px; margin: 0 auto; font-size: 1rem; }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            width: 100%;
+        }
+
+        .form-group { margin-bottom: 1.25rem; }
+        label { display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.95rem; }
+        input[type="number"], select {
+            width: 100%;
+            padding: 0.85rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            background-color: #fff;
+        }
+
+        button {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button:hover { background-color: var(--primary-hover); }
+
+        .btn-pdf { background-color: var(--secondary); }
+        .btn-pdf:hover { background-color: #2563eb; }
+        .btn-share { background-color: #059669; }
+        .btn-share:hover { background-color: #047857; }
+
+        .btn-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        @media (min-width: 500px) {
+            .btn-row { grid-template-columns: 1fr 1fr; }
+        }
+
+        .advanced-options {
+            margin-bottom: 1.25rem;
+            border: 1px dashed var(--border);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            background: #fafafa;
+        }
+        .advanced-options summary { cursor: pointer; font-weight: 600; font-size: 0.95rem; color: var(--secondary); }
+        .advanced-content { margin-top: 1rem; display: grid; gap: 1rem; }
+        .checkbox-label { display: flex; align-items: center; gap: 0.6rem; font-size: 0.95rem; font-weight: 500; cursor: pointer; }
+        .checkbox-label input[type="checkbox"] { width: 1.2rem; height: 1.2rem; accent-color: var(--primary); }
+
+        #resultsContent { background: white; padding: 1rem; border-radius: 8px; }
+        .results-header {
+            text-align: center;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 2px solid var(--success);
+            margin-bottom: 1.5rem;
+        }
+        .net-avant { font-size: 1.8rem; font-weight: bold; color: var(--success); }
+        .net-apres { font-size: 1.1rem; color: var(--text-muted); margin-top: 0.25rem; }
+
+        .table-responsive { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { text-align: left; padding: 0.75rem 0.25rem; border-bottom: 1px solid var(--border); font-size: 0.95rem; }
+        th { color: var(--text-muted); font-weight: 600; }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1rem;
+            margin-top: 1.25rem;
+        }
+        .guide-card {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.25rem;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: transform 0.15s ease, border-color 0.15s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .guide-card:hover { transform: translateY(-2px); border-color: var(--secondary); }
+        .guide-card h4 { margin: 0 0 0.4rem 0; font-size: 1.05rem; color: var(--secondary); }
+        .guide-card p { margin: 0; font-size: 0.88rem; color: var(--text-muted); }
+        .badge-tag {
+            display: inline-block;
+            background: #eff6ff;
+            color: var(--secondary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.2rem 0.55rem;
+            border-radius: 4px;
+            margin-bottom: 0.6rem;
+            align-self: flex-start;
+        }
+
+        @media (min-width: 768px) {
+            .main-wrapper { padding: 2rem 1rem; }
+            .page-header h1 { font-size: 2.2rem; }
+            .container { grid-template-columns: 1fr 1fr; gap: 2rem; }
+            .card { padding: 2rem; }
+            .net-avant { font-size: 2.2rem; }
+            th, td { padding: 0.85rem 0.5rem; font-size: 1rem; }
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding: 2rem 1rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            background: white;
+        }
+        footer a { color: var(--primary); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="/" class="brand-link">
+                <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#ef4444"/><text x="50" y="68" font-family="Arial" font-size="55" font-weight="bold" fill="white" text-anchor="middle">€</text></svg>
+                <span>monbrutnet.fr</span>
+            </a>
+            <nav class="nav-links" aria-label="Menu des simulateurs">
+                <a href="/" class="nav-link">💼 Salarié</a>
+                <a href="/auto-entrepreneur-brut-en-net/" class="nav-link ">🚀 Auto-Entrepreneur</a>
+                <a href="/tjm-freelance-brut-en-net/" class="nav-link ">💻 TJM Freelance</a>
+                <a href="/rupture-conventionnelle-net/" class="nav-link ">⚖️ Rupture Conv.</a>
+                <a href="/chomage-brut-en-net/" class="nav-link active">🏥 Chômage (ARE)</a>
+                <a href="/heures-supplementaires-brut-net/" class="nav-link ">⏱️ Heures Sup</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-wrapper">
+        <nav class="breadcrumb" aria-label="Fil d'Ariane">
+            <a href="/">Accueil</a> &rsaquo; <span>France Travail (ARE)</span>
+        </nav>
+
+        <div class="page-header">
+            <h1>Simulateur Allocation Chômage (ARE) 2026</h1>
+            <p>Estimez le montant de vos <strong>indemnités chômage France Travail</strong> (ARE) en brut et en net à partir de vos anciens salaires.</p>
+        </div>
+
+        <div class="container">
+            <div class="card">
+                <form id="calcForm">
+                    
+            <div class="form-group">
+                <label for="salBrutMoyen">Ancien salaire brut mensuel moyen (€)</label>
+                <input type="number" id="salBrutMoyen" value="2500" required min="500" step="50">
+            </div>
+
+            <div class="form-group">
+                <label for="moisTravail">Nombre de mois travaillés sur les 24 derniers mois</label>
+                <select id="moisTravail">
+                    <option value="6">6 mois (Minimum légal d'affiliation)</option>
+                    <option value="12">12 mois</option>
+                    <option value="24" selected>24 mois (Droits complets)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Tranche d'âge</label>
+                <select id="age">
+                    <option value="jeune" selected>Moins de 53 ans (Durée max : 18 mois)</option>
+                    <option value="inter">53 à 54 ans (Durée max : 22,5 mois)</option>
+                    <option value="senior">55 ans et plus (Durée max : 27 mois)</option>
+                </select>
+            </div>
+        
+                    <button type="submit" style="margin-top: 1rem;">Calculer en direct</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <div id="resultsContent">
+                    <div style="margin-top: 0; font-size: 1.3rem; font-weight: 700; color: var(--text-main); border-bottom: 2px solid var(--primary); padding-bottom: 10px; margin-bottom: 1rem;">
+                        Résultats de la Simulation
+                    </div>
+                    
+                    <div class="results-header">
+                        <div class="net-avant" id="netAvantResult">0.00 € Net</div>
+                        <div class="net-apres" id="netApresResult">Calcul instantané</div>
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table id="detailsTable">
+                            <thead>
+                                <tr>
+                                    <th>Élément de calcul</th>
+                                    <th style="text-align: right;">Montant</th>
+                                </tr>
+                            </thead>
+                            <tbody id="detailsBody">
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="text-align: center; margin-top: 1rem; font-size: 0.8rem; color: #94a3b8; display: none;" id="pdfSignature">
+                        Généré gratuitement via monbrutnet.fr
+                    </div>
+                </div>
+                
+                <div class="btn-row">
+                    <button type="button" class="btn-pdf" onclick="genPdf()">📄 Télécharger le PDF</button>
+                    <button type="button" class="btn-share" id="btnShare" onclick="copyShareLink()">🔗 Copier le lien</button>
+                </div>
+            </div>
+
+            <div class="card seo-content" style="grid-column: 1 / -1;">
+                <h2>Comment est calculée l'allocation chômage (ARE) en 2026 ?</h2>
+                
+            <p>L'<strong>Allocation d'Aide au Retour à l'Emploi (ARE)</strong> est versée par France Travail aux salariés involontairement privés d'emploi. Son montant dépend de vos salaires bruts perçus au cours des 24 mois précédant la fin de votre contrat de travail.</p>
+            <h3>Les deux formules de calcul de l'ARE</h3>
+            <p>France Travail calcule deux montants et retient automatiquement le plus avantageux pour l'allocataire :</p>
+            <ul>
+                <li><strong>Formule 1</strong> : 40,4% du Salaire Journalier de Référence (SJR) + une part fixe de 13,11 € par jour.</li>
+                <li><strong>Formule 2</strong> : 57% du Salaire Journalier de Référence (SJR).</li>
+            </ul>
+            <p>L'allocation brute ne peut jamais être inférieure à 31,97 € par jour (montant plancher) ni excéder 75% du SJR.</p>
+        
+
+                <h3>Sources et cadre réglementaire 2026</h3>
+                <p style="font-size: 0.95rem; color: var(--text-muted);">Taux et barèmes officiels calculés d'après les règles de la législation sociale et fiscale française pour 2026. Références officielles : <a href="https://www.service-public.fr" target="_blank" rel="noopener">service-public.fr</a> et <a href="https://www.urssaf.fr" target="_blank" rel="noopener">urssaf.fr</a>.</p>
+            </div>
+
+            <div class="card" style="grid-column: 1 / -1;">
+                <h2>Autres simulateurs de revenus utiles</h2>
+                <div class="guide-grid">
+                    <a href="/" class="guide-card">
+                        <div>
+                            <span class="badge-tag">Général</span>
+                            <h4>Salaire Brut en Net</h4>
+                            <p>Simulateur complet pour salariés cadre, non-cadre et fonctionnaire.</p>
+                        </div>
+                        <span style="font-weight: 600; color: var(--secondary); margin-top: 1rem; font-size: 0.9rem;">Simulateur Salarié →</span>
+                    </a>
+                    <a href="/smic-brut-net/" class="guide-card">
+                        <div>
+                            <span class="badge-tag">SMIC 2026</span>
+                            <h4>SMIC Brut en Net</h4>
+                            <p>Montant mensuel et horaire exact du SMIC en France en 2026.</p>
+                        </div>
+                        <span style="font-weight: 600; color: var(--secondary); margin-top: 1rem; font-size: 0.9rem;">Calculer le SMIC →</span>
+                    </a>
+                    <a href="/auto-entrepreneur-brut-en-net/" class="guide-card">
+                        <div>
+                            <span class="badge-tag">Micro-Entreprise</span>
+                            <h4>Auto-Entrepreneur</h4>
+                            <p>Cotisations URSSAF, ACRE et impôt libératoire sur CA.</p>
+                        </div>
+                        <span style="font-weight: 600; color: var(--secondary); margin-top: 1rem; font-size: 0.9rem;">Fiche Micro-Entreprise →</span>
+                    </a>
+                    <a href="/tjm-freelance-brut-en-net/" class="guide-card">
+                        <div>
+                            <span class="badge-tag">Freelance</span>
+                            <h4>TJM en Salaire Net</h4>
+                            <p>Convertissez votre tarif journalier en salaire net mensuel.</p>
+                        </div>
+                        <span style="font-weight: 600; color: var(--secondary); margin-top: 1rem; font-size: 0.9rem;">Fiche TJM →</span>
+                    </a>
+                    <a href="/rupture-conventionnelle-net/" class="guide-card">
+                        <div>
+                            <span class="badge-tag">Fin de Contrat</span>
+                            <h4>Rupture Conventionnelle</h4>
+                            <p>Montant légal minimal d'indemnité selon l'ancienneté.</p>
+                        </div>
+                        <span style="font-weight: 600; color: var(--secondary); margin-top: 1rem; font-size: 0.9rem;">Fiche Rupture →</span>
+                    </a>
+                    <a href="/chomage-brut-en-net/" class="guide-card">
+                        <div>
+                            <span class="badge-tag">France Travail</span>
+                            <h4>Chômage (ARE)</h4>
+                            <p>Calcul des allocations chômage journalières et mensuelles.</p>
+                        </div>
+                        <span style="font-weight: 600; color: var(--secondary); margin-top: 1rem; font-size: 0.9rem;">Fiche Chômage →</span>
+                    </a>
+                    <a href="/heures-supplementaires-brut-net/" class="guide-card">
+                        <div>
+                            <span class="badge-tag">Majoration</span>
+                            <h4>Heures Supplémentaires</h4>
+                            <p>Calcul du gain net défiscalisé à +25% et +50%.</p>
+                        </div>
+                        <span style="font-weight: 600; color: var(--secondary); margin-top: 1rem; font-size: 0.9rem;">Fiche Heures Sup →</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div style="max-width: 800px; margin: 0 auto;">
+            <p>&copy; 2026 <strong>monbrutnet.fr</strong> - Tous droits réservés.</p>
+            <p><strong>Mentions légales :</strong> Ce simulateur est fourni à titre informatif. Les résultats se basent sur des moyennes légales et n'ont aucune valeur contractuelle.</p>
+            <p>Contactez-nous : <span id="email-contact"></span></p>
+        </div>
+    </footer>
+
+    <script>
+        const u = "contact";
+        const d = "monbrutnet.fr";
+        document.getElementById("email-contact").innerHTML = `<a href="mailto:${u}@${d}">${u}@${d}</a>`;
+
+        const form = document.getElementById('calcForm');
+
+        function calculate() {
+            
+            const sal = parseFloat(document.getElementById('salBrutMoyen').value) || 0;
+            const mois = parseFloat(document.getElementById('moisTravail').value) || 24;
+
+            const sjr = (sal * 12) / 365;
+            const methode1 = (sjr * 0.404) + 13.11;
+            const methode2 = sjr * 0.57;
+            let areBruteJour = Math.max(methode1, methode2);
+
+            // Plafonnement
+            if (areBruteJour < 31.97) areBruteJour = 31.97;
+            if (areBruteJour > sjr * 0.75) areBruteJour = sjr * 0.75;
+
+            // Retenues sociales (3% retraite complémentaire)
+            const retraiteComp = areBruteJour * 0.03;
+            let csgCrds = 0;
+            if (areBruteJour > 31.97) {
+                csgCrds = areBruteJour * 0.067;
+            }
+            const areNetteJour = areBruteJour - retraiteComp - (csgCrds * 0.5);
+            const areMensuelleNette = areNetteJour * 30.42;
+
+            document.getElementById('netAvantResult').textContent = `${areMensuelleNette.toFixed(2)} € Net / mois`;
+            document.getElementById('netApresResult').textContent = `${areNetteJour.toFixed(2)} € Net / jour`;
+
+            document.getElementById('detailsBody').innerHTML = `
+                <tr>
+                    <td>Salaire Journalier de Référence (SJR)</td>
+                    <td style="text-align: right;"><strong>${sjr.toFixed(2)} € / jour</strong></td>
+                </tr>
+                <tr>
+                    <td>ARE Brute Journalière</td>
+                    <td style="text-align: right; color: var(--secondary);">${areBruteJour.toFixed(2)} € / jour</td>
+                </tr>
+                <tr>
+                    <td>Retenue Retraite Complémentaire (3%)</td>
+                    <td style="text-align: right; color: var(--primary)">- ${retraiteComp.toFixed(2)} € / jour</td>
+                </tr>
+                <tr style="background-color: #f8fafc;">
+                    <td style="padding-top: 1rem;"><strong>Allocation Nette Mensuelle Moyenne</strong></td>
+                    <td style="text-align: right; padding-top: 1rem; color: var(--success); font-size: 1.1rem;"><strong>${areMensuelleNette.toFixed(2)} €</strong></td>
+                </tr>
+            `;
+        
+        }
+
+        form.addEventListener('input', calculate);
+        form.addEventListener('change', calculate);
+        form.addEventListener('submit', (e) => { e.preventDefault(); calculate(); });
+
+        // Launch initially
+        calculate();
+
+        function copyShareLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                const btn = document.getElementById('btnShare');
+                const orig = btn.textContent;
+                btn.textContent = "✅ Lien copié !";
+                setTimeout(() => { btn.textContent = orig; }, 2500);
+            });
+        }
+
+        function loadScript(src) {
+            return new Promise((resolve, reject) => {
+                if (window.html2pdf) return resolve();
+                const existing = document.querySelector(`script[src="${src}"]`);
+                if (existing) { existing.addEventListener('load', resolve); existing.addEventListener('error', reject); return; }
+                const s = document.createElement('script');
+                s.src = src; s.onload = resolve; s.onerror = reject; document.head.appendChild(s);
+            });
+        }
+
+        async function genPdf() {
+            const btn = document.querySelector('.btn-pdf');
+            const originalText = btn.textContent;
+            btn.textContent = "⏳ Préparation du PDF...";
+            btn.disabled = true;
+            try {
+                if (typeof html2pdf === 'undefined') {
+                    await loadScript("https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js");
+                }
+                const element = document.getElementById('resultsContent');
+                const signature = document.getElementById('pdfSignature');
+                signature.style.display = 'block';
+                const opt = {
+                    margin: [0.5, 0.5, 0.5, 0.5],
+                    filename: 'simulation_monbrutnet_chomage-brut-en-net.pdf',
+                    image: { type: 'jpeg', quality: 1 },
+                    html2canvas: { scale: 2, useCORS: true, backgroundColor: '#ffffff' },
+                    jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+                };
+                await html2pdf().set(opt).from(element).save();
+                signature.style.display = 'none';
+            } catch (err) {
+                alert("Erreur lors de la génération du PDF.");
+            } finally {
+                btn.textContent = originalText;
+                btn.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>
