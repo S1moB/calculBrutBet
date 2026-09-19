@@ -176,6 +176,115 @@
 
         .btn-pdf:hover { background-color: #2563eb; }
 
+        .btn-share {
+            background-color: #059669;
+        }
+
+        .btn-share:hover { background-color: #047857; }
+
+        .btn-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        @media (min-width: 500px) {
+            .btn-row {
+                grid-template-columns: 1fr 1fr;
+            }
+            .btn-pdf { margin-top: 0; }
+        }
+
+        .advanced-options {
+            margin-bottom: 1.25rem;
+            border: 1px dashed var(--border);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            background: #fafafa;
+        }
+
+        .advanced-options summary {
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--secondary);
+            user-select: none;
+        }
+
+        .advanced-content {
+            margin-top: 1rem;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .checkbox-label input[type="checkbox"] {
+            width: 1.2rem;
+            height: 1.2rem;
+            accent-color: var(--primary);
+            cursor: pointer;
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.25rem;
+        }
+
+        .guide-card {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.25rem;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .guide-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--secondary);
+            box-shadow: 0 6px 14px -2px rgba(0, 0, 0, 0.08);
+        }
+
+        .guide-card h4 {
+            margin: 0 0 0.4rem 0;
+            font-size: 1.05rem;
+            color: var(--secondary);
+        }
+
+        .guide-card p {
+            margin: 0;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .badge-tag {
+            display: inline-block;
+            background: #eff6ff;
+            color: var(--secondary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.2rem 0.55rem;
+            border-radius: 4px;
+            margin-bottom: 0.6rem;
+            align-self: flex-start;
+        }
+
         #resultsContent {
             background: white;
             padding: 1rem;
@@ -291,6 +400,7 @@
                         <option value="nonCadre">Non-cadre (~22%)</option>
                         <option value="cadre">Cadre (~25%)</option>
                         <option value="fonctionnaire">Fonctionnaire (~11%)</option>
+                        <option value="alternant">Alternant / Apprenti (~0%)</option>
                     </select>
                 </div>
 
@@ -303,6 +413,25 @@
                     <label for="tauxImposition">Taux de prélèvement à la source (%)</label>
                     <input type="number" id="tauxImposition" placeholder="Ex: 0 pour non imposable" min="0" max="45" step="0.1" value="0">
                 </div>
+
+                <details class="advanced-options">
+                    <summary>⚙️ Options avancées (13e mois, temps de travail)</summary>
+                    <div class="advanced-content">
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label for="tempsTravail">Temps de travail hebdomadaire</label>
+                            <select id="tempsTravail">
+                                <option value="35">35h par semaine (Temps plein légal)</option>
+                                <option value="39">39h par semaine (+4h supplémentaires)</option>
+                                <option value="28">Temps partiel 80% (28h)</option>
+                                <option value="17.5">Mi-temps 50% (17,5h)</option>
+                            </select>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="mois13">
+                            <span>Salaire lissé sur 13 mois</span>
+                        </label>
+                    </div>
+                </details>
 
                 <button type="submit">Calculer mon Net</button>
             </form>
@@ -320,7 +449,7 @@
                 </div>
                 
                 <div class="pdf-context" id="pdfContext">
-                    <em>Veuillez lancer un calcul pour afficher les détails.</em>
+                    <em>Veuillez saisir un salaire pour lancer le calcul instantané.</em>
                 </div>
                 
                 <div class="results-header">
@@ -349,7 +478,10 @@
                 </div>
             </div>
             
-            <button class="btn-pdf" onclick="genPdf()">📄 Télécharger le PDF</button>
+            <div class="btn-row">
+                <button type="button" class="btn-pdf" onclick="genPdf()">📄 Télécharger le PDF</button>
+                <button type="button" class="btn-share" id="btnShare" onclick="copyShareLink()">🔗 Copier le lien</button>
+            </div>
         </div>
         <div class="card seo-content" style="grid-column: 1 / -1;">
             <h2>Comment fonctionne la conversion de salaire brut en net en 2026 ?</h2>
@@ -411,6 +543,76 @@
             <h3>Sources et cadre réglementaire</h3>
             <p style="font-size: 0.95rem; color: var(--text-muted);">Les taux appliqués s'appuient sur les règles et plafonds fixés par la Sécurité Sociale et l'URSSAF pour l'année 2026. Pour une fiche de paie contractuelle, référez-vous toujours aux conventions collectives applicables et aux organismes officiels (<a href="https://www.service-public.fr" target="_blank" rel="noopener">service-public.fr</a> et <a href="https://www.urssaf.fr" target="_blank" rel="noopener">urssaf.fr</a>).</p>
         </div>
+
+        <div class="card" style="grid-column: 1 / -1;">
+            <h2>Guides & Simulateurs Spécifiques 2026</h2>
+            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Accédez aux fiches de calcul détaillées pour les montants et statuts les plus recherchés en France :</p>
+            
+            <div class="guide-grid">
+                <a href="/smic-brut-net/" class="guide-card">
+                    <div>
+                        <span class="badge-tag">SMIC 2026</span>
+                        <h4>SMIC Brut en Net</h4>
+                        <p>Découvrez le montant exact du SMIC net (1 801,80 € brut ➔ ~1 405 € net) horaire, mensuel et annuel.</p>
+                    </div>
+                    <span style="font-weight: 600; color: var(--secondary); margin-top: 1rem; font-size: 0.9rem;">Calculer le SMIC →</span>
+                </a>
+
+                <a href="/2000-brut-en-net/" class="guide-card">
+                    <div>
+                        <span class="badge-tag">2 000 € Brut</span>
+                        <h4>2 000 € Brut en Net</h4>
+                        <p>Combien touche-t-on pour 2 000 € brut ? 1 560 € net non-cadre, 1 500 € net cadre avant impôt.</p>
+                    </div>
+                    <span style="font-weight: 600; color: var(--secondary); margin-top: 1rem; font-size: 0.9rem;">Voir la simulation →</span>
+                </a>
+
+                <a href="/2500-brut-en-net/" class="guide-card">
+                    <div>
+                        <span class="badge-tag">2 500 € Brut</span>
+                        <h4>2 500 € Brut en Net</h4>
+                        <p>Simulation détaillée pour 2 500 € brut par mois avec estimation du prélèvement à la source.</p>
+                    </div>
+                    <span style="font-weight: 600; color: var(--secondary); margin-top: 1rem; font-size: 0.9rem;">Voir la simulation →</span>
+                </a>
+
+                <a href="/3000-brut-en-net/" class="guide-card">
+                    <div>
+                        <span class="badge-tag">3 000 € Brut</span>
+                        <h4>3 000 € Brut en Net</h4>
+                        <p>Calcul pour un salaire de 3 000 € brut (36 000 € / an) : part des cotisations et impact fiscal.</p>
+                    </div>
+                    <span style="font-weight: 600; color: var(--secondary); margin-top: 1rem; font-size: 0.9rem;">Voir la simulation →</span>
+                </a>
+
+                <a href="/cadre-brut-en-net/" class="guide-card">
+                    <div>
+                        <span class="badge-tag">Statut Cadre</span>
+                        <h4>Salaire Cadre Brut en Net</h4>
+                        <p>Comprendre les cotisations spécifiques aux cadres (APEC, prévoyance 1,5%, retraite Agirc-Arrco).</p>
+                    </div>
+                    <span style="font-weight: 600; color: var(--secondary); margin-top: 1rem; font-size: 0.9rem;">Fiche Cadre →</span>
+                </a>
+
+                <a href="/fonctionnaire-brut-en-net/" class="guide-card">
+                    <div>
+                        <span class="badge-tag">Fonction Publique</span>
+                        <h4>Fonctionnaire Brut en Net</h4>
+                        <p>Calculateur dédié aux agents de la fonction publique (État, territoriale, hospitalière) à ~11% de retenue.</p>
+                    </div>
+                    <span style="font-weight: 600; color: var(--secondary); margin-top: 1rem; font-size: 0.9rem;">Fiche Fonctionnaire →</span>
+                </a>
+
+                <a href="/alternance-brut-en-net/" class="guide-card">
+                    <div>
+                        <span class="badge-tag">Apprentissage</span>
+                        <h4>Alternance Brut en Net</h4>
+                        <p>Exonération de cotisations salariales : pourquoi votre brut est égal à votre net en contrat d'apprentissage.</p>
+                    </div>
+                    <span style="font-weight: 600; color: var(--secondary); margin-top: 1rem; font-size: 0.9rem;">Fiche Alternance →</span>
+                </a>
+            </div>
+        </div>
     </div>
 
     <footer>
@@ -433,6 +635,7 @@
             nonCadre: 0.22,
             cadre: 0.25,
             fonctionnaire: 0.11,
+            alternant: 0.00,
             csg: 0.024,
             crds: 0.005,
             employeur: 1.42
@@ -453,18 +656,27 @@
         }
         updateHistoryUI();
 
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const brut = parseFloat(document.getElementById('brut').value);
+        function calculate(saveHistory = false) {
+            const brutRaw = document.getElementById('brut').value;
+            if (!brutRaw || parseFloat(brutRaw) <= 0) return;
+
+            let brut = parseFloat(brutRaw);
             const statutSelect = document.getElementById('statut');
             const statut = statutSelect.value;
             const statutText = statutSelect.options[statutSelect.selectedIndex].text;
             const periode = document.getElementById('periode').value;
             const tauxImpot = parseFloat(document.getElementById('tauxImposition').value) || 0;
-            
-            const tauxSocial = TAUX[statut];
-            const csgCrds = TAUX.csg + TAUX.crds;
+            const mois13 = document.getElementById('mois13') ? document.getElementById('mois13').checked : false;
+            const tempsTravail = document.getElementById('tempsTravail') ? parseFloat(document.getElementById('tempsTravail').value) : 35;
+
+            // Ajustement si temps partiel / heures sup sélectionnées
+            if (tempsTravail !== 35 && periode === 'horaire') {
+                // Taux horaire reste fixe
+            }
+
+            // Taux de charges sociales
+            let tauxSocial = TAUX[statut] !== undefined ? TAUX[statut] : 0.22;
+            let csgCrds = (statut === 'alternant') ? 0 : (TAUX.csg + TAUX.crds);
             const coutEmployeur = brut * TAUX.employeur;
 
             const montantSocial = brut * tauxSocial;
@@ -474,8 +686,10 @@
             const netApresImpot = netAvantImpot - montantImpot;
             const perLabel = periode.charAt(0).toUpperCase() + periode.slice(1);
 
+            let note13 = mois13 ? " <span style='font-size:0.85rem; color:var(--secondary);'>(lissé sur 13 mois)</span>" : "";
+
             document.getElementById('pdfContext').innerHTML = `
-                <strong>Période :</strong> ${perLabel}<br>
+                <strong>Période :</strong> ${perLabel}${note13}<br>
                 <strong>Statut :</strong> ${statutText}<br>
                 <strong>Taux PAS :</strong> ${tauxImpot}%
             `;
@@ -506,11 +720,72 @@
                 </tr>
             `;
 
-            historique.unshift({ brut: brut.toFixed(2), net: netApresImpot.toFixed(2), periode: perLabel });
-            if (historique.length > 5) historique.pop();
-            localStorage.setItem('calcHistoriqueFR', JSON.stringify(historique));
-            updateHistoryUI();
+            if (saveHistory) {
+                historique.unshift({ brut: brut.toFixed(2), net: netApresImpot.toFixed(2), periode: perLabel });
+                if (historique.length > 5) historique.pop();
+                localStorage.setItem('calcHistoriqueFR', JSON.stringify(historique));
+                updateHistoryUI();
+            }
+
+            // Mise à jour de l'URL sans rechargement pour partage instantané
+            const params = new URLSearchParams();
+            params.set('brut', brut);
+            if (statut !== 'nonCadre') params.set('statut', statut);
+            if (periode !== 'mensuel') params.set('periode', periode);
+            if (tauxImpot > 0) params.set('taux', tauxImpot);
+            if (mois13) params.set('mois13', '1');
+            window.history.replaceState({}, '', window.location.pathname + '?' + params.toString());
+        }
+
+        // Calcul instantané en direct à la frappe / sélection
+        form.addEventListener('input', () => calculate(false));
+        form.addEventListener('change', () => calculate(false));
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            calculate(true);
         });
+
+        // Lecture des paramètres de l'URL au chargement
+        window.addEventListener('DOMContentLoaded', () => {
+            const p = new URLSearchParams(window.location.search);
+            let hasParam = false;
+            if (p.has('brut')) {
+                document.getElementById('brut').value = p.get('brut');
+                hasParam = true;
+            }
+            if (p.has('statut')) {
+                document.getElementById('statut').value = p.get('statut');
+                hasParam = true;
+            }
+            if (p.has('periode')) {
+                document.getElementById('periode').value = p.get('periode');
+                hasParam = true;
+            }
+            if (p.has('taux')) {
+                document.getElementById('tauxImposition').value = p.get('taux');
+                hasParam = true;
+            }
+            if (p.has('mois13') && document.getElementById('mois13')) {
+                document.getElementById('mois13').checked = p.get('mois13') === '1';
+                hasParam = true;
+            }
+            if (hasParam) {
+                calculate(false);
+            }
+        });
+
+        function copyShareLink() {
+            const url = window.location.href;
+            navigator.clipboard.writeText(url).then(() => {
+                const btn = document.getElementById('btnShare');
+                const orig = btn.innerHTML;
+                btn.innerHTML = "✅ Lien copié !";
+                setTimeout(() => { btn.innerHTML = orig; }, 2500);
+            }).catch(() => {
+                prompt("Copiez le lien suivant :", window.location.href);
+            });
+        }
 
         function loadScript(src) {
             return new Promise((resolve, reject) => {

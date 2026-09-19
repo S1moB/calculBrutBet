@@ -5,16 +5,27 @@
 ## URL Canonique
 https://monbrutnet.fr/
 
+## Simulateurs et Pages Spécifiques
+- SMIC 2026 : https://monbrutnet.fr/smic-brut-net/ (1 801,80 € brut = ~1 405 € net non-cadre, ~1 351 € net cadre)
+- 2 000 € Brut : https://monbrutnet.fr/2000-brut-en-net/ (1 560 € net non-cadre, 1 500 € net cadre)
+- 2 500 € Brut : https://monbrutnet.fr/2500-brut-en-net/ (1 950 € net non-cadre, 1 875 € net cadre)
+- 3 000 € Brut : https://monbrutnet.fr/3000-brut-en-net/ (2 340 € net non-cadre, 2 250 € net cadre)
+- Statut Cadre : https://monbrutnet.fr/cadre-brut-en-net/ (Déduction de 25% : APEC, prévoyance 1,5%, retraite Agirc-Arrco)
+- Fonctionnaire : https://monbrutnet.fr/fonctionnaire-brut-en-net/ (Retenue pension civile ~11%, RAFP)
+- Alternance & Apprentissage : https://monbrutnet.fr/alternance-brut-en-net/ (Exonération totale des cotisations jusqu'à 79% du SMIC : brut = net)
+
 ## Fonctionnalités
+- Calcul instantané en temps réel sans rechargement de page.
+- Partage de simulation via URL avec paramètres (ex: `https://monbrutnet.fr/?brut=2500&statut=cadre`).
+- Prise en compte du 13ème mois et du temps de travail (35h, 39h avec heures sup, temps partiel).
 - Conversion Mensuelle, Horaire (base légale 35h = 151,67h/mois) et Annuelle.
-- Prise en compte des 3 statuts professionnels : Salarié non-cadre (~22% de cotisations), Cadre (~25% de cotisations), Fonctionnaire (~11% de retenue).
 - Calcul du prélèvement à la source (PAS) intégré avec taux personnalisable.
 - Calcul estimatif du coût total employeur (~142% du salaire brut).
 - Historique local des calculs (localStorage) et export gratuit en PDF.
 
 ## Données Clés 2026 en France
-- SMIC Brut Mensuel : 1 801,80 €
-- SMIC Net Mensuel (Non-cadre) : ~1 405 €
+- SMIC Brut Mensuel : 1 801,80 € (11,88 € / heure)
+- SMIC Net Mensuel (Non-cadre) : ~1 405,40 €
 - Base de calcul CSG/CRDS : 98,25% du salaire brut à un taux cumulé de 2,9% (part non déductible).
 
 ## Formules de Calcul
