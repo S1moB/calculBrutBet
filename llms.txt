@@ -1,0 +1,23 @@
+# monbrutnet.fr - Convertisseur Salaire Brut en Net 2026
+
+> Outil en ligne gratuit pour convertir un salaire brut en salaire net en France.
+
+## URL Canonique
+https://monbrutnet.fr/
+
+## Fonctionnalités
+- Conversion Mensuelle, Horaire (base légale 35h = 151,67h/mois) et Annuelle.
+- Prise en compte des 3 statuts professionnels : Salarié non-cadre (~22% de cotisations), Cadre (~25% de cotisations), Fonctionnaire (~11% de retenue).
+- Calcul du prélèvement à la source (PAS) intégré avec taux personnalisable.
+- Calcul estimatif du coût total employeur (~142% du salaire brut).
+- Historique local des calculs (localStorage) et export gratuit en PDF.
+
+## Données Clés 2026 en France
+- SMIC Brut Mensuel : 1 801,80 €
+- SMIC Net Mensuel (Non-cadre) : ~1 405 €
+- Base de calcul CSG/CRDS : 98,25% du salaire brut à un taux cumulé de 2,9% (part non déductible).
+
+## Formules de Calcul
+- Net avant impôt = Salaire Brut - Cotisations Salariales - CSG/CRDS
+- Net après impôt = Net avant impôt - (Net avant impôt × Taux PAS)
+- Coût Employeur = Salaire Brut × 1,42
