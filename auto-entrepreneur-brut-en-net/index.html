@@ -320,9 +320,10 @@
             <div class="form-group">
                 <label for="activite">Nature de l'activité</label>
                 <select id="activite">
-                    <option value="bnc" selected>Prestations de services BNC / Libéral (21,2%)</option>
-                    <option value="bic">Prestations de services BIC / Artisanat (21,2%)</option>
+                    <option value="bnc" selected>Prestations de services Libérales BNC (25,6% - Taux 2026)</option>
+                    <option value="bic">Prestations de services Artisanat / Commerciales BIC (21,2%)</option>
                     <option value="vente">Vente de marchandises / Commerce (12,3%)</option>
+                    <option value="cipav">Professions libérales réglementées CIPAV (23,2%)</option>
                 </select>
             </div>
 
@@ -501,8 +502,22 @@
             const frais = parseFloat(document.getElementById('fraisEstimes').value) || 0;
             const periode = document.getElementById('periode').value;
 
-            let tauxUrssaf = (act === 'vente') ? 0.123 : 0.212;
-            let cfp = (act === 'vente') ? 0.001 : 0.002;
+            let tauxUrssaf = 0.256;
+            let cfp = 0.002;
+            if (act === 'vente') {
+                tauxUrssaf = 0.123;
+                cfp = 0.001;
+            } else if (act === 'bic') {
+                tauxUrssaf = 0.212;
+                cfp = 0.002;
+            } else if (act === 'cipav') {
+                tauxUrssaf = 0.232;
+                cfp = 0.002;
+            } else { // bnc
+                tauxUrssaf = 0.256;
+                cfp = 0.002;
+            }
+
             if (hasAcre) tauxUrssaf = tauxUrssaf / 2;
 
             let tauxVL = 0;

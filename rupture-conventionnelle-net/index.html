@@ -499,8 +499,21 @@
 
             const totalIndemnite = legal + supra;
 
-            document.getElementById('netAvantResult').textContent = `${totalIndemnite.toFixed(2)} € Net garanti`;
-            document.getElementById('netApresResult').textContent = `100% Exonéré d'impôt`;
+            // Régime social & fiscal 2026 :
+            // 1. Exonération d'impôt sur le revenu dans la limite du montant légal ou 2x salaire annuel (max 6 PASS)
+            // 2. CSG/CRDS de 9.7% sur 98.25% appliquée uniquement sur la part excédant l'indemnité légale
+            let montantCsgCrds = 0;
+            if (supra > 0) {
+                montantCsgCrds = supra * 0.9825 * 0.097;
+            }
+            const netSalarie = totalIndemnite - montantCsgCrds;
+
+            // 3. Contribution patronale spécifique 2026 (LFSS 2026, art. L. 137-12 CSS) : 40%
+            const contributionPatronale = totalIndemnite * 0.40;
+            const coutEmployeur = totalIndemnite + contributionPatronale;
+
+            document.getElementById('netAvantResult').textContent = `${netSalarie.toFixed(2)} € Net perçu`;
+            document.getElementById('netApresResult').textContent = supra > 0 ? `CSG/CRDS sur supra : -${montantCsgCrds.toFixed(0)}€` : `100% Net d'impôt & charges`;
 
             document.getElementById('detailsBody').innerHTML = `
                 <tr>
@@ -516,12 +529,20 @@
                     <td style="text-align: right; color: var(--success); font-weight: 600;">${legal.toFixed(2)} €</td>
                 </tr>
                 <tr>
-                    <td>Part supra-légale négociée</td>
+                    <td>Indemnité supra-légale négociée</td>
                     <td style="text-align: right; color: var(--secondary)">+ ${supra.toFixed(2)} €</td>
                 </tr>
+                <tr>
+                    <td>CSG/CRDS sur supra-légale (9,7% sur 98,25%)</td>
+                    <td style="text-align: right; color: var(--primary)">- ${montantCsgCrds.toFixed(2)} €</td>
+                </tr>
                 <tr style="background-color: #f8fafc;">
-                    <td style="padding-top: 1rem;"><strong>Indemnité Totale Nette Perçue</strong></td>
-                    <td style="text-align: right; padding-top: 1rem; color: var(--success); font-size: 1.1rem;"><strong>${totalIndemnite.toFixed(2)} €</strong></td>
+                    <td style="padding-top: 1rem;"><strong>Indemnité Nette Perçue par le Salarié</strong></td>
+                    <td style="text-align: right; padding-top: 1rem; color: var(--success); font-size: 1.1rem;"><strong>${netSalarie.toFixed(2)} €</strong></td>
+                </tr>
+                <tr>
+                    <td style="font-size: 0.88rem; color: var(--text-muted);">Contribution patronale (40% LFSS 2026) : +${contributionPatronale.toFixed(2)} €</td>
+                    <td style="text-align: right; font-size: 0.88rem; color: var(--text-muted);">Coût employeur total : <strong>${coutEmployeur.toFixed(2)} €</strong></td>
                 </tr>
             `;
         

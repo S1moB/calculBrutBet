@@ -489,13 +489,34 @@
             const frais = parseFloat(document.getElementById('fraisPro').value) || 0;
 
             const caMensuel = tjm * jours;
-            let tauxCharges = 0.234; // micro
-            if (statut === 'sasu') tauxCharges = 0.45;
-            else if (statut === 'eurl') tauxCharges = 0.35;
-            else if (statut === 'portage') tauxCharges = 0.48;
+            let charges = 0;
+            let netMensuel = 0;
+            let detailCotis = "";
 
-            const charges = (caMensuel - frais) * tauxCharges;
-            const netMensuel = caMensuel - charges - frais;
+            if (statut === 'micro') {
+                // Micro-entreprise BNC 2026 : charges sociales directes sur le CA (25,8% URSSAF + CFP)
+                charges = caMensuel * 0.258;
+                netMensuel = caMensuel - charges - frais;
+                detailCotis = "Cotisations URSSAF & CFP BNC 2026 (~25,8%)";
+            } else if (statut === 'sasu') {
+                // SASU (Président assimilé-salarié) : frais déductibles du CA
+                const disponible = Math.max(0, caMensuel - frais);
+                charges = disponible * 0.45;
+                netMensuel = disponible - charges;
+                detailCotis = "Cotisations Sociales Cadre SASU (~45%)";
+            } else if (statut === 'eurl') {
+                // EURL (Gérant majoritaire TNS) : frais déductibles du CA
+                const disponible = Math.max(0, caMensuel - frais);
+                charges = disponible * 0.32;
+                netMensuel = disponible - charges;
+                detailCotis = "Cotisations TNS SSI EURL (~32%)";
+            } else { // portage
+                const apresGestion = Math.max(0, caMensuel - frais) * 0.94;
+                charges = (apresGestion * 0.45) + (caMensuel * 0.06);
+                netMensuel = caMensuel - charges - frais;
+                detailCotis = "Frais de gestion & Cotisations Portage (~48%)";
+            }
+
             const netAnnuel = netMensuel * 12;
 
             document.getElementById('netAvantResult').textContent = `${netMensuel.toFixed(2)} € Net / mois`;
@@ -507,11 +528,11 @@
                     <td style="text-align: right;"><strong>${caMensuel.toFixed(2)} €</strong></td>
                 </tr>
                 <tr>
-                    <td>Cotisations & Charges (~${(tauxCharges*100).toFixed(0)}%)</td>
+                    <td>${detailCotis}</td>
                     <td style="text-align: right; color: var(--primary)">- ${charges.toFixed(2)} €</td>
                 </tr>
                 <tr>
-                    <td>Frais de fonctionnement mensuels</td>
+                    <td>Frais de fonctionnement réels déduits</td>
                     <td style="text-align: right; color: var(--text-muted)">- ${frais.toFixed(2)} €</td>
                 </tr>
                 <tr style="background-color: #f8fafc;">

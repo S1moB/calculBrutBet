@@ -478,29 +478,39 @@
             const gainBrut50 = h50 * tauxMaj50;
             const gainBrutTotal = gainBrut25 + gainBrut50;
 
-            // En France, les heures sup bénéficient d'une réduction de cotisations salariales d'environ 11.31%
-            // Taux normal ~22%, donc retenue réduite à ~10.69%
-            const gainNetTotal = gainBrutTotal * (1 - (0.22 - 0.1131));
+            // Réduction légale de cotisations salariales (art. L. 241-17 CSS) : 11,31%
+            // Cotisations salariales réduites de ~22% à ~10.69% (89,31% conservé)
+            const tauxConservation = 1 - (0.22 - 0.1131); // 0.8931
+            const gainNetTotal = gainBrutTotal * tauxConservation;
+            const tauxNetMaj25 = tauxMaj25 * tauxConservation;
+            const economieCotis = gainBrutTotal * 0.1131;
 
             document.getElementById('netAvantResult').textContent = `+ ${gainNetTotal.toFixed(2)} € Net en plus`;
-            document.getElementById('netApresResult').textContent = `${(tauxMaj25 * 0.893).toFixed(2)} € Net / heure sup`;
+            document.getElementById('netApresResult').textContent = `${tauxNetMaj25.toFixed(2)} € Net / h (+25%)`;
 
             document.getElementById('detailsBody').innerHTML = `
                 <tr>
-                    <td>Taux horaire de base habituel</td>
+                    <td>Taux horaire de base habituel (35h)</td>
                     <td style="text-align: right;">${tauxHoraireBase.toFixed(2)} € / h</td>
                 </tr>
                 <tr>
-                    <td>Taux horaire majoré à 25%</td>
-                    <td style="text-align: right;">${tauxMaj25.toFixed(2)} € / h</td>
+                    <td>Taux horaire majoré à 25% (brut / net)</td>
+                    <td style="text-align: right;">${tauxMaj25.toFixed(2)} € brut ➔ <strong style="color: var(--success);">${tauxNetMaj25.toFixed(2)} € net</strong></td>
                 </tr>
                 <tr>
                     <td>Gain brut supplémentaire (${h25}h à 25% + ${h50}h à 50%)</td>
                     <td style="text-align: right; color: var(--secondary)">+ ${gainBrutTotal.toFixed(2)} €</td>
                 </tr>
+                <tr>
+                    <td>Allègement cotisations salariales (11,31% art. L. 241-17)</td>
+                    <td style="text-align: right; color: var(--success)">+ ${economieCotis.toFixed(2)} € de gain</td>
+                </tr>
                 <tr style="background-color: #f8fafc;">
-                    <td style="padding-top: 1rem;"><strong>Gain Net Net Défiscalisé sur la fiche de paie</strong></td>
+                    <td style="padding-top: 1rem;"><strong>Gain Net Défiscalisé sur votre fiche de paie</strong></td>
                     <td style="text-align: right; padding-top: 1rem; color: var(--success); font-size: 1.1rem;"><strong>+ ${gainNetTotal.toFixed(2)} €</strong></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="font-size: 0.85rem; color: var(--text-muted); padding-top: 0.5rem;">Exonéré d'impôt sur le revenu dans la limite légale de 7 500 € par an (Loi TEPA / Pouvoir d'achat).</td>
                 </tr>
             `;
         

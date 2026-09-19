@@ -480,22 +480,37 @@
             const mois = parseFloat(document.getElementById('moisTravail').value) || 24;
 
             const sjr = (sal * 12) / 365;
-            const methode1 = (sjr * 0.404) + 13.11;
-            const methode2 = sjr * 0.57;
+            
+            // France Travail : comparaison des 2 formules officielles
+            const methode1 = (sjr * 0.404) + 13.18; // Valeur officielle 2026 (13,18 € / jour)
+            const methode2 = sjr * 0.57;             // 57% du SJR
             let areBruteJour = Math.max(methode1, methode2);
 
-            // Plafonnement
-            if (areBruteJour < 31.97) areBruteJour = 31.97;
-            if (areBruteJour > sjr * 0.75) areBruteJour = sjr * 0.75;
+            // Plancher et plafond légaux Unédic
+            const plancher = 32.13; // Plancher revalorisé à 32,13 € / jour
+            if (areBruteJour < plancher) areBruteJour = plancher;
+            if (areBruteJour > sjr * 0.75) areBruteJour = sjr * 0.75; // Plafond 75% du SJR
 
-            // Retenues sociales (3% retraite complémentaire)
-            const retraiteComp = areBruteJour * 0.03;
-            let csgCrds = 0;
-            if (areBruteJour > 31.97) {
-                csgCrds = areBruteJour * 0.067;
+            // Retraite complémentaire (3% du SJR) :
+            // Prélevée uniquement si elle ne fait pas baisser l'allocation sous le plancher de 32,13 €
+            let retraiteComp = 0;
+            if (areBruteJour > plancher) {
+                retraiteComp = Math.min(sjr * 0.03, areBruteJour - plancher);
             }
-            const areNetteJour = areBruteJour - retraiteComp - (csgCrds * 0.5);
-            const areMensuelleNette = areNetteJour * 30.42;
+
+            // CSG & CRDS (6,70% sur 98,25%) : Exonération totale si allocation journalière <= 61 €
+            let csgCrds = 0;
+            if (areBruteJour > 61.00) {
+                csgCrds = areBruteJour * 0.9825 * 0.067;
+                // Écrêtement pour ne pas faire passer sous le seuil d'exonération
+                if ((areBruteJour - retraiteComp - csgCrds) < 61.00) {
+                    csgCrds = Math.max(0, areBruteJour - retraiteComp - 61.00);
+                }
+            }
+
+            const areNetteJour = areBruteJour - retraiteComp - csgCrds;
+            // Règle de mensualisation officielle Unédic : mois forfaitaire de 30 jours
+            const areMensuelleNette = areNetteJour * 30;
 
             document.getElementById('netAvantResult').textContent = `${areMensuelleNette.toFixed(2)} € Net / mois`;
             document.getElementById('netApresResult').textContent = `${areNetteJour.toFixed(2)} € Net / jour`;
@@ -506,15 +521,19 @@
                     <td style="text-align: right;"><strong>${sjr.toFixed(2)} € / jour</strong></td>
                 </tr>
                 <tr>
-                    <td>ARE Brute Journalière</td>
-                    <td style="text-align: right; color: var(--secondary);">${areBruteJour.toFixed(2)} € / jour</td>
+                    <td>ARE Brute Journalière (Formule retenue)</td>
+                    <td style="text-align: right; color: var(--secondary); font-weight: 600;">${areBruteJour.toFixed(2)} € / jour</td>
                 </tr>
                 <tr>
-                    <td>Retenue Retraite Complémentaire (3%)</td>
+                    <td>Retenue Retraite Complémentaire (3% SJR)</td>
                     <td style="text-align: right; color: var(--primary)">- ${retraiteComp.toFixed(2)} € / jour</td>
                 </tr>
+                <tr>
+                    <td>CSG & CRDS nette (6,7% si ARE > 61 €/j)</td>
+                    <td style="text-align: right; color: var(--primary)">${csgCrds > 0 ? '- ' + csgCrds.toFixed(2) + ' € / jour' : 'Exonéré (ARE ≤ 61 €/j)'}</td>
+                </tr>
                 <tr style="background-color: #f8fafc;">
-                    <td style="padding-top: 1rem;"><strong>Allocation Nette Mensuelle Moyenne</strong></td>
+                    <td style="padding-top: 1rem;"><strong>Allocation Nette Mensuelle (base 30j Unédic)</strong></td>
                     <td style="text-align: right; padding-top: 1rem; color: var(--success); font-size: 1.1rem;"><strong>${areMensuelleNette.toFixed(2)} €</strong></td>
                 </tr>
             `;

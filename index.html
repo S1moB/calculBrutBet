@@ -474,10 +474,10 @@
                 <div class="form-group">
                     <label for="statut">Statut professionnel</label>
                     <select id="statut">
-                        <option value="nonCadre">Non-cadre (~22%)</option>
-                        <option value="cadre">Cadre (~25%)</option>
-                        <option value="fonctionnaire">Fonctionnaire (~11%)</option>
-                        <option value="alternant">Alternant / Apprenti (~0%)</option>
+                        <option value="nonCadre">Salarié Non-cadre (~22%)</option>
+                        <option value="cadre">Salarié Cadre (~25%)</option>
+                        <option value="fonctionnaire">Fonctionnaire (~15%)</option>
+                        <option value="alternant">Alternant / Apprenti (Exonéré)</option>
                     </select>
                 </div>
 
@@ -754,14 +754,34 @@
         document.getElementById("email-contact").innerHTML = `<a href="mailto:${u}@${d}">${u}@${d}</a>`;
     </script>
     <script>
-        const TAUX = {
-            nonCadre: 0.22,
-            cadre: 0.25,
-            fonctionnaire: 0.11,
-            alternant: 0.00,
-            csg: 0.024,
-            crds: 0.005,
-            employeur: 1.42
+        const STATUTS = {
+            nonCadre: {
+                nom: "Non-cadre (~22%)",
+                tauxGlobal: 0.22,
+                tauxSecuRetraite: 0.125, // Assurance vieillesse, Agirc-Arrco T1, CEG, prévoyance
+                tauxCsgCrds: 0.095,      // CSG déductible et non déductible + CRDS
+                tauxEmployeur: 1.42
+            },
+            cadre: {
+                nom: "Cadre (~25%)",
+                tauxGlobal: 0.25,
+                tauxSecuRetraite: 0.155, // Retraite cadre T1/T2, APEC (0.024%), prévoyance cadre 1,5%
+                tauxCsgCrds: 0.095,
+                tauxEmployeur: 1.45
+            },
+            fonctionnaire: {
+                nom: "Fonctionnaire (~15%)",
+                tauxGlobal: 0.15,
+                tauxSecuRetraite: 0.100, // Retenue pension civile (11.1%) et RAFP
+                tauxCsgCrds: 0.050,      // CSG/CRDS nette de compensation
+                tauxEmployeur: 1.30
+            },
+            alternant: {
+                nom: "Alternant / Apprenti",
+                tauxGlobal: 0.00,
+                seuilExo: 1423.42,       // Exonération totale sous 79% du SMIC (Code du travail art. L. 6243-2)
+                tauxEmployeur: 1.05
+            }
         };
 
         const form = document.getElementById('calcForm');
@@ -792,24 +812,41 @@
             const mois13 = document.getElementById('mois13') ? document.getElementById('mois13').checked : false;
             const tempsTravail = document.getElementById('tempsTravail') ? parseFloat(document.getElementById('tempsTravail').value) : 35;
 
-            // Ajustement si temps partiel / heures sup sélectionnées
-            if (tempsTravail !== 35 && periode === 'horaire') {
-                // Taux horaire reste fixe
+            const cfg = STATUTS[statut] || STATUTS.nonCadre;
+
+            // Calcul des montants de cotisations
+            let montantSecuRetraite = 0;
+            let montantCsgCrds = 0;
+            let totalCotisations = 0;
+
+            if (statut === 'alternant') {
+                // Règle légale : exonéré jusqu'à 79% du SMIC (1 423,42 € mensuel)
+                let seuilMois = cfg.seuilExo;
+                let seuil = (periode === 'annuel') ? seuilMois * 12 : ((periode === 'horaire') ? seuilMois / 151.67 : seuilMois);
+                if (brut > seuil) {
+                    const surplus = brut - seuil;
+                    montantSecuRetraite = surplus * 0.125;
+                    montantCsgCrds = surplus * 0.095;
+                    totalCotisations = surplus * 0.22;
+                }
+            } else {
+                montantSecuRetraite = brut * cfg.tauxSecuRetraite;
+                montantCsgCrds = brut * cfg.tauxCsgCrds;
+                totalCotisations = brut * cfg.tauxGlobal;
             }
 
-            // Taux de charges sociales
-            let tauxSocial = TAUX[statut] !== undefined ? TAUX[statut] : 0.22;
-            let csgCrds = (statut === 'alternant') ? 0 : (TAUX.csg + TAUX.crds);
-            const coutEmployeur = brut * TAUX.employeur;
-
-            const montantSocial = brut * tauxSocial;
-            const montantCsgCrds = brut * csgCrds;
-            const netAvantImpot = brut - montantSocial - montantCsgCrds;
+            const netAvantImpot = brut - totalCotisations;
             const montantImpot = netAvantImpot * (tauxImpot / 100);
             const netApresImpot = netAvantImpot - montantImpot;
+            const coutEmployeur = brut * cfg.tauxEmployeur;
             const perLabel = periode.charAt(0).toUpperCase() + periode.slice(1);
-
             let note13 = mois13 ? " <span style='font-size:0.85rem; color:var(--secondary);'>(lissé sur 13 mois)</span>" : "";
+
+            // Calcul équivalents horaire, mensuel, annuel
+            let hMois = (tempsTravail * 52) / 12;
+            let netMois = (periode === 'mensuel') ? netApresImpot : ((periode === 'annuel') ? (mois13 ? netApresImpot / 13 : netApresImpot / 12) : netApresImpot * hMois);
+            let netHoraire = netMois / hMois;
+            let netAn = mois13 ? netMois * 13 : netMois * 12;
 
             document.getElementById('pdfContext').innerHTML = `
                 <strong>Période :</strong> ${perLabel}${note13}<br>
@@ -826,11 +863,11 @@
                     <td style="text-align: right;"><strong>${brut.toFixed(2)} €</strong></td>
                 </tr>
                 <tr>
-                    <td>Cotisations Sociales (~${(tauxSocial*100).toFixed(0)}%)</td>
-                    <td style="text-align: right; color: var(--primary)">- ${montantSocial.toFixed(2)} €</td>
+                    <td>Sécurité Sociale & Retraite (~${(cfg.tauxSecuRetraite * 100).toFixed(1)}%)</td>
+                    <td style="text-align: right; color: var(--primary)">- ${montantSecuRetraite.toFixed(2)} €</td>
                 </tr>
                 <tr>
-                    <td>CSG et CRDS (2.9%)</td>
+                    <td>CSG & CRDS (~${(cfg.tauxCsgCrds * 100).toFixed(1)}%)</td>
                     <td style="text-align: right; color: var(--primary)">- ${montantCsgCrds.toFixed(2)} €</td>
                 </tr>
                 <tr>
@@ -838,8 +875,12 @@
                     <td style="text-align: right; color: var(--primary)">- ${montantImpot.toFixed(2)} €</td>
                 </tr>
                 <tr style="background-color: #f8fafc;">
-                    <td style="padding-top: 1rem;"><strong>Coût Total Employeur</strong></td>
-                    <td style="text-align: right; padding-top: 1rem;"><strong>${coutEmployeur.toFixed(2)} €</strong></td>
+                    <td style="padding-top: 0.8rem;"><strong>Net après impôt perçu</strong></td>
+                    <td style="text-align: right; padding-top: 0.8rem; color: var(--success); font-size: 1.1rem;"><strong>${netApresImpot.toFixed(2)} €</strong></td>
+                </tr>
+                <tr>
+                    <td style="font-size: 0.85rem; color: var(--text-muted);">Équivalents : <strong>${netHoraire.toFixed(2)} €/h</strong> | <strong>${netMois.toFixed(2)} €/mois</strong> | <strong>${netAn.toFixed(0)} €/an</strong></td>
+                    <td style="text-align: right; font-size: 0.85rem; color: var(--text-muted);">Coût employeur: <strong>${coutEmployeur.toFixed(2)} €</strong></td>
                 </tr>
             `;
 
