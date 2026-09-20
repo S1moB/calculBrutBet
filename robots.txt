@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+# Sitemap
 Sitemap: https://monbrutnet.fr/sitemap.xml
+
+# LLM Documentation & Context for AI Crawlers
+# https://monbrutnet.fr/llms.txt

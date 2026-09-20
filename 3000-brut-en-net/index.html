@@ -29,36 +29,77 @@
 
     <!-- Schema.org Structured Data (JSON-LD) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
+{
+    "@context": "https://schema.org",
+    "@graph": [
         {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Accueil",
-              "item": "https://monbrutnet.fr/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "3 000 € Brut",
-              "item": "https://monbrutnet.fr/3000-brut-en-net/"
-            }
-          ]
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Accueil",
+                    "item": "https://monbrutnet.fr/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "3 000 € Brut",
+                    "item": "https://monbrutnet.fr/3000-brut-en-net/"
+                }
+            ]
         },
         {
-          "@type": "WebApplication",
-          "name": "Calculateur 3 000 € Brut 2026",
-          "url": "https://monbrutnet.fr/3000-brut-en-net/",
-          "applicationCategory": "FinanceApplication",
-          "operatingSystem": "All",
-          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+            "@type": "WebApplication",
+            "name": "Calculateur 3 000 € Brut 2026",
+            "url": "https://monbrutnet.fr/3000-brut-en-net/",
+            "applicationCategory": "FinanceApplication",
+            "operatingSystem": "All",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "EUR"
+            }
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Combien d'impôt sur le revenu paie-t-on avec 3 000 € brut par mois ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Un célibataire sans enfant déclarant 36 000 € brut annuel dispose d'un revenu net fiscal d'environ 28 000 € après abattement de 10%. Il est imposé dans la tranche marginale d'imposition (TMI) à 11%. Son taux moyen personnalisé de prélèvement à la source (PAS) s'élève à environ 8,0%, représentant un prélèvement fiscal mensuel d'environ 180 €."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Combien rapporte 3 000 € brut sur 13 mois ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Si votre contrat prévoit un lissage sur 13 mois, vous percevez 3 000 € / 13 = 2 307,69 € brut par mois (environ 1 730 € net avant impôt par mois pendant 12 mois, plus une prime de 13e mois de 1 730 € net versée généralement en décembre)."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Quel montant d'allocation chômage après un salaire de 3 000 € brut ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Sur la base de 3 000 € brut par mois, votre Salaire Journalier de Référence (SJR) s'établit à ~98,63 €. Votre allocation journalière brute ARE versée par France Travail sera d'environ 56,22 € par jour, soit un chômage net d'environ 1 680 € à 1 740 € par mois."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Peut-on négocier des avantages annexes en plus de 3 000 € brut ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Oui, à ce niveau de qualification, les compléments de rémunération défiscalisés sont fréquents : prime de vacances de la convention collective, intéressement et participation versés sur un Plan d'Épargne Entreprise (PEE) avec abondement patronal, tickets restaurant et indemnités kilométriques ou forfait mobilités durables."
+                    }
+                }
+            ]
         }
-      ]
-    }
+    ]
+}
     </script>
 
     <style>

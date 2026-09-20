@@ -29,36 +29,77 @@
 
     <!-- Schema.org Structured Data (JSON-LD) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
+{
+    "@context": "https://schema.org",
+    "@graph": [
         {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Accueil",
-              "item": "https://monbrutnet.fr/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Alternance & Apprentissage",
-              "item": "https://monbrutnet.fr/alternance-brut-en-net/"
-            }
-          ]
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Accueil",
+                    "item": "https://monbrutnet.fr/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Alternance & Apprentissage",
+                    "item": "https://monbrutnet.fr/alternance-brut-en-net/"
+                }
+            ]
         },
         {
-          "@type": "WebApplication",
-          "name": "Calculateur Alternance & Apprentissage 2026",
-          "url": "https://monbrutnet.fr/alternance-brut-en-net/",
-          "applicationCategory": "FinanceApplication",
-          "operatingSystem": "All",
-          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+            "@type": "WebApplication",
+            "name": "Calculateur Alternance & Apprentissage 2026",
+            "url": "https://monbrutnet.fr/alternance-brut-en-net/",
+            "applicationCategory": "FinanceApplication",
+            "operatingSystem": "All",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "EUR"
+            }
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Un apprenti a-t-il droit aux congés payés et aux avantages de l'entreprise ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Oui, l'apprenti est un salarié à part entière. Il bénéficie des mêmes droits que les autres collaborateurs : 5 semaines de congés payés (2,5 jours ouvrables par mois), 5 jours de congés supplémentaires pour la préparation des examens (art. L. 6222-35), la prise en charge à 50% des frais de transport en commun et l'accès aux titres-restaurant ou au comité d'entreprise (CSE)."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Un alternant a-t-il droit à la Prime d'activité versée par la CAF ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Oui, à condition de percevoir des revenus professionnels d'au moins 78% du SMIC net (soit environ 1 082 € par mois) pendant les trois mois précédant la demande. Les apprentis de 21 ans et plus en 2e ou 3e année franchissent facilement ce seuil et peuvent toucher entre 100 € et 200 € d'aide complémentaire par mois."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "L'employeur peut-il payer un apprenti au-dessus de la grille légale ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Oui, la grille légale du Code du travail constitue un plancher absolu. De nombreuses conventions collectives de branche (comme le Syntec, la métallurgie ou le BTP) fixent des rémunérations minimales plus élevées pour les apprentis selon leur niveau de diplôme préparé (Bac+3, Master, école d'ingénieurs)."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Comment est rémunéré le temps passé au centre de formation (CFA) ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Le temps passé en cours au CFA ou à l'université fait partie intégrante du temps de travail effectif. L'apprenti perçoit l'intégralité de son salaire mensuel, qu'il soit en entreprise ou sur les bancs de l'école."
+                    }
+                }
+            ]
         }
-      ]
-    }
+    ]
+}
     </script>
 
     <style>

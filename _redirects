@@ -1,0 +1,3 @@
+# Direct 301 apex domain canonicalization
+http://www.monbrutnet.fr/*  https://monbrutnet.fr/:splat  301!
+https://www.monbrutnet.fr/* https://monbrutnet.fr/:splat  301!

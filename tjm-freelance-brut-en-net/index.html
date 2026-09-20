@@ -29,36 +29,77 @@
 
     <!-- Schema.org Structured Data (JSON-LD) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
+{
+    "@context": "https://schema.org",
+    "@graph": [
         {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Accueil",
-              "item": "https://monbrutnet.fr/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Freelance & TJM",
-              "item": "https://monbrutnet.fr/tjm-freelance-brut-en-net/"
-            }
-          ]
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Accueil",
+                    "item": "https://monbrutnet.fr/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Freelance & TJM",
+                    "item": "https://monbrutnet.fr/tjm-freelance-brut-en-net/"
+                }
+            ]
         },
         {
-          "@type": "WebApplication",
-          "name": "Convertisseur TJM Freelance en Salaire Net",
-          "url": "https://monbrutnet.fr/tjm-freelance-brut-en-net/",
-          "applicationCategory": "FinanceApplication",
-          "operatingSystem": "All",
-          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+            "@type": "WebApplication",
+            "name": "Convertisseur TJM Freelance en Salaire Net",
+            "url": "https://monbrutnet.fr/tjm-freelance-brut-en-net/",
+            "applicationCategory": "FinanceApplication",
+            "operatingSystem": "All",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "EUR"
+            }
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Quel est le meilleur statut pour maximiser son revenu net en freelance ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Pour débuter avec peu de charges réelles et un CA inférieur à 77 700 €, la micro-entreprise offre le ratio net/brut le plus direct. Au-delà, l'EURL à l'IS offre les cotisations sociales les plus faibles (~32-35%). La SASU est privilégiée pour cumuler des allocations chômage (ARE de France Travail) sans se verser de salaire, ou pour optimiser sa sortie en dividendes avec la flat tax de 30%."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Faut-il facturer la TVA en freelance ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "En micro-entreprise, vous bénéficiez de la franchise en base de TVA jusqu'à 36 800 € de CA (seuil majoré à 39 100 €). Au-delà de ce seuil, ou en société (SASU, EURL), vous devez collecter la TVA à 20% sur vos factures et vous pouvez en contrepartie déduire la TVA payée sur vos achats professionnels (ordinateur, abonnements SaaS, matériel)."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Pourquoi le portage salarial séduit-il les freelances ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Le portage salarial permet d'exercer en toute indépendance sans créer d'entreprise. Vous obtenez des fiches de paie de salarié cadre, vous cotisez au régime général de retraite et vous conservez vos droits au chômage ARE en cas d'arrêt de mission. Bien que le taux de retenue global approche 50%, c'est le statut le plus sécurisant pour obtenir un prêt immobilier ou un bail locatif."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Comment fixer et négocier son TJM face aux clients ou ESN ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Pour calculer votre TJM plancher, prenez votre salaire brut annuel visé en CDI, ajoutez 30% à 40% pour compenser les congés non payés, les charges et l'intercontrat, puis divisez par 200 jours ouvrés. Exemple : pour viser 60 000 € brut, visez un chiffre d'affaires de 80 000 €, soit un TJM minimal de 400 € HT."
+                    }
+                }
+            ]
         }
-      ]
-    }
+    ]
+}
     </script>
 
     <style>

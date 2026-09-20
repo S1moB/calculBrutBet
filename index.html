@@ -41,50 +41,91 @@
 
     <!-- Schema.org Structured Data (JSON-LD) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
+{
+    "@context": "https://schema.org",
+    "@graph": [
         {
-          "@type": "Organization",
-          "@id": "https://monbrutnet.fr/#organization",
-          "name": "monbrutnet.fr",
-          "url": "https://monbrutnet.fr/",
-          "logo": "https://monbrutnet.fr/og-image.jpg",
-          "description": "Portail indépendant de simulateurs de salaires brut en net et cotisations sociales en France en 2026.",
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "email": "contact@monbrutnet.fr",
-            "contactType": "customer service"
-          }
+            "@type": "Organization",
+            "@id": "https://monbrutnet.fr/#organization",
+            "name": "monbrutnet.fr",
+            "url": "https://monbrutnet.fr/",
+            "logo": "https://monbrutnet.fr/og-image.jpg",
+            "description": "Portail indépendant de simulateurs de salaires brut en net et cotisations sociales en France en 2026.",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "email": "contact@monbrutnet.fr",
+                "contactType": "customer service"
+            }
         },
         {
-          "@type": "WebApplication",
-          "@id": "https://monbrutnet.fr/#app",
-          "name": "Simulateur de Salaire Brut en Net 2026",
-          "url": "https://monbrutnet.fr/",
-          "applicationCategory": "FinanceApplication",
-          "operatingSystem": "All",
-          "browserRequirements": "Requires JavaScript. Requires HTML5.",
-          "description": "Simulateur gratuit pour convertir votre salaire brut en net en 2026 en France (cadre, non-cadre, fonctionnaire, SMIC) avec calcul du prélèvement à la source.",
-          "inLanguage": "fr-FR",
-          "publisher": { "@id": "https://monbrutnet.fr/#organization" },
-          "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "EUR"
-          }
+            "@type": "WebApplication",
+            "@id": "https://monbrutnet.fr/#app",
+            "name": "Simulateur de Salaire Brut en Net 2026",
+            "url": "https://monbrutnet.fr/",
+            "applicationCategory": "FinanceApplication",
+            "operatingSystem": "All",
+            "browserRequirements": "Requires JavaScript. Requires HTML5.",
+            "description": "Simulateur gratuit pour convertir votre salaire brut en net en 2026 en France (cadre, non-cadre, fonctionnaire, SMIC) avec calcul du prélèvement à la source.",
+            "inLanguage": "fr-FR",
+            "publisher": {
+                "@id": "https://monbrutnet.fr/#organization"
+            },
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "EUR"
+            }
         },
         {
-          "@type": "WebSite",
-          "@id": "https://monbrutnet.fr/#website",
-          "url": "https://monbrutnet.fr/",
-          "name": "monbrutnet.fr",
-          "description": "Calculateur et simulateur de conversion de salaire brut en net en 2026.",
-          "publisher": { "@id": "https://monbrutnet.fr/#organization" },
-          "inLanguage": "fr-FR"
+            "@type": "WebSite",
+            "@id": "https://monbrutnet.fr/#website",
+            "url": "https://monbrutnet.fr/",
+            "name": "monbrutnet.fr",
+            "description": "Calculateur et simulateur de conversion de salaire brut en net en 2026.",
+            "publisher": {
+                "@id": "https://monbrutnet.fr/#organization"
+            },
+            "inLanguage": "fr-FR"
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Quel est le pourcentage moyen de charges entre brut et net en 2026 ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Pour un salarié non-cadre, les charges salariales représentent en moyenne 22% du salaire brut (pour 2 000 € brut, vous touchez environ 1 560 € net). Pour un cadre, les retenues s'élèvent à environ 25% en raison des cotisations spécifiques APEC et prévoyance cadre obligatoire."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Un salarié au SMIC paie-t-il l'impôt sur le revenu à la source ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Une personne seule célibataire rémunérée au SMIC à temps plein (1 801,80 € brut par mois) se situe en dessous du seuil d'imposition en France en 2026. Son taux de prélèvement à la source personnalisé est donc généralement de 0%, sauf en présence d'autres revenus ou au sein d'un foyer fiscal imposable."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Comment le 13ème mois est-il pris en compte dans le calcul ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Si vous cochez l'option 13ème mois, le salaire brut annuel contractuel est divisé par 13 mensualités. Le simulateur lisse le montant perçu mensuellement pour vous donner une vision budgétaire exacte sur 12 et 13 mois."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Quels sont les éléments du salaire qui ne subissent pas de cotisations ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Certaines indemnités sont exonérées de cotisations sociales et d'impôt sur le revenu dans les limites légales : le remboursement des frais de transport public (à hauteur minimale de 50%), la part patronale des titres-restaurant, et les indemnités kilométriques justifiées selon le barème fiscal officiel."
+                    }
+                }
+            ]
         }
-      ]
-    }
+    ]
+}
     </script>
 
     <style>

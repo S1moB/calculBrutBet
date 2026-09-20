@@ -29,36 +29,77 @@
 
     <!-- Schema.org Structured Data (JSON-LD) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
+{
+    "@context": "https://schema.org",
+    "@graph": [
         {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Accueil",
-              "item": "https://monbrutnet.fr/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "2 500 € Brut",
-              "item": "https://monbrutnet.fr/2500-brut-en-net/"
-            }
-          ]
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Accueil",
+                    "item": "https://monbrutnet.fr/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "2 500 € Brut",
+                    "item": "https://monbrutnet.fr/2500-brut-en-net/"
+                }
+            ]
         },
         {
-          "@type": "WebApplication",
-          "name": "Calculateur 2 500 € Brut 2026",
-          "url": "https://monbrutnet.fr/2500-brut-en-net/",
-          "applicationCategory": "FinanceApplication",
-          "operatingSystem": "All",
-          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+            "@type": "WebApplication",
+            "name": "Calculateur 2 500 € Brut 2026",
+            "url": "https://monbrutnet.fr/2500-brut-en-net/",
+            "applicationCategory": "FinanceApplication",
+            "operatingSystem": "All",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "EUR"
+            }
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Combien d'impôt sur le revenu paie-t-on avec 2 500 € brut ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Pour une personne célibataire sans enfant ayant 2 500 € brut (revenu net imposable d'environ 23 800 € par an), le barème progressif de l'impôt sur le revenu applique la tranche à 11%. Le taux personnalisé moyen de prélèvement à la source (PAS) est d'environ 5,0%, ce qui représente une déduction fiscale mensuelle d'environ 95 € à 105 €."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Combien rapporte 2 500 € brut sur 13 mois ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Si votre rémunération est répartie sur 13 mois, vous percevez chaque mois 2 500 € / 13 = 1 923,08 € brut (soit environ 1 500 € net mensuel), et vous recevez un 13e mois de 1 500 € net lors du versement de la prime de fin d'année."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Combien touche-t-on au chômage avec 2 500 € brut ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Sur la base d'un salaire de 2 500 € brut par mois, votre allocation journalière brute d'aide au retour à l'emploi (ARE) est d'environ 47,50 € par jour, soit une allocation chômage nette d'environ 1 425 € à 1 470 € par mois versée par France Travail."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Quelle indemnité légale de rupture conventionnelle pour 2 500 € brut ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Selon l'article R. 1234-2 du Code du travail, l'indemnité légale minimale s'élève à 1/4 de mois de salaire par année d'ancienneté pour les 10 premières années. Pour 4 ans d'ancienneté à 2 500 € brut, l'indemnité légale minimale nette exonérée d'impôt est de (2 500 / 4) × 4 = 2 500 €."
+                    }
+                }
+            ]
         }
-      ]
-    }
+    ]
+}
     </script>
 
     <style>

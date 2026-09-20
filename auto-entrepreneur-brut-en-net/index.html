@@ -18,36 +18,77 @@
 
     <!-- Schema.org Structured Data (JSON-LD) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
+{
+    "@context": "https://schema.org",
+    "@graph": [
         {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Accueil",
-              "item": "https://monbrutnet.fr/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Micro-Entreprise",
-              "item": "https://monbrutnet.fr/auto-entrepreneur-brut-en-net/"
-            }
-          ]
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Accueil",
+                    "item": "https://monbrutnet.fr/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Micro-Entreprise",
+                    "item": "https://monbrutnet.fr/auto-entrepreneur-brut-en-net/"
+                }
+            ]
         },
         {
-          "@type": "WebApplication",
-          "name": "Simulateur Brut en Net Auto-Entrepreneur 2026",
-          "url": "https://monbrutnet.fr/auto-entrepreneur-brut-en-net/",
-          "applicationCategory": "FinanceApplication",
-          "operatingSystem": "All",
-          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+            "@type": "WebApplication",
+            "name": "Simulateur Brut en Net Auto-Entrepreneur 2026",
+            "url": "https://monbrutnet.fr/auto-entrepreneur-brut-en-net/",
+            "applicationCategory": "FinanceApplication",
+            "operatingSystem": "All",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "EUR"
+            }
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Doit-on payer des cotisations à l'URSSAF en cas de chiffre d'affaires nul ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Non. L'un des grands atouts du régime micro-entrepreneur est l'absence de cotisation minimale. Si vous encaissez 0 € au cours d'un mois ou d'un trimestre, vous déclarez 0 € et vous ne payez absolument rien à l'URSSAF."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Comment fonctionne l'ACRE en 2026 pour les nouveaux auto-entrepreneurs ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "L'ACRE permet une exonération de 50% de vos cotisations sociales durant vos 4 premiers trimestres d'activité sous réserve d'éligibilité (demandeurs d'emploi indemnisés ou non indemnisés inscrits depuis 6 mois, jeunes de 18 à 25 ans, bénéficiaires du RSA). La demande doit être déposée auprès de l'URSSAF dans les 45 jours suivant la création."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Peut-on déduire ses frais réels (matériel, internet, déplacements) ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Non, le régime micro applique un abattement fiscal forfaitaire (71% pour la vente, 50% pour les services BIC, 34% pour les BNC) qui remplace la déduction des frais réels. Si vos frais réels dépassent ces taux, il est souvent plus avantageux d'opter pour une société (SASU, EURL) ou une entreprise individuelle au régime réel. Utilisez notre simulateur TJM Freelance pour comparer."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Qu'est-ce que la CFE (Cotisation Foncière des Entreprises) ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "La CFE est un impôt local dû par toutes les entreprises. Les micro-entrepreneurs en sont totalement exonérés l'année de création, ainsi que les années suivantes si leur chiffre d'affaires annuel reste inférieur à 5 000 €."
+                    }
+                }
+            ]
         }
-      ]
-    }
+    ]
+}
     </script>
 
     <style>

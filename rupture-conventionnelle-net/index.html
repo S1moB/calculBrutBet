@@ -18,36 +18,77 @@
 
     <!-- Schema.org Structured Data (JSON-LD) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
+{
+    "@context": "https://schema.org",
+    "@graph": [
         {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Accueil",
-              "item": "https://monbrutnet.fr/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Rupture Conventionnelle",
-              "item": "https://monbrutnet.fr/rupture-conventionnelle-net/"
-            }
-          ]
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Accueil",
+                    "item": "https://monbrutnet.fr/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Rupture Conventionnelle",
+                    "item": "https://monbrutnet.fr/rupture-conventionnelle-net/"
+                }
+            ]
         },
         {
-          "@type": "WebApplication",
-          "name": "Simulateur Rupture Conventionnelle 2026",
-          "url": "https://monbrutnet.fr/rupture-conventionnelle-net/",
-          "applicationCategory": "FinanceApplication",
-          "operatingSystem": "All",
-          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+            "@type": "WebApplication",
+            "name": "Simulateur Rupture Conventionnelle 2026",
+            "url": "https://monbrutnet.fr/rupture-conventionnelle-net/",
+            "applicationCategory": "FinanceApplication",
+            "operatingSystem": "All",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "EUR"
+            }
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "La rupture conventionnelle ouvre-t-elle droit aux allocations chômage France Travail ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Oui, c'est l'un de ses intérêts majeurs. La rupture conventionnelle est assimilée à une privation involontaire d'emploi et ouvre pleinement droit à l'allocation d'aide au retour à l'emploi (ARE). Utilisez notre simulateur Chômage ARE pour évaluer vos indemnités."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Qu'est-ce qu'une indemnité supra-légale et comment retarde-t-elle le chômage ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "L'indemnité supra-légale est la somme négociée au-delà du minimum légal. Attention : France Travail applique un différé d'indemnisation spécifique calculé en divisant le montant supra-légal par un diviseur légal (environ 107,9 en 2026). Ce différé peut repousser le premier versement de votre allocation chômage jusqu'à 150 jours maximum."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Quel est le délai légal obligatoire de procédure ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "La procédure comprend obligatoirement : un délai de rétractation de 15 jours calendaires à compter du lendemain de la signature de la convention, suivi d'un délai d'instruction de la demande d'homologation par la DDETS (Direction du Travail) de 15 jours ouvrables. Le contrat ne peut donc pas prendre fin en moins de 35 à 40 jours environ."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Une convention collective peut-elle prévoir une indemnité plus élevée ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Oui. Si votre convention collective de branche (ex: Syntec, Métallurgie, Banque) prévoit une formule d'indemnité de licenciement plus favorable que le Code du travail, c'est obligatoirement ce montant conventionnel supérieur qui doit vous être versé."
+                    }
+                }
+            ]
         }
-      ]
-    }
+    ]
+}
     </script>
 
     <style>

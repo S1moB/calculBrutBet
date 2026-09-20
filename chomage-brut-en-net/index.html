@@ -18,36 +18,77 @@
 
     <!-- Schema.org Structured Data (JSON-LD) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
+{
+    "@context": "https://schema.org",
+    "@graph": [
         {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Accueil",
-              "item": "https://monbrutnet.fr/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "France Travail (ARE)",
-              "item": "https://monbrutnet.fr/chomage-brut-en-net/"
-            }
-          ]
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Accueil",
+                    "item": "https://monbrutnet.fr/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "France Travail (ARE)",
+                    "item": "https://monbrutnet.fr/chomage-brut-en-net/"
+                }
+            ]
         },
         {
-          "@type": "WebApplication",
-          "name": "Simulateur Allocation Chômage (ARE) 2026",
-          "url": "https://monbrutnet.fr/chomage-brut-en-net/",
-          "applicationCategory": "FinanceApplication",
-          "operatingSystem": "All",
-          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+            "@type": "WebApplication",
+            "name": "Simulateur Allocation Chômage (ARE) 2026",
+            "url": "https://monbrutnet.fr/chomage-brut-en-net/",
+            "applicationCategory": "FinanceApplication",
+            "operatingSystem": "All",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "EUR"
+            }
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Combien de temps faut-il avoir travaillé pour toucher le chômage en 2026 ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Il est nécessaire d'avoir travaillé au moins 6 mois (soit 130 jours ou 910 heures) au cours des 24 derniers mois (36 mois pour les 53 ans et plus) pour ouvrir des droits à l'ARE."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Qu'est-ce que le différé d'indemnisation et le délai d'attente ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Le versement de votre première allocation intervient après : un délai d'attente légal incompressible de 7 jours, majoré du différé \"congés payés\" (si votre employeur vous a versé une indemnité compensatrice de congés payés non pris), et du différé spécifique en cas d'indemnités de rupture supra-légales (plafonné à 150 jours)."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "L'allocation chômage est-elle soumise à l'impôt sur le revenu ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Oui, l'ARE constitue un revenu de remplacement imposable. France Travail applique automatiquement le prélèvement à la source (PAS) sur le montant de vos indemnités selon le taux personnalisé transmis par l'administration fiscale."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Peut-on cumuler chômage et création d'entreprise ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Oui, vous pouvez cumuler votre ARE avec les revenus de votre nouvelle activité (micro-entreprise ou société) si celle-ci génère une rémunération inférieure à votre ancien salaire brut, ou opter pour l'ARCE (versement d'un capital représentant 60% de vos droits restants en deux fois)."
+                    }
+                }
+            ]
         }
-      ]
-    }
+    ]
+}
     </script>
 
     <style>

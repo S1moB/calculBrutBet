@@ -18,36 +18,77 @@
 
     <!-- Schema.org Structured Data (JSON-LD) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
+{
+    "@context": "https://schema.org",
+    "@graph": [
         {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Accueil",
-              "item": "https://monbrutnet.fr/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Heures Supplémentaires",
-              "item": "https://monbrutnet.fr/heures-supplementaires-brut-net/"
-            }
-          ]
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Accueil",
+                    "item": "https://monbrutnet.fr/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Heures Supplémentaires",
+                    "item": "https://monbrutnet.fr/heures-supplementaires-brut-net/"
+                }
+            ]
         },
         {
-          "@type": "WebApplication",
-          "name": "Calcul Heures Supplémentaires Brut en Net",
-          "url": "https://monbrutnet.fr/heures-supplementaires-brut-net/",
-          "applicationCategory": "FinanceApplication",
-          "operatingSystem": "All",
-          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+            "@type": "WebApplication",
+            "name": "Calcul Heures Supplémentaires Brut en Net",
+            "url": "https://monbrutnet.fr/heures-supplementaires-brut-net/",
+            "applicationCategory": "FinanceApplication",
+            "operatingSystem": "All",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "EUR"
+            }
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Un salarié peut-il refuser d'effectuer des heures supplémentaires ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "En principe non, l'accomplissement des heures supplémentaires ordonnées par l'employeur dans la limite du contingent légal (220 heures/an) relève du pouvoir de direction. Le refus injustifié du salarié peut constituer une faute professionnelle, sauf abus de droit de l'employeur ou délai de prévenance trop court."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Qu'est-ce que le Repos Compensateur de Remplacement (RCR) ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Une convention ou un accord collectif peut prévoir le remplacement de tout ou partie du paiement des heures supplémentaires et de leurs majorations par un repos équivalent. Par exemple, une heure supplémentaire majorée à 25% donne droit à 1 heure et 15 minutes de repos rémunéré."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Les cadres au forfait jours ont-ils droit aux heures supplémentaires ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Non, les salariés en convention de forfait annuel en jours (généralement 218 jours/an) ne sont pas soumis aux dispositions relatives aux 35 heures. Ils ne perçoivent pas d'heures supplémentaires mais bénéficient de jours de repos supplémentaires (jours de RTT ou jours de repos forfait)."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Les heures complémentaires d'un temps partiel sont-elles défiscalisées ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Oui, les heures complémentaires accomplies par les salariés à temps partiel bénéficient de la même exonération fiscale (dans la limite de 7 500 €) et de la même réduction de cotisations sociales salariales que les heures supplémentaires."
+                    }
+                }
+            ]
         }
-      ]
-    }
+    ]
+}
     </script>
 
     <style>

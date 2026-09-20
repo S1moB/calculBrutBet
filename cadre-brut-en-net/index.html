@@ -29,36 +29,77 @@
 
     <!-- Schema.org Structured Data (JSON-LD) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
+{
+    "@context": "https://schema.org",
+    "@graph": [
         {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Accueil",
-              "item": "https://monbrutnet.fr/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Statut Cadre",
-              "item": "https://monbrutnet.fr/cadre-brut-en-net/"
-            }
-          ]
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Accueil",
+                    "item": "https://monbrutnet.fr/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Statut Cadre",
+                    "item": "https://monbrutnet.fr/cadre-brut-en-net/"
+                }
+            ]
         },
         {
-          "@type": "WebApplication",
-          "name": "Calculateur Statut Cadre 2026",
-          "url": "https://monbrutnet.fr/cadre-brut-en-net/",
-          "applicationCategory": "FinanceApplication",
-          "operatingSystem": "All",
-          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+            "@type": "WebApplication",
+            "name": "Calculateur Statut Cadre 2026",
+            "url": "https://monbrutnet.fr/cadre-brut-en-net/",
+            "applicationCategory": "FinanceApplication",
+            "operatingSystem": "All",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "EUR"
+            }
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Pourquoi mon salaire net cadre est-il plus faible que celui d'un non-cadre au même brut ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Un cadre cotise à des taux de retraite complémentaire Agirc-Arrco plus élevés en Tranche 2 et participe au financement de sa prévoyance lourde (décès, invalidité) et de l'APEC. Ses cotisations salariales s'élèvent à ~25% contre ~22% pour un non-cadre. En contrepartie, sa future pension de retraite et sa couverture décès-invalidité sont nettement supérieures."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Qu'est-ce que la prévoyance cadre 1,5% obligatoire ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Il s'agit d'une obligation légale pour tout employeur de cadre en France. L'entreprise doit verser au moins 1,50% de la tranche de salaire inférieure au PASS à un organisme de prévoyance. Si l'employeur ne respecte pas cette obligation et qu'un cadre décède, l'entreprise est personnellement redevable envers les héritiers d'un capital équivalent à trois fois le PASS."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Un cadre peut-il faire des heures supplémentaires ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Oui, si son contrat de travail est établi sur une base horaire (ex: 35h ou 39h hebdomadaires). En revanche, si le cadre a signé une convention de forfait annuel en jours (très fréquent pour les cadres dirigeants et autonomes), les heures supplémentaires ne sont pas décomptées : son temps de travail se mesure exclusivement en journées ou demi-journées."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Le statut cadre a-t-il un impact sur le prélèvement à la source de l'impôt ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Non, le barème de l'impôt sur le revenu est identique quel que soit le statut professionnel. Le prélèvement à la source s'applique sur le revenu net imposable. Toutefois, comme les salaires de cadres sont en moyenne plus élevés, le taux personnalisé ou neutre de PAS est généralement plus important."
+                    }
+                }
+            ]
         }
-      ]
-    }
+    ]
+}
     </script>
 
     <style>

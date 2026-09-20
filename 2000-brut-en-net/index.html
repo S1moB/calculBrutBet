@@ -29,36 +29,77 @@
 
     <!-- Schema.org Structured Data (JSON-LD) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
+{
+    "@context": "https://schema.org",
+    "@graph": [
         {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Accueil",
-              "item": "https://monbrutnet.fr/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "2 000 € Brut",
-              "item": "https://monbrutnet.fr/2000-brut-en-net/"
-            }
-          ]
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Accueil",
+                    "item": "https://monbrutnet.fr/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "2 000 € Brut",
+                    "item": "https://monbrutnet.fr/2000-brut-en-net/"
+                }
+            ]
         },
         {
-          "@type": "WebApplication",
-          "name": "Calculateur 2 000 € Brut 2026",
-          "url": "https://monbrutnet.fr/2000-brut-en-net/",
-          "applicationCategory": "FinanceApplication",
-          "operatingSystem": "All",
-          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+            "@type": "WebApplication",
+            "name": "Calculateur 2 000 € Brut 2026",
+            "url": "https://monbrutnet.fr/2000-brut-en-net/",
+            "applicationCategory": "FinanceApplication",
+            "operatingSystem": "All",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "EUR"
+            }
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Combien d'impôt sur le revenu paie-t-on avec 2 000 € brut ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Un célibataire sans enfant gagnant 2 000 € brut par mois déclare un revenu annuel net imposable d'environ 19 000 €. Après l'abattement forfaitaire automatique de 10% pour frais professionnels, son taux moyen de prélèvement à la source se situe autour de 2%, soit une retenue fiscale modérée d'environ 30 € par mois."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "A-t-on droit à la prime d'activité avec 2 000 € brut par mois ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Pour une personne seule sans enfant vivant sans autre source de revenu, 1 560 € net dépasse légèrement le plafond d'attribution de la prime d'activité individuelle. En revanche, si vous êtes en couple avec un conjoint sans revenu ou si vous avez un enfant à charge, vous êtes pleinement éligible et pouvez percevoir entre 80 € et 180 € par mois."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Combien rapporte 2 000 € brut sur 13 mois ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Si votre convention collective prévoit un 13e mois, votre salaire brut mensuel de base est de 2 000 € / 13 = 1 846,15 € brut par mois (donnant environ 1 440 € net par mois pendant 12 mois, plus un 13e mois versé en fin d'année de 1 440 € net)."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Combien touche-t-on au chômage après un salaire de 2 000 € brut ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Avec 2 000 € brut par mois, votre allocation de retour à l'emploi (ARE) journalière brute est d'environ 38 € par jour, soit une allocation chômage nette d'environ 1 140 € à 1 180 € par mois versée par France Travail."
+                    }
+                }
+            ]
         }
-      ]
-    }
+    ]
+}
     </script>
 
     <style>

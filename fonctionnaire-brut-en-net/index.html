@@ -29,36 +29,77 @@
 
     <!-- Schema.org Structured Data (JSON-LD) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
+{
+    "@context": "https://schema.org",
+    "@graph": [
         {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Accueil",
-              "item": "https://monbrutnet.fr/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Fonction Publique",
-              "item": "https://monbrutnet.fr/fonctionnaire-brut-en-net/"
-            }
-          ]
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Accueil",
+                    "item": "https://monbrutnet.fr/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Fonction Publique",
+                    "item": "https://monbrutnet.fr/fonctionnaire-brut-en-net/"
+                }
+            ]
         },
         {
-          "@type": "WebApplication",
-          "name": "Calculateur Fonction Publique 2026",
-          "url": "https://monbrutnet.fr/fonctionnaire-brut-en-net/",
-          "applicationCategory": "FinanceApplication",
-          "operatingSystem": "All",
-          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+            "@type": "WebApplication",
+            "name": "Calculateur Fonction Publique 2026",
+            "url": "https://monbrutnet.fr/fonctionnaire-brut-en-net/",
+            "applicationCategory": "FinanceApplication",
+            "operatingSystem": "All",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "EUR"
+            }
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Quelle est la différence entre un agent titulaire et un contractuel ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Un agent titulaire dépend du statut général de la fonction publique et cotise à la pension civile (ou CNRACL) avec une retenue de ~15%. Un agent contractuel (en CDD ou CDI public) relève quant à lui du régime général de la Sécurité sociale et de l'Ircantec pour la retraite complémentaire : ses cotisations sont plus élevées (~22%), identiques à celles d'un salarié non-cadre du privé."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Les primes des fonctionnaires comptent-elles pour la retraite ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Dans le régime de base des fonctionnaires (pension civile calculée sur le traitement des 6 derniers mois), les primes ne sont en principe pas prises en compte. En revanche, elles ouvrent des droits à points au titre de la RAFP (Retraite Additionnelle de la Fonction Publique), dans la limite d'un plafond fixé à 20% du traitement brut indiciaire."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Comment connaître son indice majoré (IM) ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "L'indice majoré figure obligatoirement en haut à gauche de chaque bulletin de paie de la fonction publique, à côté de votre échelon et de votre grade. C'est cet indice qui sert directement de base mathématique pour calculer votre traitement brut mensuel."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Le fonctionnaire est-il soumis au prélèvement à la source ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Oui, le prélèvement à la source (PAS) de l'impôt sur le revenu s'applique exactement de la même manière aux agents publics qu'aux salariés du secteur privé. Le taux communiqué par la Direction Générale des Finances Publiques (DGFIP) est directement déduit du net fiscal chaque mois."
+                    }
+                }
+            ]
         }
-      ]
-    }
+    ]
+}
     </script>
 
     <style>

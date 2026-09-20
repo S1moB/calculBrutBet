@@ -29,36 +29,77 @@
 
     <!-- Schema.org Structured Data (JSON-LD) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
+{
+    "@context": "https://schema.org",
+    "@graph": [
         {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Accueil",
-              "item": "https://monbrutnet.fr/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "SMIC Brut en Net 2026",
-              "item": "https://monbrutnet.fr/smic-brut-net/"
-            }
-          ]
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Accueil",
+                    "item": "https://monbrutnet.fr/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "SMIC Brut en Net 2026",
+                    "item": "https://monbrutnet.fr/smic-brut-net/"
+                }
+            ]
         },
         {
-          "@type": "WebApplication",
-          "name": "Calculateur SMIC Brut en Net 2026",
-          "url": "https://monbrutnet.fr/smic-brut-net/",
-          "applicationCategory": "FinanceApplication",
-          "operatingSystem": "All",
-          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+            "@type": "WebApplication",
+            "name": "Calculateur SMIC Brut en Net 2026",
+            "url": "https://monbrutnet.fr/smic-brut-net/",
+            "applicationCategory": "FinanceApplication",
+            "operatingSystem": "All",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "EUR"
+            }
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Quel est le montant exact du SMIC net en 2026 ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Pour 35 heures hebdomadaires, le SMIC brut mensuel est de 1 801,80 €. Après déduction des charges sociales moyennes de 22%, le SMIC net perçu par un salarié non-cadre est d'environ 1 405,40 € par mois (ou 11,88 € brut horaire soit ~9,27 € net de l'heure)."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Le SMIC s'applique-t-il obligatoirement à tous les salariés ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Oui, aucun salarié majeur du secteur privé ne peut percevoir une rémunération inférieure au SMIC horaire (11,88 €). Cependant, certaines conventions collectives prévoient des salaires minima conventionnels (SMC) supérieurs au SMIC qui s'imposent alors à l'employeur. Des abattements légaux existent uniquement pour les mineurs ayant moins de 6 mois de pratique professionnelle et les apprentis sous contrat d'apprentissage."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Quel est le coût total du SMIC pour l'employeur (super-brut) ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Grâce à la réduction générale des cotisations patronales (ex-réduction Fillon), les cotisations patronales de sécurité sociale au niveau du SMIC sont fortement réduites. Le coût global pour l'entreprise s'établit à environ 1 950 € à 2 050 € par mois, contre plus de 2 550 € sans les allègements patronaux de l'État."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Comment demander la prime d'activité si l'on gagne le SMIC ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "La demande se fait entièrement en ligne sur caf.fr ou msa.fr. Vous devez renseigner les revenus de votre foyer des trois derniers mois. Si vous êtes éligible, la prime est versée chaque mois le 5 et son montant reste fixe pendant un trimestre complet."
+                    }
+                }
+            ]
         }
-      ]
-    }
+    ]
+}
     </script>
 
     <style>
