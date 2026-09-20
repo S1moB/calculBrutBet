@@ -21,11 +21,42 @@
     <meta name="twitter:image" content="https://monbrutnet.fr/og-image.jpg">
     <meta name="google-site-verification" content="CBxwQRafL6J12SjDF9gatF-gG9FeSaaFeBz_k0HZLpA" />
 
+    <!-- Speculation Rules for Instant Navigation -->
+    <script type="speculationrules">
+    {
+      "prerender": [
+        {
+          "source": "list",
+          "urls": [
+            "/smic-brut-net/",
+            "/auto-entrepreneur-brut-en-net/",
+            "/cadre-brut-en-net/",
+            "/2000-brut-en-net/",
+            "/tjm-freelance-brut-en-net/"
+          ]
+        }
+      ]
+    }
+    </script>
+
     <!-- Schema.org Structured Data (JSON-LD) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://monbrutnet.fr/#organization",
+          "name": "monbrutnet.fr",
+          "url": "https://monbrutnet.fr/",
+          "logo": "https://monbrutnet.fr/og-image.jpg",
+          "description": "Portail indépendant de simulateurs de salaires brut en net et cotisations sociales en France en 2026.",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "contact@monbrutnet.fr",
+            "contactType": "customer service"
+          }
+        },
         {
           "@type": "WebApplication",
           "@id": "https://monbrutnet.fr/#app",
@@ -36,6 +67,7 @@
           "browserRequirements": "Requires JavaScript. Requires HTML5.",
           "description": "Simulateur gratuit pour convertir votre salaire brut en net en 2026 en France (cadre, non-cadre, fonctionnaire, SMIC) avec calcul du prélèvement à la source.",
           "inLanguage": "fr-FR",
+          "publisher": { "@id": "https://monbrutnet.fr/#organization" },
           "offers": {
             "@type": "Offer",
             "price": "0",
@@ -48,6 +80,7 @@
           "url": "https://monbrutnet.fr/",
           "name": "monbrutnet.fr",
           "description": "Calculateur et simulateur de conversion de salaire brut en net en 2026.",
+          "publisher": { "@id": "https://monbrutnet.fr/#organization" },
           "inLanguage": "fr-FR"
         }
       ]
@@ -402,27 +435,32 @@
 
         /* --- Footer & Mentions Légales --- */
         footer {
-            margin-top: 3rem;
-            padding: 2rem 1rem;
-            text-align: center;
+            margin-top: 4rem;
+            padding: 2.5rem 1rem;
             border-top: 1px solid var(--border);
             color: var(--text-muted);
-            font-size: 0.85rem;
+            font-size: 0.88rem;
+            background: white;
         }
-
-        footer p {
-            margin: 0.25rem 0;
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            text-align: left;
         }
-
-        footer a {
-            color: var(--primary);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        footer a:hover {
-            color: var(--primary-hover);
-            text-decoration: underline;
+        .footer-col h4 { margin-top: 0; color: var(--text-main); font-size: 1rem; margin-bottom: 0.75rem; }
+        .footer-col ul { list-style: none; padding: 0; margin: 0; }
+        .footer-col li { margin-bottom: 0.5rem; }
+        .footer-col a { color: var(--text-muted); text-decoration: none; transition: color 0.15s ease; }
+        .footer-col a:hover { color: var(--primary); }
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.82rem;
         }
     </style>
 </head>
@@ -611,14 +649,42 @@
                 </table>
             </div>
 
+            <h3>Comprendre les cotisations salariales vs patronales en 2026</h3>
+            <p>Lorsque vous négociez une rémunération en France, il est fondamental de distinguer les trois niveaux de salaire :</p>
+            <ul>
+                <li><strong>Le Salaire Brut :</strong> Montant contractuel inscrit sur votre contrat de travail avant toute retenue sociale et fiscale.</li>
+                <li><strong>Le Salaire Net :</strong> Rémunération effectivement versée sur votre compte bancaire (net de cotisations salariales, avant ou après impôt sur le revenu selon le prélèvement à la source).</li>
+                <li><strong>Le Coût Total Employeur (Super-Brut) :</strong> Salaire brut augmenté des cotisations patronales (~42% à 45% supplémentaires, hors allègements Fillon). C'est la charge financière réelle supportée par l'entreprise.</li>
+            </ul>
+
             <h3>Le calcul du SMIC Brut en Net en 2026</h3>
-            <p>Notre calculateur intègre les données essentielles pour estimer rapidement le <strong>salaire net au SMIC</strong>, que ce soit sur une base <strong>horaire</strong>, <strong>mensuelle</strong> ou <strong>annuelle</strong>. Saisissez simplement le montant légal en vigueur en haut de page pour obtenir le détail complet de vos charges et de l'impôt à la source.</p>
+            <p>Notre calculateur intègre les données essentielles pour estimer rapidement le <strong>salaire net au SMIC</strong>, que ce soit sur une base <strong>horaire (11,88 € brut)</strong>, <strong>mensuelle (1 801,80 € brut pour 35h)</strong> ou <strong>annuelle (21 621,60 € brut)</strong>. Saisissez simplement le montant légal en vigueur en haut de page pour obtenir le détail complet de vos charges et de l'impôt à la source.</p>
 
             <h3>Qu'est-ce que le prélèvement à la source (PAS) ?</h3>
-            <p>Le prélèvement à la source est l'impôt sur le revenu déduit directement de votre fiche de paie. Si vous ne connaissez pas votre taux personnalisé, vous pouvez le trouver sur votre espace particulier <a href="https://www.impots.gouv.fr" target="_blank" rel="noopener">impots.gouv.fr</a>. Si vous n'êtes pas imposable, laissez simplement cette valeur à 0% dans notre simulateur.</p>
+            <p>Le prélèvement à la source est l'impôt sur le revenu déduit directement de votre fiche de paie par votre employeur. Si vous ne connaissez pas votre taux personnalisé, vous pouvez le retrouver sur votre espace particulier <a href="https://www.impots.gouv.fr" target="_blank" rel="noopener">impots.gouv.fr</a>. Si vous n'êtes pas imposable, laissez simplement cette valeur à 0% dans notre simulateur.</p>
 
-            <h3>Sources et cadre réglementaire</h3>
-            <p style="font-size: 0.95rem; color: var(--text-muted);">Les taux appliqués s'appuient sur les règles et plafonds fixés par la Sécurité Sociale et l'URSSAF pour l'année 2026. Pour une fiche de paie contractuelle, référez-vous toujours aux conventions collectives applicables et aux organismes officiels (<a href="https://www.service-public.fr" target="_blank" rel="noopener">service-public.fr</a> et <a href="https://www.urssaf.fr" target="_blank" rel="noopener">urssaf.fr</a>).</p>
+            <h3>Foire Aux Questions (FAQ) : Tout savoir sur le Salaire Brut en Net</h3>
+            <div style="margin-top: 1.5rem; display: grid; gap: 1.25rem;">
+                <div>
+                    <h4 style="margin: 0 0 0.35rem 0; color: var(--secondary);">Quel est le pourcentage moyen de charges entre brut et net en 2026 ?</h4>
+                    <p style="margin: 0; font-size: 0.95rem;">Pour un salarié non-cadre, les charges salariales représentent en moyenne <strong>22%</strong> du salaire brut (pour 2 000 € brut, vous touchez environ 1 560 € net). Pour un cadre, les retenues s'élèvent à environ <strong>25%</strong> en raison des cotisations spécifiques APEC et prévoyance cadre obligatoire.</p>
+                </div>
+                <div>
+                    <h4 style="margin: 0 0 0.35rem 0; color: var(--secondary);">Un salarié au SMIC paie-t-il l'impôt sur le revenu à la source ?</h4>
+                    <p style="margin: 0; font-size: 0.95rem;">Une personne seule célibataire rémunérée au SMIC à temps plein (1 801,80 € brut par mois) se situe en dessous du seuil d'imposition en France en 2026. Son taux de prélèvement à la source personnalisé est donc généralement de <strong>0%</strong>, sauf en présence d'autres revenus ou au sein d'un foyer fiscal imposable.</p>
+                </div>
+                <div>
+                    <h4 style="margin: 0 0 0.35rem 0; color: var(--secondary);">Comment le 13ème mois est-il pris en compte dans le calcul ?</h4>
+                    <p style="margin: 0; font-size: 0.95rem;">Si vous cochez l'option 13ème mois, le salaire brut annuel contractuel est divisé par 13 mensualités. Le simulateur lisse le montant perçu mensuellement pour vous donner une vision budgétaire exacte sur 12 et 13 mois.</p>
+                </div>
+                <div>
+                    <h4 style="margin: 0 0 0.35rem 0; color: var(--secondary);">Quels sont les éléments du salaire qui ne subissent pas de cotisations ?</h4>
+                    <p style="margin: 0; font-size: 0.95rem;">Certaines indemnités sont exonérées de cotisations sociales et d'impôt sur le revenu dans les limites légales : le remboursement des frais de transport public (à hauteur minimale de 50%), la part patronale des titres-restaurant, et les indemnités kilométriques justifiées selon le barème fiscal officiel.</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2rem;">Sources et cadre réglementaire</h3>
+            <p style="font-size: 0.95rem; color: var(--text-muted);">Les taux appliqués s'appuient sur les règles et plafonds fixés par la Sécurité Sociale et l'URSSAF pour l'année 2026. Pour une fiche de paie contractuelle, référez-vous toujours aux conventions collectives applicables et aux organismes officiels (<a href="https://www.service-public.fr" target="_blank" rel="noopener">service-public.fr</a> et <a href="https://www.urssaf.fr" target="_blank" rel="noopener">urssaf.fr</a>). Retrouvez l'intégralité de nos engagements dans notre page <a href="/a-propos/">À Propos & Méthodologie</a>.</p>
         </div>
 
         <div class="card" style="grid-column: 1 / -1;">
@@ -738,12 +804,45 @@
     </div>
     </main>
 
+    <!-- Footer Standardisé -->
     <footer>
-        <div style="max-width: 800px; margin: 0 auto;">
-            <p>&copy; 2026 <strong>monbrutnet.fr</strong> - Tous droits réservés.</p>
-            <p><strong>Mentions légales :</strong> Ce simulateur est fourni à titre strictement informatif. Les résultats générés se basent sur des moyennes légales et n'ont aucune valeur contractuelle ou juridique.</p>
-            
-            <p>Contactez-nous : <span id="email-contact"></span></p>
+        <div class="footer-inner">
+            <div class="footer-col">
+                <h4>À propos de monbrutnet.fr</h4>
+                <p>Votre outil en ligne gratuit et indépendant pour simuler la conversion de vos salaires brut en net, cotisations sociales, impôt à la source et droits professionnels en France en 2026.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Simulateurs & Outils 2026</h4>
+                <ul>
+                    <li><a href="/">Simulateur Salarié Brut Net</a></li>
+                    <li><a href="/smic-brut-net/">SMIC Brut en Net</a></li>
+                    <li><a href="/cadre-brut-en-net/">Salaire Cadre Brut en Net</a></li>
+                    <li><a href="/fonctionnaire-brut-en-net/">Fonctionnaire Brut en Net</a></li>
+                    <li><a href="/alternance-brut-en-net/">Alternance & Apprentissage</a></li>
+                    <li><a href="/auto-entrepreneur-brut-en-net/">Auto-Entrepreneur & Micro</a></li>
+                    <li><a href="/tjm-freelance-brut-en-net/">TJM Freelance en Net</a></li>
+                    <li><a href="/rupture-conventionnelle-net/">Rupture Conventionnelle</a></li>
+                    <li><a href="/chomage-brut-en-net/">Allocation Chômage (ARE)</a></li>
+                    <li><a href="/heures-supplementaires-brut-net/">Heures Supplémentaires</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Informations Légales & Contact</h4>
+                <ul>
+                    <li><a href="/mentions-legales/">Mentions Légales</a></li>
+                    <li><a href="/a-propos/">À Propos & Méthodologie</a></li>
+                    <li><a href="/politique-de-confidentialite/">Politique de Confidentialité</a></li>
+                    <li><a href="mailto:contact@monbrutnet.fr">Nous contacter</a></li>
+                </ul>
+                <p style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted);">
+                    Sources officielles de référence : <br>
+                    <a href="https://www.urssaf.fr" target="_blank" rel="noopener">urssaf.fr</a> &bull; 
+                    <a href="https://www.service-public.fr" target="_blank" rel="noopener">service-public.fr</a>
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 <strong>monbrutnet.fr</strong> - Tous droits réservés. Outil indépendant de calcul indicatif 2026.
         </div>
     </footer>
 

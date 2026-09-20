@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Calculateur Chômage Brut en Net 2026 : Allocation ARE | monbrutnet.fr</title>
-    <meta name="description" content="Calculez le montant net de votre allocation chômage France Travail (ARE 2026) : SJR, montant journalier, retenues retraite et CSG.">
+    <title>Calculateur Chômage Brut en Net 2026 (ARE) | monbrutnet.fr</title>
+    <meta name="description" content="Simulez le montant net de votre allocation chômage France Travail (ARE) en 2026 : calcul du SJR, retenues retraite complémentaire et durée de vos droits.">
     
     <link rel="canonical" href="https://monbrutnet.fr/chomage-brut-en-net/" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://monbrutnet.fr/chomage-brut-en-net/">
-    <meta property="og:title" content="Calculateur Chômage Brut en Net 2026 : Allocation ARE | monbrutnet.fr">
-    <meta property="og:description" content="Calculez le montant net de votre allocation chômage France Travail (ARE 2026) : SJR, montant journalier, retenues retraite et CSG.">
+    <meta property="og:title" content="Calculateur Chômage Brut en Net 2026 (ARE) | monbrutnet.fr">
+    <meta property="og:description" content="Simulez le montant net de votre allocation chômage France Travail (ARE) en 2026 : calcul du SJR, retenues retraite complémentaire et durée de vos droits.">
     <meta property="og:image" content="https://monbrutnet.fr/og-image.jpg"> 
     <meta name="twitter:card" content="summary_large_image">
 
@@ -271,16 +271,33 @@
         }
 
         footer {
-            margin-top: 3rem;
-            padding: 2rem 1rem;
-            text-align: center;
+            margin-top: 4rem;
+            padding: 2.5rem 1rem;
             border-top: 1px solid var(--border);
             color: var(--text-muted);
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             background: white;
         }
-        footer a { color: var(--primary); text-decoration: none; }
-        footer a:hover { text-decoration: underline; }
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            text-align: left;
+        }
+        .footer-col h4 { margin-top: 0; color: var(--text-main); font-size: 1rem; margin-bottom: 0.75rem; }
+        .footer-col ul { list-style: none; padding: 0; margin: 0; }
+        .footer-col li { margin-bottom: 0.5rem; }
+        .footer-col a { color: var(--text-muted); text-decoration: none; transition: color 0.15s ease; }
+        .footer-col a:hover { color: var(--primary); }
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.82rem;
+        }
     </style>
 </head>
 <body>
@@ -381,18 +398,82 @@
             <div class="card seo-content" style="grid-column: 1 / -1;">
                 <h2>Comment est calculée l'allocation chômage (ARE) en 2026 ?</h2>
                 
-            <p>L'<strong>Allocation d'Aide au Retour à l'Emploi (ARE)</strong> est versée par France Travail aux salariés involontairement privés d'emploi. Son montant dépend de vos salaires bruts perçus au cours des 24 mois précédant la fin de votre contrat de travail.</p>
-            <h3>Les deux formules de calcul de l'ARE</h3>
-            <p>France Travail calcule deux montants et retient automatiquement le plus avantageux pour l'allocataire :</p>
-            <ul>
-                <li><strong>Formule 1</strong> : 40,4% du Salaire Journalier de Référence (SJR) + une part fixe de 13,11 € par jour.</li>
-                <li><strong>Formule 2</strong> : 57% du Salaire Journalier de Référence (SJR).</li>
-            </ul>
-            <p>L'allocation brute ne peut jamais être inférieure à 31,97 € par jour (montant plancher) ni excéder 75% du SJR.</p>
-        
+                <p>L'<strong>Allocation d'Aide au Retour à l'Emploi (ARE)</strong> est le revenu de remplacement versé par <strong>France Travail</strong> (ex-Pôle Emploi) aux salariés privés involontairement de leur emploi (licenciement, rupture conventionnelle, fin de CDD ou démission légitime). Le montant dépend directement des salaires bruts perçus au cours des 24 derniers mois précédant le dernier jour travaillé (36 mois pour les salariés âgés de 53 ans et plus).</p>
+                
+                <h3>1. Le calcul du Salaire Journalier de Référence (SJR)</h3>
+                <p>Le <strong>SJR</strong> est la clé de voûte de votre indemnisation. Il s'obtient en divisant le total des salaires bruts soumis à cotisations (y compris les primes contractuelles) perçus durant la période de référence par le nombre total de jours calendaires compris entre le premier jour du premier contrat et le dernier jour travaillé.</p>
+                
+                <h3>2. Les deux formules officielles de France Travail</h3>
+                <p>France Travail calcule simultanément deux montants et retient automatiquement le plus élevé en votre faveur :</p>
+                <ul>
+                    <li><strong>Formule 1 (Part proportionnelle + part fixe) :</strong> 40,4% du SJR + 13,18 € par jour (part fixe 2026 revalorisée).</li>
+                    <li><strong>Formule 2 (Pourcentage plein) :</strong> 57% du SJR.</li>
+                </ul>
+                <p>Le montant brut de l'allocation journalière est soumis à des garde-fous stricts : il ne peut pas être inférieur au plancher de <strong>32,13 € par jour</strong>, ni dépasser <strong>75% de votre SJR</strong>.</p>
 
-                <h3>Sources et cadre réglementaire 2026</h3>
-                <p style="font-size: 0.95rem; color: var(--text-muted);">Taux et barèmes officiels calculés d'après les règles de la législation sociale et fiscale française pour 2026. Références officielles : <a href="https://www.service-public.fr" target="_blank" rel="noopener">service-public.fr</a> et <a href="https://www.urssaf.fr" target="_blank" rel="noopener">urssaf.fr</a>.</p>
+                <h3>3. Cotisations sociales et passage de l'ARE brute au net</h3>
+                <p>L'ARE subit des retenues sociales spécifiques pour financer votre protection sociale :</p>
+                <ul>
+                    <li><strong>Retraite complémentaire obligatoire :</strong> Une cotisation de <strong>3% calculée sur le SJR</strong> est prélevée pour acquérir des points de retraite de base et complémentaire. Cette retenue ne s'applique que si elle ne fait pas baisser votre allocation en dessous du seuil de 32,13 € par jour.</li>
+                    <li><strong>CSG et CRDS :</strong> Prélevées au taux réduit de 6,2% pour la CSG et 0,5% pour la CRDS. Une <strong>exonération totale</strong> s'applique si votre allocation brute journalière est inférieure au SMIC journalier (environ 59,20 € / jour).</li>
+                </ul>
+
+                <h3>Tableau des durées maximales d'indemnisation selon l'âge en 2026</h3>
+                <div class="table-responsive" style="margin: 1.5rem 0;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background-color: #f8fafc; border-bottom: 2px solid var(--border);">
+                                <th style="padding: 0.75rem;">Tranche d'âge</th>
+                                <th style="padding: 0.75rem;">Période de référence</th>
+                                <th style="padding: 0.75rem;">Durée maximale de droits</th>
+                                <th style="padding: 0.75rem;">Équivalent en mois</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 0.75rem;"><strong>Moins de 53 ans</strong></td>
+                                <td style="padding: 0.75rem;">24 mois</td>
+                                <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">548 jours</td>
+                                <td style="padding: 0.75rem;">18 mois</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.75rem;"><strong>53 et 54 ans</strong></td>
+                                <td style="padding: 0.75rem;">36 mois</td>
+                                <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">685 jours</td>
+                                <td style="padding: 0.75rem;">22,5 mois</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.75rem;"><strong>55 ans et plus</strong></td>
+                                <td style="padding: 0.75rem;">36 mois</td>
+                                <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">822 jours</td>
+                                <td style="padding: 0.75rem;">27 mois</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Foire Aux Questions (FAQ) Chômage ARE 2026</h3>
+                <div style="margin-top: 1.5rem; display: grid; gap: 1.25rem;">
+                    <div>
+                        <h4 style="margin: 0 0 0.35rem 0; color: var(--secondary);">Combien de temps faut-il avoir travaillé pour toucher le chômage en 2026 ?</h4>
+                        <p style="margin: 0; font-size: 0.95rem;">Il est nécessaire d'avoir travaillé au moins <strong>6 mois (soit 130 jours ou 910 heures)</strong> au cours des 24 derniers mois (36 mois pour les 53 ans et plus) pour ouvrir des droits à l'ARE.</p>
+                    </div>
+                    <div>
+                        <h4 style="margin: 0 0 0.35rem 0; color: var(--secondary);">Qu'est-ce que le différé d'indemnisation et le délai d'attente ?</h4>
+                        <p style="margin: 0; font-size: 0.95rem;">Le versement de votre première allocation intervient après : un délai d'attente légal incompressible de <strong>7 jours</strong>, majoré du différé "congés payés" (si votre employeur vous a versé une indemnité compensatrice de congés payés non pris), et du différé spécifique en cas d'indemnités de rupture supra-légales (plafonné à 150 jours).</p>
+                    </div>
+                    <div>
+                        <h4 style="margin: 0 0 0.35rem 0; color: var(--secondary);">L'allocation chômage est-elle soumise à l'impôt sur le revenu ?</h4>
+                        <p style="margin: 0; font-size: 0.95rem;">Oui, l'ARE constitue un revenu de remplacement imposable. France Travail applique automatiquement le prélèvement à la source (PAS) sur le montant de vos indemnités selon le taux personnalisé transmis par l'administration fiscale.</p>
+                    </div>
+                    <div>
+                        <h4 style="margin: 0 0 0.35rem 0; color: var(--secondary);">Peut-on cumuler chômage et création d'entreprise ?</h4>
+                        <p style="margin: 0; font-size: 0.95rem;">Oui, vous pouvez cumuler votre ARE avec les revenus de votre nouvelle activité (micro-entreprise ou société) si celle-ci génère une rémunération inférieure à votre ancien salaire brut, ou opter pour l'ARCE (versement d'un capital représentant 60% de vos droits restants en deux fois).</p>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 2rem;">Sources et cadre réglementaire 2026</h3>
+                <p style="font-size: 0.95rem; color: var(--text-muted);">Règles et barèmes issus de la Convention d'assurance chômage et des décrets d'application Unédic / France Travail pour 2026. Références officielles : <a href="https://www.francetravail.fr" target="_blank" rel="noopener">francetravail.fr</a> et <a href="https://www.service-public.fr" target="_blank" rel="noopener">service-public.fr</a>. Consultez nos <a href="/mentions-legales/">Mentions Légales</a> et notre <a href="/a-propos/">Méthodologie</a>.</p>
             </div>
 
             <div class="card" style="grid-column: 1 / -1;">
@@ -459,11 +540,45 @@
         </div>
     </div>
 
+    <!-- Footer Standardisé -->
     <footer>
-        <div style="max-width: 800px; margin: 0 auto;">
-            <p>&copy; 2026 <strong>monbrutnet.fr</strong> - Tous droits réservés.</p>
-            <p><strong>Mentions légales :</strong> Ce simulateur est fourni à titre informatif. Les résultats se basent sur des moyennes légales et n'ont aucune valeur contractuelle.</p>
-            <p>Contactez-nous : <span id="email-contact"></span></p>
+        <div class="footer-inner">
+            <div class="footer-col">
+                <h4>À propos de monbrutnet.fr</h4>
+                <p>Votre outil en ligne gratuit et indépendant pour simuler la conversion de vos salaires brut en net, cotisations sociales, impôt à la source et droits professionnels en France en 2026.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Simulateurs & Outils 2026</h4>
+                <ul>
+                    <li><a href="/">Simulateur Salarié Brut Net</a></li>
+                    <li><a href="/smic-brut-net/">SMIC Brut en Net</a></li>
+                    <li><a href="/cadre-brut-en-net/">Salaire Cadre Brut en Net</a></li>
+                    <li><a href="/fonctionnaire-brut-en-net/">Fonctionnaire Brut en Net</a></li>
+                    <li><a href="/alternance-brut-en-net/">Alternance & Apprentissage</a></li>
+                    <li><a href="/auto-entrepreneur-brut-en-net/">Auto-Entrepreneur & Micro</a></li>
+                    <li><a href="/tjm-freelance-brut-en-net/">TJM Freelance en Net</a></li>
+                    <li><a href="/rupture-conventionnelle-net/">Rupture Conventionnelle</a></li>
+                    <li><a href="/chomage-brut-en-net/">Allocation Chômage (ARE)</a></li>
+                    <li><a href="/heures-supplementaires-brut-net/">Heures Supplémentaires</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Informations Légales & Contact</h4>
+                <ul>
+                    <li><a href="/mentions-legales/">Mentions Légales</a></li>
+                    <li><a href="/a-propos/">À Propos & Méthodologie</a></li>
+                    <li><a href="/politique-de-confidentialite/">Politique de Confidentialité</a></li>
+                    <li><a href="mailto:contact@monbrutnet.fr">Nous contacter</a></li>
+                </ul>
+                <p style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted);">
+                    Sources officielles de référence : <br>
+                    <a href="https://www.urssaf.fr" target="_blank" rel="noopener">urssaf.fr</a> &bull; 
+                    <a href="https://www.service-public.fr" target="_blank" rel="noopener">service-public.fr</a>
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 <strong>monbrutnet.fr</strong> - Tous droits réservés. Outil indépendant de calcul indicatif 2026.
         </div>
     </footer>
 

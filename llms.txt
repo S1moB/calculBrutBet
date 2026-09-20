@@ -21,6 +21,12 @@
 - [Fonctionnaire Brut en Net](https://monbrutnet.fr/fonctionnaire-brut-en-net/): Retenue pension civile (~11%), RAFP et primes non soumises à cotisations.
 - [Alternance & Apprentissage Brut en Net](https://monbrutnet.fr/alternance-brut-en-net/): Exonération totale des cotisations salariales jusqu'à 79% du SMIC (brut = net).
 
+## Informations Légales & Confiance (E-E-A-T)
+
+- [À Propos & Méthodologie](https://monbrutnet.fr/a-propos/): Présentation de l'équipe éditoriale, méthodologie de calcul des cotisations sociales (non-cadre 22%, cadre 25%, fonctionnaire 15%), sources officielles et gouvernance.
+- [Mentions Légales](https://monbrutnet.fr/mentions-legales/): Informations éditeur conformes LCEN, hébergement Netlify, directeur de la publication et propriété intellectuelle.
+- [Politique de Confidentialité](https://monbrutnet.fr/politique-de-confidentialite/): Architecture Privacy by Design : calculs 100% exécutés localement côté client dans le navigateur, aucune donnée financière transmise sur nos serveurs, conformité RGPD.
+
 ## Ressources Officielles Externes
 
 - [URSSAF - Cotisations et Barèmes](https://www.urssaf.fr/): Portail officiel des cotisations sociales et barèmes en vigueur.
