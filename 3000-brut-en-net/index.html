@@ -379,7 +379,28 @@
             text-align: center;
             font-size: 0.82rem;
         }
-    </style>
+    
+        /* Phase 1 fixes: Mobile responsive improvements */
+        .calculator-card, .results-panel, table {
+            max-width: 100%;
+            box-sizing: border-box;
+            overflow-x: auto;
+        }
+        /* Touch target sizing: nav links >= 44px */
+        .nav-link {
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            padding: 0.6rem 0.75rem !important;
+        }
+        .breadcrumb a {
+            padding: 0.4rem 0.2rem;
+            display: inline-block;
+            min-height: 44px;
+            line-height: 44px;
+        }
+        
+        </style>
 </head>
 <body>
 

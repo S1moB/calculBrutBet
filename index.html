@@ -49,8 +49,14 @@
             "@id": "https://monbrutnet.fr/#organization",
             "name": "monbrutnet.fr",
             "url": "https://monbrutnet.fr/",
-            "logo": "https://monbrutnet.fr/og-image.jpg",
+            "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://monbrutnet.fr/logo.png",
+                    "width": 512,
+                    "height": 512
+                },
             "description": "Portail indépendant de simulateurs de salaires brut en net et cotisations sociales en France en 2026.",
+            "dateModified": "2026-09-27",
             "contactPoint": {
                 "@type": "ContactPoint",
                 "email": "contact@monbrutnet.fr",
@@ -503,7 +509,49 @@
             text-align: center;
             font-size: 0.82rem;
         }
-    </style>
+    
+        /* Phase 1 fixes: Mobile responsive improvements */
+        .calculator-card, .results-panel, table {
+            max-width: 100%;
+            box-sizing: border-box;
+            overflow-x: auto;
+        }
+        /* Touch target sizing: nav links >= 44px */
+        .nav-link {
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            padding: 0.6rem 0.75rem !important;
+        }
+        .breadcrumb a {
+            padding: 0.4rem 0.2rem;
+            display: inline-block;
+            min-height: 44px;
+            line-height: 44px;
+        }
+        
+        
+        /* Phase 1 fixes: Mobile responsive improvements */
+        .calculator-card, .results-panel, table {
+            max-width: 100%;
+            box-sizing: border-box;
+            overflow-x: auto;
+        }
+        /* Touch target sizing: nav links >= 44px */
+        .nav-link {
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            padding: 0.6rem 0.75rem !important;
+        }
+        .breadcrumb a {
+            padding: 0.4rem 0.2rem;
+            display: inline-block;
+            min-height: 44px;
+            line-height: 44px;
+        }
+        
+        </style>
 </head>
 <body>
 
