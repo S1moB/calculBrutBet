@@ -2,16 +2,17 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>SMIC Brut en Net 2026 : Montant Mensuel & Horaire | monbrutnet.fr</title>
-    <meta name="description" content="SMIC brut en net 2026 : 1 867,02 € brut donne ~1 405 € net mensuel ou 12,31 € brut de l'heure. Calculez votre net exact, impôt et Prime d'activité instantanément.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f9fafb"> 
+    <title>SMIC Net 2026 : 1 477,93 € par Mois, 9,74 €/h | monbrutnet.fr</title>
+    <meta name="description" content="SMIC net 2026 : 1 477,93 € par mois pour 1 867,02 € brut (35 h), soit 9,74 € net de l'heure depuis le 1er juin 2026. Calculez votre net exact, votre impôt et la Prime d'activité.">
     
     <link rel="canonical" href="https://monbrutnet.fr/smic-brut-net/" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://monbrutnet.fr/smic-brut-net/">
-    <meta property="og:title" content="SMIC Brut en Net 2026 : Montant Exact & Calcul | monbrutnet.fr">
+    <meta property="og:title" content="SMIC Net 2026 : 1 477,93 € par Mois, 9,74 €/h | monbrutnet.fr">
     <meta property="og:description" content="Calculez votre salaire SMIC brut en net en 2026 : taux horaire, montant mensuel et annuel avec détail des cotisations.">
     <meta property="og:image" content="https://monbrutnet.fr/og-image.jpg"> 
     <meta name="twitter:card" content="summary_large_image">
@@ -69,7 +70,7 @@
                     "name": "Quel est le montant exact du SMIC net en 2026 ?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Pour 35 heures hebdomadaires, le SMIC brut mensuel est de 1 867,02 €. Après déduction des charges sociales moyennes de 22%, le SMIC net perçu par un salarié non-cadre est d'environ 1 405,40 € par mois (ou 12,31 € brut horaire soit ~9,27 € net de l'heure)."
+                        "text": "Depuis le 1er juin 2026, le SMIC brut mensuel est de 1 867,02 € pour 35 heures par semaine (12,31 € brut de l'heure). Après déduction des cotisations salariales obligatoires (20,84 %), un salarié non-cadre touche 1 477,93 € net par mois, soit environ 9,74 € net de l'heure."
                     }
                 },
                 {
@@ -77,7 +78,7 @@
                     "name": "Le SMIC s'applique-t-il obligatoirement à tous les salariés ?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Oui, aucun salarié majeur du secteur privé ne peut percevoir une rémunération inférieure au SMIC horaire (12,31 €). Cependant, certaines conventions collectives prévoient des salaires minima conventionnels (SMC) supérieurs au SMIC qui s'imposent alors à l'employeur. Des abattements légaux existent uniquement pour les mineurs ayant moins de 6 mois de pratique professionnelle et les apprentis sous contrat d'apprentissage."
+                        "text": "Oui, aucun salarié majeur du secteur privé ne peut percevoir une rémunération inférieure au SMIC horaire (12,31 €). Cependant, certaines conventions collectives prévoient des salaires minima conventionnels (SMC) supérieurs au SMIC qui s'imposent alors à l'employeur. Des abattements légaux existent uniquement pour les mineurs ayant moins de 6 mois de pratique professionnelle et les apprentis sous contrat d'apprentissage."
                     }
                 },
                 {
@@ -85,7 +86,7 @@
                     "name": "Quel est le coût total du SMIC pour l'employeur (super-brut) ?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Grâce à la réduction générale des cotisations patronales (ex-réduction Fillon), les cotisations patronales de sécurité sociale au niveau du SMIC sont fortement réduites. Le coût global pour l'entreprise s'établit à environ 1 950 € à 2 050 € par mois, contre plus de 2 550 € sans les allègements patronaux de l'État."
+                        "text": "Grâce à la réduction générale des cotisations patronales (ex-réduction Fillon), les cotisations patronales de sécurité sociale au niveau du SMIC sont fortement réduites. Le coût global pour l'entreprise s'établit à environ 1 950 € à 2 050 € par mois, contre plus de 2 550 € sans les allègements patronaux de l'État."
                     }
                 },
                 {
@@ -104,314 +105,611 @@
 
     <style>
         :root {
-            --primary: #ef4444;
-            --primary-hover: #dc2626;
-            --secondary: #3b82f6;
-            --bg-color: #f3f4f6;
-            --card-bg: #ffffff;
-            --text-main: #1f2937;
-            --text-muted: #6b7280;
+            --primary: #1e40af;
+            --primary-light: #dbeafe;
+            --success: #059669;
+            --text-dark: #1f2937;
+            --text-mid: #4b5563;
+            --text-light: #9ca3af;
             --border: #e5e7eb;
-            --success: #10b981;
+            --bg: #f9fafb;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
         }
 
-        *, *::before, *::after { box-sizing: border-box; }
-        html, body { overflow-x: hidden; width: 100%; max-width: 100%; }
-
-        body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
+        * {
             margin: 0;
             padding: 0;
-            line-height: 1.5;
+            box-sizing: border-box;
         }
 
-        /* --- Header Navigation Bar --- */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
+            background: var(--bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header */
         .site-header {
-            background: #ffffff;
+            background: white;
             border-bottom: 1px solid var(--border);
             position: sticky;
             top: 0;
-            z-index: 50;
+            z-index: 40;
         }
+
         .header-inner {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0.75rem 1rem;
+            padding: 1rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1rem;
+            gap: 2rem;
         }
+
         .brand-link {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
             text-decoration: none;
-            color: var(--text-main);
-            font-weight: bold;
-            font-size: 1.15rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-dark);
         }
-        .brand-link svg { width: 32px; height: 32px; flex-shrink: 0; }
+
+        .brand-link svg {
+            width: 36px;
+            height: 36px;
+        }
+
         .nav-links {
             display: flex;
-            align-items: center;
-            gap: 0.4rem;
+            gap: 0.25rem;
             overflow-x: auto;
-            max-width: 100%;
             padding-bottom: 0.25rem;
-            -webkit-overflow-scrolling: touch;
         }
-        .nav-link {
-            padding: 0.4rem 0.75rem;
-            border-radius: 6px;
-            text-decoration: none;
-            color: var(--text-muted);
-            font-size: 0.88rem;
-            font-weight: 600;
-            white-space: nowrap;
-            transition: all 0.15s ease;
-        }
-        .nav-link:hover { background: #f3f4f6; color: var(--text-main); }
-        .nav-link.active { background: #eff6ff; color: var(--secondary); border: 1px solid #bfdbfe; }
 
+        .nav-link {
+            padding: 0.6rem 1rem;
+            text-decoration: none;
+            color: var(--text-mid);
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: color 0.2s, background-color 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+            white-space: nowrap;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .nav-link.active {
+            color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        /* Main */
         .main-wrapper {
-            padding: 1.5rem 0.5rem;
             max-width: 1200px;
             margin: 0 auto;
+            padding: 3rem 1rem;
         }
-
-        .breadcrumb {
-            max-width: 1200px;
-            margin: 0 auto 1rem auto;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            padding: 0 0.5rem;
-        }
-        .breadcrumb a { color: var(--secondary); text-decoration: none; }
-        .breadcrumb a:hover { text-decoration: underline; }
 
         .header-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            margin-bottom: 0.5rem;
-            flex-wrap: wrap;
-        }
-        .logo { width: 40px; height: 40px; flex-shrink: 0; }
-        h1 { text-align: center; margin: 0; color: var(--text-main); font-size: 1.8rem; }
-        .seo-intro {
             text-align: center;
-            color: var(--text-muted);
-            max-width: 800px;
-            margin: 0.5rem auto 2rem auto;
-            font-size: 1rem;
-            padding: 0 1rem;
+            margin-bottom: 3rem;
         }
 
-        .container {
-            max-width: 1200px;
+        .logo { display: none;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+
+        .seo-intro {
+            font-size: 1.05rem;
+            color: var(--text-mid);
+            max-width: 600px;
             margin: 0 auto;
+        }
+
+        /* Grid Layout */
+        .container {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
         }
 
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Cards */
         .card {
-            background-color: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            width: 100%;
-        }
-
-        .form-group { margin-bottom: 1.25rem; }
-        label { display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.95rem; }
-        input[type="number"], select {
-            width: 100%;
-            padding: 0.85rem;
+            background: white;
             border: 1px solid var(--border);
             border-radius: 8px;
-            font-size: 1rem;
-            background-color: #fff;
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
         }
 
+        .card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .card h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        /* Forms */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            font-weight: 500;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        input[type="number"],
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: color 0.2s, background-color 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+            background: white;
+        }
+
+        input[type="number"]:focus-visible,
+        input[type="text"]:focus-visible,
+        select:focus-visible {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.35);
+        }
+
+        input::placeholder {
+            color: var(--text-light);
+        }
+
+        /* Buttons */
         button {
             width: 100%;
-            padding: 1rem;
-            background-color: var(--primary);
-            color: white;
+            padding: 0.875rem;
             border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: bold;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1rem;
             cursor: pointer;
+            transition: color 0.2s, background-color 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
         }
-        button:hover { background-color: var(--primary-hover); }
 
-        .btn-pdf { background-color: var(--secondary); }
-        .btn-pdf:hover { background-color: #2563eb; }
-        .btn-share { background-color: #059669; }
-        .btn-share:hover { background-color: #047857; }
+        button:active {
+            transform: scale(0.98);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            margin-top: 1rem;
+        }
+
+        .btn-primary:hover {
+            background: #1e3a8a;
+        }
+
+        .btn-secondary {
+            background: var(--bg);
+            color: var(--text-dark);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-success {
+            background: var(--success);
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #047857;
+        }
 
         .btn-row {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 0.75rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        @media (max-width: 500px) {
+            .btn-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Results */
+        .results-header {
+            background: linear-gradient(135deg, #f0f9ff 0%, #f8fafc 100%);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .net-avant {
+            color: var(--text-mid);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .net-apres {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--success);
+        }
+
+        /* Tables */
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
             margin-top: 1rem;
         }
-        @media (min-width: 500px) {
-            .btn-row { grid-template-columns: 1fr 1fr; }
+
+        thead {
+            background: var(--bg);
         }
 
-        .advanced-options {
-            margin-bottom: 1.25rem;
-            border: 1px dashed var(--border);
-            border-radius: 8px;
-            padding: 0.75rem 1rem;
-            background: #fafafa;
-        }
-        .advanced-options summary { cursor: pointer; font-weight: 600; font-size: 0.95rem; color: var(--secondary); }
-        .advanced-content { margin-top: 1rem; display: grid; gap: 1rem; }
-        .checkbox-label { display: flex; align-items: center; gap: 0.6rem; font-size: 0.95rem; font-weight: 500; cursor: pointer; }
-        .checkbox-label input[type="checkbox"] { width: 1.2rem; height: 1.2rem; accent-color: var(--primary); }
-
-        #resultsContent { background: white; padding: 1rem; border-radius: 8px; }
-        .pdf-context {
-            background-color: #f8fafc;
-            border: 1px solid var(--border);
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
+        th {
+            text-align: left;
+            padding: 0.75rem;
+            font-weight: 600;
+            color: var(--text-mid);
+            border-bottom: 2px solid var(--border);
             font-size: 0.9rem;
-            color: var(--text-muted);
         }
-        .results-header {
-            text-align: center;
+
+        td {
+            padding: 0.75rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-dark);
+        }
+
+        tbody tr:hover {
+            background: var(--bg);
+        }
+
+        /* Advanced Options */
+        .advanced-options {
+            border: 1px dashed var(--border);
+            border-radius: 6px;
             padding: 1rem;
-            border-radius: 8px;
-            border: 2px solid var(--success);
+            background: var(--bg);
             margin-bottom: 1.5rem;
         }
-        .net-avant { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 0.25rem; }
-        .net-apres { font-size: 1.8rem; font-weight: bold; color: var(--success); }
 
-        .table-responsive { overflow-x: auto; }
-        table { width: 100%; border-collapse: collapse; }
-        th, td { text-align: left; padding: 0.75rem 0.25rem; border-bottom: 1px solid var(--border); font-size: 0.95rem; }
-        th { color: var(--text-muted); font-weight: 600; }
+        .advanced-options summary {
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--primary);
+            user-select: none;
+        }
 
-        .history-section { margin-top: 2rem; border-top: 1px solid var(--border); padding-top: 1.5rem; }
-        .history-list { list-style: none; padding: 0; margin: 0; }
-        .history-list li { padding: 0.75rem 0; border-bottom: 1px dashed var(--border); font-size: 0.9rem; }
+        .advanced-options summary:hover {
+            opacity: 0.8;
+        }
 
+        .advanced-content {
+            margin-top: 1rem;
+            display: grid;
+            gap: 1rem;
+        }
+
+        /* Content */
+        .seo-content {
+            grid-column: 1 / -1;
+        }
+
+        .seo-content h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem 0;
+            color: var(--text-dark);
+        }
+
+        .seo-content h3:first-child {
+            margin-top: 0;
+        }
+
+        .seo-content p {
+            color: var(--text-mid);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .seo-content ul {
+            list-style: none;
+            margin: 1rem 0 1.5rem 0;
+            padding-left: 0;
+        }
+
+        .seo-content li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-mid);
+            line-height: 1.6;
+            position: relative;
+        }
+
+        .seo-content li:before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .seo-content a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: color 0.2s, background-color 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+        }
+
+        .seo-content a:hover {
+            border-bottom-color: var(--primary);
+            opacity: 0.8;
+        }
+
+        /* Guide Grid */
         .guide-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1rem;
-            margin-top: 1.25rem;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
+
         .guide-card {
-            background: #ffffff;
+            padding: 1.5rem;
             border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 1.25rem;
+            border-radius: 8px;
             text-decoration: none;
-            color: var(--text-main);
-            transition: transform 0.15s ease, border-color 0.15s ease;
+            color: var(--text-dark);
+            transition: color 0.3s, background-color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+            background: white;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            gap: 0.5rem;
         }
-        .guide-card:hover { transform: translateY(-2px); border-color: var(--secondary); }
-        .guide-card h4 { margin: 0 0 0.4rem 0; font-size: 1.05rem; color: var(--secondary); }
-        .guide-card p { margin: 0; font-size: 0.88rem; color: var(--text-muted); }
+
+        .guide-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .guide-card h3 {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .guide-card p {
+            color: var(--text-mid);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
         .badge-tag {
             display: inline-block;
-            background: #eff6ff;
-            color: var(--secondary);
-            font-size: 0.75rem;
+            background: var(--primary-light);
+            color: var(--primary);
+            font-size: 0.8rem;
             font-weight: 700;
-            padding: 0.2rem 0.55rem;
-            border-radius: 4px;
-            margin-bottom: 0.6rem;
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
             align-self: flex-start;
         }
 
-        @media (min-width: 768px) {
-            .main-wrapper { padding: 2rem 1rem; }
-            h1 { font-size: 2.2rem; }
-            .logo { width: 50px; height: 50px; }
-            .container { grid-template-columns: 1fr 1fr; gap: 2rem; }
-            .card { padding: 2rem; }
-            .net-apres { font-size: 2.2rem; }
-            th, td { padding: 0.85rem 0.5rem; font-size: 1rem; }
+        /* Footer */
+        footer {
+            background: white;
+            border-top: 1px solid var(--border);
+            margin-top: 4rem;
+            padding: 3rem 1rem 2rem;
         }
 
-        footer {
-            margin-top: 4rem;
-            padding: 2.5rem 1rem;
-            border-top: 1px solid var(--border);
-            color: var(--text-muted);
-            font-size: 0.88rem;
-            background: white;
-        }
         .footer-inner {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            text-align: left;
         }
-        .footer-col h4 { margin-top: 0; color: var(--text-main); font-size: 1rem; margin-bottom: 0.75rem; }
-        .footer-col ul { list-style: none; padding: 0; margin: 0; }
-        .footer-col li { margin-bottom: 0.5rem; }
-        .footer-col a { color: var(--text-muted); text-decoration: none; transition: color 0.15s ease; }
-        .footer-col a:hover { color: var(--primary); }
+
+        .footer-col h2 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .footer-col p,
+        .footer-col ul {
+            font-size: 0.9rem;
+            color: var(--text-mid);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-col a {
+            color: var(--text-mid);
+            text-decoration: none;
+            transition: color 0.2s, background-color 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: var(--primary);
+        }
+
         .footer-bottom {
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--border);
             text-align: center;
-            font-size: 0.82rem;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-light);
+            font-size: 0.85rem;
         }
-    
-        /* Phase 1 fixes: Mobile responsive improvements */
-        .calculator-card, .results-panel, table {
-            max-width: 100%;
-            box-sizing: border-box;
-            overflow-x: auto;
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-wrapper {
+                padding: 2rem 1rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .container {
+                gap: 1.5rem;
+            }
+
+            .net-apres {
+                font-size: 2rem;
+            }
+
+            table {
+                font-size: 0.9rem;
+            }
+
+            th, td {
+                padding: 0.6rem;
+            }
         }
-        /* Touch target sizing: nav links >= 44px */
-        .nav-link {
-            min-height: 44px;
-            display: flex;
-            align-items: center;
-            padding: 0.6rem 0.75rem !important;
+
+        @media (max-width: 600px) {
+            .header-inner {
+                padding: 0.75rem;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                gap: 0;
+            }
+
+            .nav-link {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.85rem;
+            }
+
+            main {
+                padding: 1.5rem 0.75rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .seo-intro {
+                font-size: 1rem;
+            }
+
+            .card {
+                padding: 1rem;
+            }
+
+            .results-header {
+                padding: 1.5rem;
+            }
+
+            .net-apres {
+                font-size: 1.75rem;
+            }
         }
-        .breadcrumb a {
-            padding: 0.4rem 0.2rem;
-            display: inline-block;
-            min-height: 44px;
-            line-height: 44px;
+
+
+        /* Web Interface Guidelines: accessibility, focus, motion, numbers */
+        .skip-link { position: absolute; left: 0.5rem; top: -3rem; z-index: 1000; padding: 0.5rem 1rem; background: var(--primary); color: #fff; border-radius: 6px; text-decoration: none; }
+        .skip-link:focus { top: 0.5rem; }
+        a:focus-visible, button:focus-visible, summary:focus-visible, input[type="checkbox"]:focus-visible { outline: 3px solid var(--primary); outline-offset: 2px; }
+        h1, h2, h3 { text-wrap: balance; }
+        h2, h3, [id] { scroll-margin-top: 5rem; }
+        table, .net-avant, .net-apres { font-variant-numeric: tabular-nums; }
+        a, button, input, select, summary, label { touch-action: manipulation; }
+        select { color: var(--text-dark); }
+        .tool-link:hover, .tool-link:focus-visible { border-color: var(--secondary) !important; }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; scroll-behavior: auto !important; }
+            .guide-card:hover { transform: none; }
         }
-        
-        </style>
+    </style>
 </head>
 <body>
+    <a href="#main" class="skip-link">Aller au contenu</a>
 
     <header class="site-header">
         <div class="header-inner">
             <a href="/" class="brand-link">
-                <svg viewBox="0 0 100 100">
+                <svg viewBox="0 0 100 100" aria-hidden="true" focusable="false">
                     <circle cx="50" cy="50" r="45" fill="#ef4444"/>
                     <text x="50" y="68" font-family="Arial, sans-serif" font-size="55" font-weight="bold" fill="white" text-anchor="middle">€</text>
                 </svg>
-                <span>monbrutnet.fr</span>
+                <span translate="no">monbrutnet.fr</span>
             </a>
             <nav class="nav-links">
                 <a href="/" class="nav-link">Salaire Brut Net</a>
@@ -424,21 +722,15 @@
         </div>
     </header>
 
-    <main class="main-wrapper">
+    <main id="main" class="main-wrapper">
 
     <nav class="breadcrumb" aria-label="Fil d'Ariane">
         <a href="/">Accueil</a> &rsaquo; <span>SMIC Brut en Net 2026</span>
     </nav>
 
-    <div class="header-wrapper">
-        <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="45" fill="#ef4444"/>
-            <text x="50" y="68" font-family="Arial, sans-serif" font-size="55" font-weight="bold" fill="white" text-anchor="middle">€</text>
-        </svg>
-        <h1>Calcul du SMIC Brut en Net 2026</h1>
-    </div>
-    
-    <p class="seo-intro">Simulateur officiel du <strong>SMIC 2026</strong> en France : découvrez votre rémunération nette exacte à partir du montant brut légal.</p>
+    <h1>SMIC Net 2026 : Calcul du SMIC Brut en Net</h1>
+
+    <p class="seo-intro">Simulateur du <strong>SMIC 2026</strong> en France : découvrez votre rémunération nette exacte à partir du montant brut légal.</p>
 
     <div class="container">
         <div class="card">
@@ -455,7 +747,7 @@
                 <div class="form-group">
                     <label for="statut">Statut professionnel</label>
                     <select id="statut">
-                        <option value="nonCadre" selected>Non-cadre (~22%)</option>
+                        <option value="nonCadre" selected>Non-cadre (20,84 %)</option>
                         <option value="cadre">Cadre (~25%)</option>
                         <option value="fonctionnaire">Fonctionnaire (~11%)</option>
                         <option value="alternant">Alternant / Apprenti (~0%)</option>
@@ -464,12 +756,12 @@
 
                 <div class="form-group">
                     <label for="brut">Salaire Brut (€)</label>
-                    <input type="number" id="brut" value="1801.80" required min="1" step="0.01">
+                    <input type="number" id="brut" name="brut" inputmode="decimal" autocomplete="off" value="1867.02" required min="1" step="0.01">
                 </div>
 
                 <div class="form-group">
                     <label for="tauxImposition">Taux de prélèvement à la source (%)</label>
-                    <input type="number" id="tauxImposition" value="0" min="0" max="45" step="0.1">
+                    <input type="number" id="tauxImposition" name="tauxImposition" inputmode="decimal" autocomplete="off" value="0" min="0" max="45" step="0.1">
                 </div>
 
                 <details class="advanced-options">
@@ -508,13 +800,13 @@
                 
                 <div class="pdf-context" id="pdfContext">
                     <strong>Période :</strong> Mensuel<br>
-                    <strong>Statut :</strong> Non-cadre (~22%)<br>
+                    <strong>Statut :</strong> Non-cadre (20,84 %)<br>
                     <strong>Taux PAS :</strong> 0%
                 </div>
                 
-                <div class="results-header">
-                    <div class="net-avant" id="netAvantResult">1 405.40 € Net avant impôt</div>
-                    <div class="net-apres" id="netApresResult">1 405.40 € Net après impôt</div>
+                <div class="results-header" aria-live="polite">
+                    <div class="net-avant" id="netAvantResult">1 477,93 € Net avant impôt</div>
+                    <div class="net-apres" id="netApresResult">1 477,93 € Net après impôt</div>
                 </div>
                 
                 <div class="table-responsive">
@@ -528,23 +820,23 @@
                         <tbody id="detailsBody">
                             <tr>
                                 <td>Salaire Brut (Mensuel)</td>
-                                <td style="text-align: right;"><strong>1801.80 €</strong></td>
+                                <td style="text-align: right;"><strong>1 867,02 €</strong></td>
                             </tr>
                             <tr>
-                                <td>Cotisations Sociales (~22%)</td>
-                                <td style="text-align: right; color: var(--primary)">- 396.40 €</td>
+                                <td>Sécurité Sociale & Retraite (~11.3%)</td>
+                                <td style="text-align: right; color: var(--primary)">- 211,16 €</td>
                             </tr>
                             <tr>
-                                <td>CSG et CRDS (2.9%)</td>
-                                <td style="text-align: right; color: var(--primary)">- 52.25 €</td>
+                                <td>CSG & CRDS (~9.5%)</td>
+                                <td style="text-align: right; color: var(--primary)">- 177,93 €</td>
                             </tr>
                             <tr>
                                 <td>Impôt sur le revenu (0%)</td>
-                                <td style="text-align: right; color: var(--primary)">- 0.00 €</td>
+                                <td style="text-align: right; color: var(--primary)">- 0,00 €</td>
                             </tr>
                             <tr style="background-color: #f8fafc;">
                                 <td style="padding-top: 1rem;"><strong>Coût Total Employeur</strong></td>
-                                <td style="text-align: right; padding-top: 1rem;"><strong>2558.56 €</strong></td>
+                                <td style="text-align: right; padding-top: 1rem;"><strong>2 651,17 €</strong></td>
                             </tr>
                         </tbody>
                     </table>
@@ -554,16 +846,16 @@
                 </div>
             </div>
             
-            <div class="btn-row">
-                <button type="button" class="btn-pdf" onclick="genPdf()">📄 Télécharger le PDF</button>
-                <button type="button" class="btn-share" id="btnShare" onclick="copyShareLink()">🔗 Copier le lien</button>
+            <div class="btn-row" aria-live="polite">
+                <button type="button" class="btn-pdf" onclick="genPdf()"><span aria-hidden="true">📄</span> Télécharger le PDF</button>
+                <button type="button" class="btn-share" id="btnShare" onclick="copyShareLink()"><span aria-hidden="true">🔗</span> Copier le lien</button>
             </div>
         </div>
 
         <div class="card seo-content" style="grid-column: 1 / -1;">
             <h2>Quel est le montant officiel du SMIC Brut en Net en 2026 ?</h2>
-            <p>En France, au 1er janvier 2026, le <strong>SMIC horaire brut</strong> s'établit à <strong>12,31 €</strong>. Pour un contrat à temps plein fondé sur la durée légale de 35 heures par semaine (soit une moyenne mensualisée de 151,67 heures), le <strong>SMIC mensuel brut</strong> s'élève exactement à <strong>1 867,02 €</strong>.</p>
-            <p>Après déduction des cotisations sociales salariales obligatoires (sécurité sociale, retraite de base et complémentaire Agirc-Arrco, CSG et CRDS), le <strong>SMIC net mensuel</strong> perçu sur le compte bancaire d'un salarié non-cadre du secteur privé est d'environ <strong>1 405,40 €</strong> (soit un taux horaire net d'environ <strong>9,27 €</strong>).</p>
+            <p>En France, depuis la revalorisation du 1er juin 2026 (+2,41 %), le <strong>SMIC horaire brut</strong> s'établit à <strong>12,31 €</strong> (contre 12,02 € au 1er janvier 2026). Pour un contrat à temps plein fondé sur la durée légale de 35 heures par semaine (soit une moyenne mensualisée de 151,67 heures), le <strong>SMIC mensuel brut</strong> s'élève exactement à <strong>1 867,02 €</strong>.</p>
+            <p>Après déduction des cotisations sociales salariales obligatoires (sécurité sociale, retraite de base et complémentaire Agirc-Arrco, CSG et CRDS), le <strong>SMIC net mensuel</strong> perçu sur le compte bancaire d'un salarié non-cadre du secteur privé est de <strong>1 477,93 €</strong> (soit un taux horaire net d'environ <strong>9,74 €</strong>). Ces montants n'incluent pas la mutuelle ni la prévoyance d'entreprise, qui dépendent de votre convention collective.</p>
             
             <h3>Tableau de synthèse du SMIC 2026 (Brut vs Net)</h3>
             <div class="table-responsive" style="margin: 1.5rem 0;">
@@ -572,28 +864,28 @@
                         <tr style="background-color: #f8fafc; border-bottom: 2px solid var(--border);">
                             <th style="padding: 0.75rem;">Période de référence</th>
                             <th style="padding: 0.75rem;">SMIC Brut</th>
-                            <th style="padding: 0.75rem;">Net Salarié Non-Cadre (~22%)</th>
+                            <th style="padding: 0.75rem;">Net Salarié Non-Cadre (20,84 %)</th>
                             <th style="padding: 0.75rem;">Net Salarié Cadre (~25%)</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td style="padding: 0.75rem;"><strong>Taux Horaire</strong></td>
-                            <td style="padding: 0.75rem;">12,31 €</td>
-                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">~9,27 €</td>
-                            <td style="padding: 0.75rem;">~8,91 €</td>
+                            <td style="padding: 0.75rem;">12,31 €</td>
+                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">9,74 €</td>
+                            <td style="padding: 0.75rem;">~9,23 €</td>
                         </tr>
                         <tr>
                             <td style="padding: 0.75rem;"><strong>Mensuel (35 heures / semaine)</strong></td>
-                            <td style="padding: 0.75rem;">1 867,02 €</td>
-                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">~1 405,40 €</td>
-                            <td style="padding: 0.75rem;">~1 351,35 €</td>
+                            <td style="padding: 0.75rem;">1 867,02 €</td>
+                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">1 477,93 €</td>
+                            <td style="padding: 0.75rem;">~1 400,27 €</td>
                         </tr>
                         <tr>
                             <td style="padding: 0.75rem;"><strong>Annuel (12 mois)</strong></td>
-                            <td style="padding: 0.75rem;">22 404,24 €</td>
-                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">~16 864,80 €</td>
-                            <td style="padding: 0.75rem;">~16 216,20 €</td>
+                            <td style="padding: 0.75rem;">22 404,24 €</td>
+                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">17 735,16 €</td>
+                            <td style="padding: 0.75rem;">~16 803,18 €</td>
                         </tr>
                     </tbody>
                 </table>
@@ -614,46 +906,46 @@
                         <tr>
                             <td style="padding: 0.75rem;">Assurance vieillesse déplafonnée et plafonnée</td>
                             <td style="padding: 0.75rem;">7,30 % sur brut</td>
-                            <td style="padding: 0.75rem; text-align: right; color: var(--primary);">- 131,53 €</td>
+                            <td style="padding: 0.75rem; text-align: right; color: var(--primary);">- 136,29 €</td>
                         </tr>
                         <tr>
                             <td style="padding: 0.75rem;">Retraite complémentaire Agirc-Arrco (Tranche 1 + CEG)</td>
                             <td style="padding: 0.75rem;">4,01 % sur brut</td>
-                            <td style="padding: 0.75rem; text-align: right; color: var(--primary);">- 72,25 €</td>
+                            <td style="padding: 0.75rem; text-align: right; color: var(--primary);">- 74,87 €</td>
                         </tr>
                         <tr>
                             <td style="padding: 0.75rem;">CSG déductible de l'impôt sur le revenu</td>
                             <td style="padding: 0.75rem;">6,80 % sur 98,25 % du brut</td>
-                            <td style="padding: 0.75rem; text-align: right; color: var(--primary);">- 120,38 €</td>
+                            <td style="padding: 0.75rem; text-align: right; color: var(--primary);">- 124,74 €</td>
                         </tr>
                         <tr>
                             <td style="padding: 0.75rem;">CSG non déductible et CRDS</td>
                             <td style="padding: 0.75rem;">2,90 % sur 98,25 % du brut</td>
-                            <td style="padding: 0.75rem; text-align: right; color: var(--primary);">- 51,34 €</td>
+                            <td style="padding: 0.75rem; text-align: right; color: var(--primary);">- 53,20 €</td>
                         </tr>
                         <tr>
-                            <td style="padding: 0.75rem;">Prévoyance et autres contributions conventionnelles</td>
-                            <td style="padding: 0.75rem;">~1,16 %</td>
-                            <td style="padding: 0.75rem; text-align: right; color: var(--primary);">- 20,90 €</td>
+                            <td style="padding: 0.75rem;">Mutuelle et prévoyance d'entreprise</td>
+                            <td style="padding: 0.75rem;">Selon convention collective</td>
+                            <td style="padding: 0.75rem; text-align: right;">Non incluses</td>
                         </tr>
                         <tr style="background-color: #f8fafc; font-weight: bold; border-top: 2px solid var(--border);">
-                            <td style="padding: 0.75rem;">Total cotisations salariales (~22%)</td>
+                            <td style="padding: 0.75rem;">Total cotisations salariales (20,84 %)</td>
                             <td style="padding: 0.75rem;">-</td>
-                            <td style="padding: 0.75rem; text-align: right; color: var(--primary);">- 396,40 €</td>
+                            <td style="padding: 0.75rem; text-align: right; color: var(--primary);">- 389,09 €</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
             <h3>Impôt sur le revenu au SMIC : Quel taux de prélèvement à la source ?</h3>
-            <p>Un salarié payé au SMIC à temps plein tout au long de l'année perçoit un revenu net imposable annuel d'environ <strong>15 200 €</strong>. Après application de la déduction forfaitaire automatique de 10% pour frais professionnels, le revenu net imposable soumis au barème de l'impôt est inférieur au seuil d'imposition fixé par la Loi de Finances.</p>
+            <p>Un salarié payé au SMIC à temps plein tout au long de l'année perçoit un revenu net imposable annuel d'environ <strong>15 200 €</strong>. Après application de la déduction forfaitaire automatique de 10% pour frais professionnels, le revenu net imposable soumis au barème de l'impôt est inférieur au seuil d'imposition fixé par la Loi de Finances.</p>
             <p>Par conséquent, pour une personne célibataire sans enfant à charge, le <strong>taux de prélèvement à la source (PAS) est de 0%</strong>. Le salaire net avant impôt correspond donc exactement au salaire net après impôt viré sur votre compte bancaire.</p>
 
             <h3>Prime d'activité CAF : Le complément de revenu indispensable</h3>
             <p>Les personnes exerçant une activité professionnelle rémunérée au niveau du SMIC sont très majoritairement éligibles à la <strong>Prime d'activité</strong> versée par la Caisse d'Allocations Familiales (CAF) ou la MSA. Cette prestation sociale non imposable est calculée selon vos ressources et la composition de votre foyer :</p>
             <ul>
-                <li><strong>Célibataire sans enfant :</strong> le montant de la Prime d'activité se situe généralement entre <strong>160 € et 230 € par mois</strong>.</li>
-                <li><strong>Revenu disponible réel :</strong> en cumulant votre SMIC net (~1 405 €) et la Prime d'activité (~190 € en moyenne), votre revenu disponible mensuel effectif atteint <strong>environ 1 595 € nets</strong>.</li>
+                <li><strong>Célibataire sans enfant :</strong> le montant de la Prime d'activité se situe généralement entre <strong>160 € et 230 € par mois</strong>.</li>
+                <li><strong>Revenu disponible réel :</strong> en cumulant votre SMIC net (1 478 €) et la Prime d'activité (~190 € en moyenne), votre revenu disponible mensuel effectif atteint <strong>environ 1 668 € nets</strong>.</li>
                 <li><strong>Démarche :</strong> La demande s'effectue en ligne sur le site de la CAF et nécessite une déclaration trimestrielle de vos ressources.</li>
             </ul>
 
@@ -666,33 +958,33 @@
                             <th style="padding: 0.75rem;">Durée hebdomadaire</th>
                             <th style="padding: 0.75rem;">Heures mensuelles</th>
                             <th style="padding: 0.75rem;">Salaire Brut Mensuel</th>
-                            <th style="padding: 0.75rem;">Net Estimé (~22%)</th>
+                            <th style="padding: 0.75rem;">Net Estimé (20,84 %)</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td style="padding: 0.75rem;">17,5 heures (Mi-temps 50%)</td>
                             <td style="padding: 0.75rem;">75,83 h</td>
-                            <td style="padding: 0.75rem;">900,90 €</td>
-                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">~702,70 €</td>
+                            <td style="padding: 0.75rem;">933,51 €</td>
+                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">~738,97 €</td>
                         </tr>
                         <tr>
                             <td style="padding: 0.75rem;">24 heures (Minimum légal temps partiel)</td>
                             <td style="padding: 0.75rem;">104,00 h</td>
-                            <td style="padding: 0.75rem;">1 235,52 €</td>
-                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">~963,70 €</td>
+                            <td style="padding: 0.75rem;">1 280,24 €</td>
+                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">~1 013,44 €</td>
                         </tr>
                         <tr>
                             <td style="padding: 0.75rem;">28 heures (Temps partiel 80%)</td>
                             <td style="padding: 0.75rem;">121,33 h</td>
-                            <td style="padding: 0.75rem;">1 441,44 €</td>
-                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">~1 124,30 €</td>
+                            <td style="padding: 0.75rem;">1 493,62 €</td>
+                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">~1 182,35 €</td>
                         </tr>
                         <tr>
                             <td style="padding: 0.75rem;">32 heures par semaine</td>
                             <td style="padding: 0.75rem;">138,67 h</td>
-                            <td style="padding: 0.75rem;">1 647,36 €</td>
-                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">~1 284,90 €</td>
+                            <td style="padding: 0.75rem;">1 706,99 €</td>
+                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">~1 351,25 €</td>
                         </tr>
                     </tbody>
                 </table>
@@ -701,19 +993,19 @@
             <h3>Foire aux questions sur le SMIC en 2026</h3>
             <div class="faq-section" style="margin-top: 1.5rem;">
                 <div style="margin-bottom: 1.25rem;">
-                    <h4 style="color: var(--text-main); margin-bottom: 0.25rem;">Quel est le montant exact du SMIC net en 2026 ?</h4>
-                    <p style="color: var(--text-muted); margin-top: 0;">Pour 35 heures hebdomadaires, le SMIC brut mensuel est de 1 867,02 €. Après déduction des charges sociales moyennes de 22%, le SMIC net perçu par un salarié non-cadre est d'environ 1 405,40 € par mois (ou 12,31 € brut horaire soit ~9,27 € net de l'heure).</p>
+                    <h4 style="color: var(--text-main); margin-bottom: 0.25rem;">Quel est le montant exact du SMIC net en 2026 ?</h3>
+                    <p style="color: var(--text-muted); margin-top: 0;">Depuis le 1er juin 2026, le SMIC brut mensuel est de 1 867,02 € pour 35 heures par semaine (12,31 € brut de l'heure). Après déduction des cotisations salariales obligatoires (20,84 %), un salarié non-cadre touche 1 477,93 € net par mois, soit environ 9,74 € net de l'heure.</p>
                 </div>
                 <div style="margin-bottom: 1.25rem;">
-                    <h4 style="color: var(--text-main); margin-bottom: 0.25rem;">Le SMIC s'applique-t-il obligatoirement à tous les salariés ?</h4>
-                    <p style="color: var(--text-muted); margin-top: 0;">Oui, aucun salarié majeur du secteur privé ne peut percevoir une rémunération inférieure au SMIC horaire (12,31 €). Cependant, certaines conventions collectives prévoient des salaires minima conventionnels (SMC) supérieurs au SMIC qui s'imposent alors à l'employeur. Des abattements légaux existent uniquement pour les mineurs ayant moins de 6 mois de pratique professionnelle et les apprentis sous contrat d'apprentissage.</p>
+                    <h4 style="color: var(--text-main); margin-bottom: 0.25rem;">Le SMIC s'applique-t-il obligatoirement à tous les salariés ?</h3>
+                    <p style="color: var(--text-muted); margin-top: 0;">Oui, aucun salarié majeur du secteur privé ne peut percevoir une rémunération inférieure au SMIC horaire (12,31 €). Cependant, certaines conventions collectives prévoient des salaires minima conventionnels (SMC) supérieurs au SMIC qui s'imposent alors à l'employeur. Des abattements légaux existent uniquement pour les mineurs ayant moins de 6 mois de pratique professionnelle et les apprentis sous contrat d'apprentissage.</p>
                 </div>
                 <div style="margin-bottom: 1.25rem;">
-                    <h4 style="color: var(--text-main); margin-bottom: 0.25rem;">Quel est le coût total du SMIC pour l'employeur (super-brut) ?</h4>
-                    <p style="color: var(--text-muted); margin-top: 0;">Grâce à la réduction générale des cotisations patronales (ex-réduction Fillon), les cotisations patronales de sécurité sociale au niveau du SMIC sont fortement réduites. Le coût global pour l'entreprise s'établit à environ 1 950 € à 2 050 € par mois, contre plus de 2 550 € sans les allègements patronaux de l'État.</p>
+                    <h4 style="color: var(--text-main); margin-bottom: 0.25rem;">Quel est le coût total du SMIC pour l'employeur (super-brut) ?</h3>
+                    <p style="color: var(--text-muted); margin-top: 0;">Grâce à la réduction générale des cotisations patronales (ex-réduction Fillon), les cotisations patronales de sécurité sociale au niveau du SMIC sont fortement réduites. Le coût global pour l'entreprise s'établit à environ 1 950 € à 2 050 € par mois, contre plus de 2 550 € sans les allègements patronaux de l'État.</p>
                 </div>
                 <div style="margin-bottom: 1.25rem;">
-                    <h4 style="color: var(--text-main); margin-bottom: 0.25rem;">Comment demander la prime d'activité si l'on gagne le SMIC ?</h4>
+                    <h4 style="color: var(--text-main); margin-bottom: 0.25rem;">Comment demander la prime d'activité si l'on gagne le SMIC ?</h3>
                     <p style="color: var(--text-muted); margin-top: 0;">La demande se fait entièrement en ligne sur caf.fr ou msa.fr. Vous devez renseigner les revenus de votre foyer des trois derniers mois. Si vous êtes éligible, la prime est versée chaque mois le 5 et son montant reste fixe pendant un trimestre complet.</p>
                 </div>
             </div>
@@ -727,24 +1019,24 @@
             <div class="guide-grid">
                 <a href="/2000-brut-en-net/" class="guide-card">
                     <div>
-                        <span class="badge-tag">2 000 € Brut</span>
-                        <h4>2 000 € Brut en Net</h4>
-                        <p>1 560 € net non-cadre, 1 500 € net cadre : simulation complète avec impôts.</p>
+                        <span class="badge-tag">2 000 € Brut</span>
+                        <h3>2 000 € Brut en Net</h3>
+                        <p>1 560 € net non-cadre, 1 500 € net cadre : simulation complète avec impôts.</p>
                     </div>
                     <span style="font-weight: 600; color: var(--secondary); margin-top: 1rem; font-size: 0.9rem;">Voir la simulation →</span>
                 </a>
                 <a href="/2500-brut-en-net/" class="guide-card">
                     <div>
-                        <span class="badge-tag">2 500 € Brut</span>
-                        <h4>2 500 € Brut en Net</h4>
-                        <p>Calcul pour 2 500 € brut par mois : cotisations salariales et prélèvement à la source.</p>
+                        <span class="badge-tag">2 500 € Brut</span>
+                        <h3>2 500 € Brut en Net</h3>
+                        <p>Calcul pour 2 500 € brut par mois : cotisations salariales et prélèvement à la source.</p>
                     </div>
                     <span style="font-weight: 600; color: var(--secondary); margin-top: 1rem; font-size: 0.9rem;">Voir la simulation →</span>
                 </a>
                 <a href="/cadre-brut-en-net/" class="guide-card">
                     <div>
                         <span class="badge-tag">Statut Cadre</span>
-                        <h4>Salaire Cadre Brut en Net</h4>
+                        <h3>Salaire Cadre Brut en Net</h3>
                         <p>Retraite Agirc-Arrco, APEC, prévoyance : tout savoir sur la déduction de 25% cadre.</p>
                     </div>
                     <span style="font-weight: 600; color: var(--secondary); margin-top: 1rem; font-size: 0.9rem;">Fiche Cadre →</span>
@@ -752,7 +1044,7 @@
                 <a href="/" class="guide-card">
                     <div>
                         <span class="badge-tag">Général</span>
-                        <h4>Simulateur Complet</h4>
+                        <h3>Simulateur Complet</h3>
                         <p>Calculez n'importe quel salaire brut ou net en temps réel sur notre simulateur complet.</p>
                     </div>
                     <span style="font-weight: 600; color: var(--secondary); margin-top: 1rem; font-size: 0.9rem;">Simulateur Général →</span>
@@ -766,11 +1058,11 @@
     <footer>
         <div class="footer-inner">
             <div class="footer-col">
-                <h4>À propos de monbrutnet.fr</h4>
+                <h2>À propos de monbrutnet.fr</h2>
                 <p>Votre outil en ligne gratuit et indépendant pour simuler la conversion de vos salaires brut en net, cotisations sociales, impôt à la source et droits professionnels en France en 2026.</p>
             </div>
             <div class="footer-col">
-                <h4>Simulateurs & Outils 2026</h4>
+                <h2>Simulateurs & Outils 2026</h2>
                 <ul>
                     <li><a href="/">Simulateur Salarié Brut Net</a></li>
                     <li><a href="/smic-brut-net/">SMIC Brut en Net</a></li>
@@ -785,7 +1077,7 @@
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>Informations Légales & Contact</h4>
+                <h2>Informations Légales & Contact</h2>
                 <ul>
                     <li><a href="/mentions-legales/">Mentions Légales</a></li>
                     <li><a href="/a-propos/">À Propos & Méthodologie</a></li>
@@ -805,16 +1097,18 @@
     </footer>
 
     <script>
+        const eur = (n, d = 2) => n.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR', minimumFractionDigits: d, maximumFractionDigits: d });
+        const num1 = n => n.toLocaleString('fr-FR', { maximumFractionDigits: 1 });
         const u = "contact";
         const d = "monbrutnet.fr";
-        document.getElementById("email-contact").innerHTML = `<a href="mailto:${u}@${d}">${u}@${d}</a>`;
+        const emailEl = document.getElementById("email-contact"); if (emailEl) emailEl.innerHTML = `<a href="mailto:${u}@${d}">${u}@${d}</a>`;
 
         const STATUTS = {
             nonCadre: {
-                nom: "Non-cadre (~22%)",
-                tauxGlobal: 0.22,
-                tauxSecuRetraite: 0.125, // Assurance vieillesse, Agirc-Arrco T1, CEG, prévoyance
-                tauxCsgCrds: 0.095,      // CSG déductible et non déductible + CRDS
+                nom: "Non-cadre (20,84 %)",
+                tauxGlobal: 0.2084,
+                tauxSecuRetraite: 0.1131, // Vieillesse 7,30 % + Agirc-Arrco T1 3,15 % + CEG 0,86 %
+                tauxCsgCrds: 0.0953,      // CSG 9,20 % + CRDS 0,50 % sur 98,25 % du brut
                 tauxEmployeur: 1.42
             },
             cadre: {
@@ -849,7 +1143,7 @@
                 return;
             }
             historyList.innerHTML = historique.map(item => 
-                `<li>${item.periode}: <strong>${item.brut}€</strong> ➔ Net <strong>${item.net}€</strong></li>`
+                `<li>${item.periode}: <strong>${eur(+item.brut)}</strong> ➔ Net <strong>${eur(+item.net)}</strong></li>`
             ).join('');
         }
         updateHistoryUI();
@@ -900,29 +1194,29 @@
                 <strong>Taux PAS :</strong> ${tauxImpot}%
             `;
 
-            document.getElementById('netAvantResult').textContent = `${netAvantImpot.toFixed(2)} € Net avant impôt`;
-            document.getElementById('netApresResult').textContent = `${netApresImpot.toFixed(2)} € Net après impôt`;
+            document.getElementById('netAvantResult').textContent = `${eur(netAvantImpot)} Net avant impôt`;
+            document.getElementById('netApresResult').textContent = `${eur(netApresImpot)} Net après impôt`;
             
             document.getElementById('detailsBody').innerHTML = `
                 <tr>
                     <td>Salaire Brut (${perLabel})</td>
-                    <td style="text-align: right;"><strong>${brut.toFixed(2)} €</strong></td>
+                    <td style="text-align: right;"><strong>${eur(brut)}</strong></td>
                 </tr>
                 <tr>
-                    <td>Sécurité Sociale & Retraite (~${(cfg.tauxSecuRetraite * 100).toFixed(1)}%)</td>
-                    <td style="text-align: right; color: var(--primary)">- ${montantSecuRetraite.toFixed(2)} €</td>
+                    <td>Sécurité Sociale & Retraite (~${num1((cfg.tauxSecuRetraite * 100))} %)</td>
+                    <td style="text-align: right; color: var(--primary)">- ${eur(montantSecuRetraite)}</td>
                 </tr>
                 <tr>
-                    <td>CSG & CRDS (~${(cfg.tauxCsgCrds * 100).toFixed(1)}%)</td>
-                    <td style="text-align: right; color: var(--primary)">- ${montantCsgCrds.toFixed(2)} €</td>
+                    <td>CSG & CRDS (~${num1((cfg.tauxCsgCrds * 100))} %)</td>
+                    <td style="text-align: right; color: var(--primary)">- ${eur(montantCsgCrds)}</td>
                 </tr>
                 <tr>
                     <td>Impôt sur le revenu (${tauxImpot}%)</td>
-                    <td style="text-align: right; color: var(--primary)">- ${montantImpot.toFixed(2)} €</td>
+                    <td style="text-align: right; color: var(--primary)">- ${eur(montantImpot)}</td>
                 </tr>
                 <tr style="background-color: #f8fafc;">
                     <td style="padding-top: 1rem;"><strong>Coût Total Employeur</strong></td>
-                    <td style="text-align: right; padding-top: 1rem;"><strong>${coutEmployeur.toFixed(2)} €</strong></td>
+                    <td style="text-align: right; padding-top: 1rem;"><strong>${eur(coutEmployeur)}</strong></td>
                 </tr>
             `;
 
@@ -962,8 +1256,9 @@
 
         async function genPdf() {
             const btn = document.querySelector('.btn-pdf');
-            const originalText = btn.textContent;
-            btn.textContent = "⏳ Préparation du PDF...";
+            const originalText = btn.innerHTML;
+            let failed = false;
+            btn.textContent = "⏳ Préparation du PDF…";
             btn.disabled = true;
             try {
                 if (typeof html2pdf === 'undefined') {
@@ -982,10 +1277,11 @@
                 await html2pdf().set(opt).from(element).save();
                 signature.style.display = 'none';
             } catch (err) {
-                alert("Erreur lors de la génération du PDF.");
+                failed = true;
             } finally {
-                btn.textContent = originalText;
+                btn.innerHTML = failed ? "⚠️ Échec du PDF, cliquez pour réessayer" : originalText;
                 btn.disabled = false;
+                if (failed) setTimeout(() => { btn.innerHTML = originalText; }, 4000);
             }
         }
     </script>
