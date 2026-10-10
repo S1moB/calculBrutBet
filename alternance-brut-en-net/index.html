@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#f9fafb"> 
     <title>Salaire Alternance Brut en Net 2026 : Simulateur | monbrutnet.fr</title>
-    <meta name="description" content="Simulateur salaire alternant et apprenti en 2026 : exonération de cotisations salariales jusqu'à 79% du SMIC (brut = net). Grille légale selon l'âge.">
+    <meta name="description" content="Simulateur salaire alternant et apprenti 2026 : exonération de cotisations jusqu'à 50% du SMIC (79% pour les contrats avant mars 2025). Grille selon l'âge.">
     
     <link rel="canonical" href="https://monbrutnet.fr/alternance-brut-en-net/" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -13,7 +13,7 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://monbrutnet.fr/alternance-brut-en-net/">
     <meta property="og:title" content="Salaire Alternance Brut en Net 2026 : Simulateur | monbrutnet.fr">
-    <meta property="og:description" content="Simulateur salaire alternant et apprenti en 2026 : exonération de cotisations salariales jusqu'à 79% du SMIC (brut = net). Grille légale selon l'âge.">
+    <meta property="og:description" content="Simulateur salaire alternant et apprenti 2026 : exonération de cotisations jusqu'à 50% du SMIC (79% pour les contrats avant mars 2025). Grille selon l'âge.">
     <meta property="og:image" content="https://monbrutnet.fr/og-image.jpg"> 
     <meta name="twitter:card" content="summary_large_image">
 
@@ -52,6 +52,7 @@
         },
         {
             "@type": "WebApplication",
+            "dateModified": "2026-10-10",
             "name": "Calculateur Alternance & Apprentissage 2026",
             "url": "https://monbrutnet.fr/alternance-brut-en-net/",
             "applicationCategory": "FinanceApplication",
@@ -78,7 +79,7 @@
                     "name": "Un alternant a-t-il droit à la Prime d'activité versée par la CAF ?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Oui, à condition de percevoir des revenus professionnels d'au moins 78% du SMIC net (soit environ 1 082 € par mois) pendant les trois mois précédant la demande. Les apprentis de 21 ans et plus en 2e ou 3e année franchissent facilement ce seuil et peuvent toucher entre 100 € et 200 € d'aide complémentaire par mois."
+                        "text": "Oui, à condition de percevoir des revenus professionnels d'au moins 78% du SMIC net (soit environ 1 153 € par mois) pendant les trois mois précédant la demande. Les apprentis de 21 ans et plus en 2e ou 3e année franchissent facilement ce seuil et peuvent toucher entre 100 € et 200 € d'aide complémentaire par mois."
                     }
                 },
                 {
@@ -729,6 +730,7 @@
     </nav>
 
     <h1>Calcul Salaire Alternance Brut en Net 2026</h1>
+    <p class="maj-date" style="font-size: 0.85rem; color: #6b7280; margin: 0.25rem 0 1rem;">Mis à jour le <time datetime="2026-10-10">10 octobre 2026</time> — barèmes 2026 vérifiés (SMIC 12,31 €/h depuis le 1er juin 2026)</p>
 
     <p class="seo-intro">Calculez votre salaire en contrat d'apprentissage ou de professionnalisation : découvrez pourquoi en alternance, votre <strong>brut est souvent égal à votre net</strong> !</p>
 
@@ -749,8 +751,16 @@
                     <select id="statut">
                         <option value="nonCadre" >Non-cadre (~22%)</option>
                         <option value="cadre" >Cadre (~25%)</option>
-                        <option value="fonctionnaire" >Fonctionnaire (~11%)</option>
+                        <option value="fonctionnaire" >Fonctionnaire (~15%)</option>
                         <option value="alternant" selected>Alternant / Apprenti (~0%)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="contratApprenti">Date de signature du contrat d'apprentissage</label>
+                    <select id="contratApprenti">
+                        <option value="depuis2025" selected>Depuis le 1er mars 2025 (exonération jusqu'à 50 % du SMIC)</option>
+                        <option value="avant2025">Avant le 1er mars 2025 (exonération jusqu'à 79 % du SMIC)</option>
                     </select>
                 </div>
 
@@ -838,19 +848,24 @@
 
         <div class="card seo-content" style="grid-column: 1 / -1;">
             <h2>Pourquoi le brut est-il égal au net en contrat d'apprentissage ?</h2>
-            <p>En France, la loi accorde un avantage social et fiscal exceptionnel aux jeunes en formation professionnelle : en vertu de l'<strong>article L. 6243-2 du Code du travail</strong>, la rémunération perçue par l'apprenti est <strong>totalement exonérée de cotisations sociales salariales</strong> (y compris de la CSG et de la CRDS) dans la limite d'un plafond fixé à <strong>79% du SMIC</strong> (soit <strong>1 423,42 € brut par mois</strong> en 2026).</p>
-            <p>Tant que votre rémunération brute mensuelle ne dépasse pas 1 423,42 €, aucune cotisation n'est prélevée sur votre bulletin de paie : <strong>Votre salaire brut est donc strictement égal à votre salaire net !</strong></p>
-
-            <h3>Que se passe-t-il au-delà de 79% du SMIC (ex: 26 ans et plus) ?</h3>
-            <p>Si votre salaire brut dépasse 1 423,42 € (par exemple pour les apprentis de 26 ans et plus rémunérés à 100% du SMIC, soit 1 867,02 € brut, ou selon un accord d'entreprise plus favorable) :</p>
+            <p>En France, la loi accorde un avantage social et fiscal exceptionnel aux jeunes en formation professionnelle : en vertu de l'<strong>article L. 6243-2 du Code du travail</strong>, la rémunération perçue par l'apprenti est <strong>exonérée de cotisations sociales salariales</strong> dans la limite d'un plafond qui dépend de la date de signature du contrat :</p>
             <ul>
-                <li>La tranche de salaire allant jusqu'à <strong>1 423,42 €</strong> reste <strong>exonérée à 100%</strong> de cotisations salariales.</li>
-                <li>Seule la fraction excédentaire (1 867,02 € - 1 423,42 € = <strong>378,38 €</strong>) subit les cotisations salariales habituelles du régime général (~22%).</li>
-                <li><strong>Exemple concret pour 1 867,02 € brut :</strong> Cotisations prélevées = 378,38 € × 22% = 83,24 €. Votre salaire net perçu est donc de <code>1 867,02 € - 83,24 € = 1 718,56 € net</code>.</li>
+                <li><strong>Contrats signés depuis le 1er mars 2025 :</strong> exonération jusqu'à <strong>50 % du SMIC</strong>, soit <strong>933,51 € brut par mois</strong> depuis le 1er juin 2026. Au-delà, la fraction excédentaire supporte les cotisations salariales et la CSG/CRDS.</li>
+                <li><strong>Contrats signés avant le 1er mars 2025 :</strong> l'ancien plafond de <strong>79 % du SMIC</strong> continue de s'appliquer, soit <strong>1 474,95 € brut par mois</strong>, sans CSG ni CRDS.</li>
+            </ul>
+            <p>Le projet de loi de financement de la Sécurité sociale pour 2026 prévoyait de supprimer cette exonération pour les nouveaux contrats ; la mesure n'a pas été retenue dans la loi définitive.</p>
+            <p>Tant que votre rémunération brute mensuelle ne dépasse pas le plafond applicable à votre contrat, aucune cotisation salariale n'est prélevée : <strong>votre salaire brut est égal à votre salaire net</strong>. C'est le cas, par exemple, d'un apprenti de 18 à 20 ans en 1re année (43 % du SMIC).</p>
+
+            <h3>Que se passe-t-il au-delà du plafond d'exonération ?</h3>
+            <p>Exemple d'un apprenti de 26 ans et plus rémunéré à 100 % du SMIC (1 867,02 € brut), contrat signé depuis le 1er mars 2025 :</p>
+            <ul>
+                <li>La tranche de salaire allant jusqu'à <strong>933,51 €</strong> reste <strong>exonérée</strong> de cotisations salariales.</li>
+                <li>Seule la fraction excédentaire (1 867,02 € - 933,51 € = <strong>933,51 €</strong>) subit les cotisations salariales et la CSG/CRDS (~22 %).</li>
+                <li><strong>Exemple concret pour 1 867,02 € brut :</strong> Cotisations prélevées = 933,51 € × 22 % = 205,37 €. Votre salaire net perçu est donc de <code>1 867,02 € - 205,37 € = 1 661,65 € net</code>. Avec un contrat signé avant le 1er mars 2025 (plafond 79 %) : (1 867,02 € - 1 474,95 €) × 22 % = 86,26 €, soit <code>1 780,76 € net</code>.</li>
             </ul>
 
             <h3>Grille officielle des salaires minimaux en Apprentissage 2026</h3>
-            <p>Le barème légal minimal de rémunération en contrat d'apprentissage est fixé en pourcentage du SMIC (1 867,02 € brut au 1er janvier 2026) selon l'âge de l'apprenti et son année de contrat :</p>
+            <p>Le barème légal minimal de rémunération en contrat d'apprentissage est fixé en pourcentage du SMIC (1 867,02 € brut depuis le 1er juin 2026) selon l'âge de l'apprenti et son année de contrat. Les montants nets ci-dessous concernent les contrats signés depuis le 1er mars 2025 :</p>
             <div class="table-responsive" style="margin: 1.5rem 0;">
                 <table style="width: 100%; border-collapse: collapse; text-align: left;">
                     <thead>
@@ -864,25 +879,25 @@
                     <tbody>
                         <tr>
                             <td style="padding: 0.75rem;"><strong>Moins de 18 ans</strong></td>
-                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">27% = 486,49 € net</td>
-                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">39% = 702,70 € net</td>
-                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">53% = 954,95 € net</td>
+                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">27% = 504,10 € net</td>
+                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">39% = 728,14 € net</td>
+                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">55% = 1 026,86 € brut ➔ 1 006,32 € net</td>
                         </tr>
                         <tr>
                             <td style="padding: 0.75rem;"><strong>18 à 20 ans</strong></td>
-                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">43% = 774,77 € net</td>
-                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">51% = 918,92 € net</td>
-                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">67% = 1 207,21 € net</td>
+                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">43% = 802,82 € net</td>
+                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">51% = 952,18 € brut ➔ 948,07 € net</td>
+                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">67% = 1 250,90 € brut ➔ 1 181,07 € net</td>
                         </tr>
                         <tr>
                             <td style="padding: 0.75rem;"><strong>21 à 25 ans</strong></td>
-                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">53% = 954,95 € net</td>
-                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">61% = 1 099,10 € net</td>
-                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">78% = 1 405,40 € net</td>
+                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">53% = 989,52 € brut ➔ 977,20 € net</td>
+                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">61% = 1 138,88 € brut ➔ 1 093,70 € net</td>
+                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">78% = 1 456,28 € brut ➔ 1 341,27 € net</td>
                         </tr>
                         <tr>
                             <td style="padding: 0.75rem;"><strong>26 ans et plus</strong></td>
-                            <td colspan="3" style="padding: 0.75rem; color: var(--success); font-weight: 600; text-align: center;">100% du SMIC (1 867,02 € brut ➔ ~1 718,56 € net) ou 100% du salaire minimum conventionnel</td>
+                            <td colspan="3" style="padding: 0.75rem; color: var(--success); font-weight: 600; text-align: center;">100% du SMIC (1 867,02 € brut ➔ ~1 661,65 € net) ou 100% du salaire minimum conventionnel</td>
                         </tr>
                     </tbody>
                 </table>
@@ -891,7 +906,7 @@
             <h3>Apprentissage vs Contrat de Professionnalisation : Attention au piège !</h3>
             <p>Bien que regroupés sous le terme d'alternance, ces deux types de contrats n'offrent pas du tout le même régime :</p>
             <ul>
-                <li><strong>En contrat d'apprentissage :</strong> Vous profitez de l'exonération sociale de l'article L. 6243-2 du Code du travail. Le brut est égal au net jusqu'à 79% du SMIC.</li>
+                <li><strong>En contrat d'apprentissage :</strong> Vous profitez de l'exonération sociale de l'article L. 6243-2 du Code du travail. Le brut est égal au net jusqu'à 50 % du SMIC (79 % pour les contrats signés avant le 1er mars 2025).</li>
                 <li><strong>En contrat de professionnalisation :</strong> L'exonération de cotisations salariales ne s'applique pas ! Vous êtes soumis au régime de cotisations sociales des salariés ordinaires (~22% de charges salariales). Par exemple, pour 1 500 € brut en contrat pro, votre net sera d'environ 1 170 €, alors qu'il serait de plus de 1 480 € en contrat d'apprentissage.</li>
             </ul>
 
@@ -907,7 +922,7 @@
                 </div>
                 <div style="margin-bottom: 1.25rem;">
                     <h4 style="color: var(--text-main); margin-bottom: 0.25rem;">Un alternant a-t-il droit à la Prime d'activité versée par la CAF ?</h3>
-                    <p style="color: var(--text-muted); margin-top: 0;">Oui, à condition de percevoir des revenus professionnels d'au moins 78% du SMIC net (soit environ 1 082 € par mois) pendant les trois mois précédant la demande. Les apprentis de 21 ans et plus en 2e ou 3e année franchissent facilement ce seuil et peuvent toucher entre 100 € et 200 € d'aide complémentaire par mois.</p>
+                    <p style="color: var(--text-muted); margin-top: 0;">Oui, à condition de percevoir des revenus professionnels d'au moins 78% du SMIC net (soit environ 1 153 € par mois) pendant les trois mois précédant la demande. Les apprentis de 21 ans et plus en 2e ou 3e année franchissent facilement ce seuil et peuvent toucher entre 100 € et 200 € d'aide complémentaire par mois.</p>
                 </div>
                 <div style="margin-bottom: 1.25rem;">
                     <h4 style="color: var(--text-main); margin-bottom: 0.25rem;">L'employeur peut-il payer un apprenti au-dessus de la grille légale ?</h3>
@@ -930,9 +945,17 @@
                     <div>
                         <span class="badge-tag">SMIC 2026</span>
                         <h3>SMIC Brut en Net</h3>
-                        <p>1 867,02 € brut donne ~1 405 € net : montant horaire, mensuel et annuel.</p>
+                        <p>1 867,02 € brut donne ~1 478 € net : montant horaire, mensuel et annuel.</p>
                     </div>
                     <span style="font-weight: 600; color: var(--secondary); margin-top: 1rem; font-size: 0.9rem;">Calculer le SMIC →</span>
+                </a>
+                <a href="/1500-brut-en-net/" class="guide-card">
+                    <div>
+                        <span class="badge-tag">1 500 € Brut</span>
+                        <h3>1 500 € Brut en Net</h3>
+                        <p>Temps partiel ou SMIC à 80 % : 1 170 € net non-cadre, détail des cotisations.</p>
+                    </div>
+                    <span style="font-weight: 600; color: var(--secondary); margin-top: 1rem; font-size: 0.9rem;">Voir la simulation →</span>
                 </a>
                 <a href="/2000-brut-en-net/" class="guide-card">
                     <div>
@@ -1053,7 +1076,7 @@
             alternant: {
                 nom: "Alternant / Apprenti",
                 tauxGlobal: 0.00,
-                seuilExo: 1423.42,       // Exonération totale sous 79% du SMIC (Code du travail art. L. 6243-2)
+                seuilExo: 933.51,        // Exonération sous 50% du SMIC 2026 (contrats depuis le 01/03/2025, art. L. 6243-2 C. trav.)
                 tauxEmployeur: 1.05
             }
         };
@@ -1092,7 +1115,7 @@
             let totalCotisations = 0;
 
             if (statut === 'alternant') {
-                let seuilMois = cfg.seuilExo;
+                let seuilMois = document.getElementById('contratApprenti').value === 'avant2025' ? 1474.95 : cfg.seuilExo; // 79% ou 50% du SMIC
                 let seuil = (periode === 'annuel') ? seuilMois * 12 : ((periode === 'horaire') ? seuilMois / 151.67 : seuilMois);
                 if (brut > seuil) {
                     const surplus = brut - seuil;

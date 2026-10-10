@@ -5,25 +5,26 @@
 ## Outils & Simulateurs Spécialisés
 
 - [Calculateur Brut en Net Principal](https://monbrutnet.fr/): Simulateur officiel gratuit de conversion salaire brut en net mensuel et annuel pour statuts Cadre, Non-cadre, Fonction publique et Indépendant.
-- [Simulateur Auto-Entrepreneur Brut en Net](https://monbrutnet.fr/auto-entrepreneur-brut-en-net/): Cotisations URSSAF 2026, option ACRE, versement libératoire de l'impôt, calcul du revenu net après charges et impôt.
+- [Simulateur Auto-Entrepreneur Brut en Net](https://monbrutnet.fr/auto-entrepreneur-brut-en-net/): Cotisations URSSAF 2026 (BNC 25,6%, BIC 21,2%, vente 12,3%), ACRE à 25% pour les créations depuis le 1er juillet 2026 (50% avant), versement libératoire de l'impôt, calcul du revenu net après charges et impôt.
 - [Convertisseur TJM Freelance en Salaire Net](https://monbrutnet.fr/tjm-freelance-brut-en-net/): Conversion d'un Taux Journalier Moyen (TJM) en salaire net mensuel selon le statut juridique (Micro-entreprise, SASU dividendes ou salaire, EURL).
-- [Simulateur Rupture Conventionnelle Net](https://monbrutnet.fr/rupture-conventionnelle-net/): Calcul de l'indemnité légale de rupture selon l'ancienneté, forfait social employeur 30%, exonération fiscale et sociale.
-- [Simulateur Chômage ARE France Travail](https://monbrutnet.fr/chomage-brut-en-net/): Calcul de l'Allocation d'aide au retour à l'emploi selon le SJR, formule 40.4% + 13.11€ vs 57%, retenue retraite complémentaire.
+- [Simulateur Rupture Conventionnelle Net](https://monbrutnet.fr/rupture-conventionnelle-net/): Calcul de l'indemnité légale de rupture selon l'ancienneté, contribution patronale de 40% (LFSS 2026), exonération fiscale et sociale.
+- [Simulateur Chômage ARE France Travail](https://monbrutnet.fr/chomage-brut-en-net/): Calcul de l'Allocation d'aide au retour à l'emploi selon le SJR, formule 40,4% + 13,18€ vs 57% (montants inchangés au 1er juillet 2026), retenue retraite complémentaire.
 - [Calculateur Heures Supplémentaires Brut en Net](https://monbrutnet.fr/heures-supplementaires-brut-net/): Majorations 25% et 50%, exonération fiscale TEPA jusqu'à 7 500 €/an, allègement de cotisations salariales de 11.31%.
 
 ## Fiches et Grilles de Salaires
 
-- [Salaire SMIC 2026 Brut en Net](https://monbrutnet.fr/smic-brut-net/): 1 801,80 € brut = ~1 405 € net non-cadre, ~1 351 € net cadre.
+- [Salaire SMIC 2026 Brut en Net](https://monbrutnet.fr/smic-brut-net/): 1 867,02 € brut (12,31 €/h depuis le 1er juin 2026) = 1 477,93 € net non-cadre, ~1 400 € net cadre. Tableau des taux horaires de 11 € à 20 €.
+- [Salaire 1 500 € Brut en Net](https://monbrutnet.fr/1500-brut-en-net/): 1 170 € net non-cadre, 1 125 € net cadre (temps partiel ~80% au SMIC).
 - [Salaire 2 000 € Brut en Net](https://monbrutnet.fr/2000-brut-en-net/): 1 560 € net non-cadre, 1 500 € net cadre.
 - [Salaire 2 500 € Brut en Net](https://monbrutnet.fr/2500-brut-en-net/): 1 950 € net non-cadre, 1 875 € net cadre.
 - [Salaire 3 000 € Brut en Net](https://monbrutnet.fr/3000-brut-en-net/): 2 340 € net non-cadre, 2 250 € net cadre.
 - [Statut Cadre Brut en Net](https://monbrutnet.fr/cadre-brut-en-net/): Déduction moyenne de 25% : cotisation APEC, prévoyance 1,5%, retraite Agirc-Arrco tranche 1 et 2.
 - [Fonctionnaire Brut en Net](https://monbrutnet.fr/fonctionnaire-brut-en-net/): Retenue pension civile (~11%), RAFP et primes non soumises à cotisations.
-- [Alternance & Apprentissage Brut en Net](https://monbrutnet.fr/alternance-brut-en-net/): Exonération totale des cotisations salariales jusqu'à 79% du SMIC (brut = net).
+- [Alternance & Apprentissage Brut en Net](https://monbrutnet.fr/alternance-brut-en-net/): Exonération des cotisations salariales jusqu'à 50% du SMIC (933,51 €) pour les contrats signés depuis le 1er mars 2025, 79% (1 474,95 €) pour les contrats antérieurs.
 
 ## Informations Légales & Confiance (E-E-A-T)
 
-- [À Propos & Méthodologie](https://monbrutnet.fr/a-propos/): Présentation de l'équipe éditoriale, méthodologie de calcul des cotisations sociales (non-cadre 22%, cadre 25%, fonctionnaire 15%), sources officielles et gouvernance.
+- [À Propos & Méthodologie](https://monbrutnet.fr/a-propos/): Présentation de l'équipe éditoriale, méthodologie de calcul des cotisations sociales (estimations : non-cadre 22%, cadre 25%, fonctionnaire 15%), historique daté des mises à jour, sources officielles et gouvernance.
 - [Mentions Légales](https://monbrutnet.fr/mentions-legales/): Informations éditeur conformes LCEN, hébergement Netlify, directeur de la publication et propriété intellectuelle.
 - [Politique de Confidentialité](https://monbrutnet.fr/politique-de-confidentialite/): Architecture Privacy by Design : calculs 100% exécutés localement côté client dans le navigateur, aucune donnée financière transmise sur nos serveurs, conformité RGPD.
 
@@ -43,7 +44,12 @@
 
 ## Données Clés 2026 en France
 
-- SMIC Brut Mensuel : 1 801,80 € (11,88 € / heure)
-- SMIC Net Mensuel (Non-cadre) : ~1 405,40 €
-- Cotisations URSSAF Micro 2026 : 12.3% (Vente marchandises), 21.2% (Prestations BIC), 24.6% (BNC libéral)
+- SMIC Brut Mensuel : 1 867,02 € (12,31 € / heure) depuis le 1er juin 2026 (12,02 € / heure au 1er janvier 2026)
+- SMIC Brut Annuel : 22 404,24 €
+- SMIC Net Mensuel (Non-cadre) : ~1 477,93 €
+- Cotisations URSSAF Micro 2026 : 12,3% (Vente marchandises), 21,2% (Prestations BIC), 25,6% (BNC libéral SSI), 23,2% (CIPAV)
+- ACRE micro-entrepreneur : exonération de 25% pour les créations depuis le 1er juillet 2026 (décret n° 2026-69), 50% avant ; demande obligatoire sous 60 jours
+- Apprentis : exonération jusqu'à 50% du SMIC (contrats depuis le 1er mars 2025), 79% pour les contrats antérieurs
+- Rupture conventionnelle : contribution patronale de 40% depuis le 1er janvier 2026
+- ARE : partie fixe 13,18 € / jour
 - Taux légal indemnité rupture : 1/4 de mois par an jusqu'à 10 ans, 1/3 de mois par an au-delà.

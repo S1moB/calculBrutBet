@@ -52,6 +52,7 @@
         },
         {
             "@type": "WebApplication",
+            "dateModified": "2026-10-10",
             "name": "Calculateur 2 000 € Brut 2026",
             "url": "https://monbrutnet.fr/2000-brut-en-net/",
             "applicationCategory": "FinanceApplication",
@@ -729,6 +730,7 @@
     </nav>
 
     <h1>Calcul de 2 000 € Brut en Net en 2026</h1>
+    <p class="maj-date" style="font-size: 0.85rem; color: #6b7280; margin: 0.25rem 0 1rem;">Mis à jour le <time datetime="2026-10-10">10 octobre 2026</time> — barèmes 2026 vérifiés (SMIC 12,31 €/h depuis le 1er juin 2026)</p>
 
     <p class="seo-intro">Vous négociez un salaire de <strong>2 000 € brut</strong> par mois ? Découvrez exactement ce qu'il vous reste sur votre compte bancaire après cotisations sociales et prélèvement à la source.</p>
 
@@ -749,7 +751,7 @@
                     <select id="statut">
                         <option value="nonCadre" selected>Non-cadre (~22%)</option>
                         <option value="cadre" >Cadre (~25%)</option>
-                        <option value="fonctionnaire" >Fonctionnaire (~11%)</option>
+                        <option value="fonctionnaire" >Fonctionnaire (~15%)</option>
                         <option value="alternant" >Alternant / Apprenti (~0%)</option>
                     </select>
                 </div>
@@ -881,11 +883,11 @@
                         </tr>
                         <tr>
                             <td style="padding: 0.75rem;"><strong>Apprenti / Alternant</strong></td>
-                            <td style="padding: 0.75rem; color: var(--primary);">- 126,85 € (au-delà 79% SMIC)</td>
-                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">1 873,15 €</td>
+                            <td style="padding: 0.75rem; color: var(--primary);">- 234,63 € (au-delà 50% SMIC)</td>
+                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">1 765,37 €</td>
                             <td style="padding: 0.75rem;">0,0 % (Exonéré)</td>
-                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">1 873,15 €</td>
-                            <td style="padding: 0.75rem;">22 477,80 €</td>
+                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">1 765,37 €</td>
+                            <td style="padding: 0.75rem;">21 184,44 €</td>
                         </tr>
                     </tbody>
                 </table>
@@ -953,9 +955,17 @@
                     <div>
                         <span class="badge-tag">SMIC 2026</span>
                         <h3>SMIC Brut en Net</h3>
-                        <p>1 867,02 € brut donne ~1 405 € net : montant horaire, mensuel et annuel.</p>
+                        <p>1 867,02 € brut donne ~1 478 € net : montant horaire, mensuel et annuel.</p>
                     </div>
                     <span style="font-weight: 600; color: var(--secondary); margin-top: 1rem; font-size: 0.9rem;">Calculer le SMIC →</span>
+                </a>
+                <a href="/1500-brut-en-net/" class="guide-card">
+                    <div>
+                        <span class="badge-tag">1 500 € Brut</span>
+                        <h3>1 500 € Brut en Net</h3>
+                        <p>Temps partiel ou SMIC à 80 % : 1 170 € net non-cadre, détail des cotisations.</p>
+                    </div>
+                    <span style="font-weight: 600; color: var(--secondary); margin-top: 1rem; font-size: 0.9rem;">Voir la simulation →</span>
                 </a>
                 <a href="/2000-brut-en-net/" class="guide-card">
                     <div>
@@ -1076,7 +1086,7 @@
             alternant: {
                 nom: "Alternant / Apprenti",
                 tauxGlobal: 0.00,
-                seuilExo: 1423.42,       // Exonération totale sous 79% du SMIC (Code du travail art. L. 6243-2)
+                seuilExo: 933.51,        // Exonération sous 50% du SMIC 2026 (contrats depuis le 01/03/2025, art. L. 6243-2 C. trav.)
                 tauxEmployeur: 1.05
             }
         };

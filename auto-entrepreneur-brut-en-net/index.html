@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#f9fafb"> 
-    <title>Calculateur Brut en Net Auto-Entrepreneur 2026 | monbrutnet.fr</title>
-    <meta name="description" content="Convertissez votre chiffre d'affaires brut en salaire net en micro-entreprise (2026) : cotisations URSSAF, ACRE, versement libératoire de l'impôt et calcul direct.">
+    <title>Auto-Entrepreneur Brut en Net 2026 (ACRE 25 %) | monbrutnet.fr</title>
+    <meta name="description" content="Revenu net d'auto-entrepreneur en 2026 : taux URSSAF (BNC 25,6 %, BIC 21,2 %), nouvelle ACRE à 25 % depuis le 1er juillet 2026 et versement libératoire.">
     
     <link rel="canonical" href="https://monbrutnet.fr/auto-entrepreneur-brut-en-net/" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://monbrutnet.fr/auto-entrepreneur-brut-en-net/">
-    <meta property="og:title" content="Calculateur Brut en Net Auto-Entrepreneur 2026 | monbrutnet.fr">
-    <meta property="og:description" content="Convertissez votre chiffre d'affaires brut en salaire net en micro-entreprise (2026) : cotisations URSSAF, ACRE, versement libératoire de l'impôt et calcul direct.">
+    <meta property="og:title" content="Auto-Entrepreneur Brut en Net 2026 (ACRE 25 %) | monbrutnet.fr">
+    <meta property="og:description" content="Revenu net d'auto-entrepreneur en 2026 : taux URSSAF (BNC 25,6 %, BIC 21,2 %), nouvelle ACRE à 25 % depuis le 1er juillet 2026 et versement libératoire.">
     <meta property="og:image" content="https://monbrutnet.fr/og-image.jpg"> 
     <meta name="twitter:card" content="summary_large_image">
 
@@ -41,6 +41,7 @@
         },
         {
             "@type": "WebApplication",
+            "dateModified": "2026-10-10",
             "name": "Simulateur Brut en Net Auto-Entrepreneur 2026",
             "url": "https://monbrutnet.fr/auto-entrepreneur-brut-en-net/",
             "applicationCategory": "FinanceApplication",
@@ -67,7 +68,7 @@
                     "name": "Comment fonctionne l'ACRE en 2026 pour les nouveaux auto-entrepreneurs ?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "L'ACRE permet une exonération de 50% de vos cotisations sociales durant vos 4 premiers trimestres d'activité sous réserve d'éligibilité (demandeurs d'emploi indemnisés ou non indemnisés inscrits depuis 6 mois, jeunes de 18 à 25 ans, bénéficiaires du RSA). La demande doit être déposée auprès de l'URSSAF dans les 45 jours suivant la création."
+                        "text": "L'ACRE a été réformée par le décret n° 2026-69 du 6 février 2026. Pour une micro-entreprise créée ou reprise depuis le 1er juillet 2026, l'exonération est de 25 % : vous cotisez à 75 % du taux normal pendant vos 4 premiers trimestres (par exemple 19,2 % au lieu de 25,6 % en BNC). Pour une création avant le 1er juillet 2026, l'exonération reste de 50 %. Depuis le 1er janvier 2026, l'ACRE n'est plus automatique : la demande doit être faite auprès de l'URSSAF au plus tard 60 jours après la création, et les critères d'éligibilité sont recentrés sur les publics les plus fragiles (demandeurs d'emploi, bénéficiaires de minima sociaux, etc.)."
                     }
                 },
                 {
@@ -718,6 +719,7 @@
 
         <div class="page-header">
             <h1>Simulateur Brut en Net Auto-Entrepreneur 2026</h1>
+    <p class="maj-date" style="font-size: 0.85rem; color: #6b7280; margin: 0.25rem 0 1rem;">Mis à jour le <time datetime="2026-10-10">10 octobre 2026</time> — barèmes 2026 vérifiés (SMIC 12,31 €/h depuis le 1er juin 2026)</p>
             <p>Calculez votre <strong>revenu net réel</strong> à partir de votre chiffre d'affaires brut facturé : cotisations URSSAF, option ACRE et impôt libératoire inclus.</p>
         </div>
 
@@ -752,10 +754,14 @@
             <details class="advanced-options">
                 <summary>⚙️ Options fiscales & ACRE</summary>
                 <div class="advanced-content">
-                    <label class="checkbox-label">
-                        <input type="checkbox" id="acre">
-                        <span>Bénéficiaire de l'ACRE (-50% la 1ère année)</span>
-                    </label>
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label for="acre">ACRE (1ère année d'activité)</label>
+                        <select id="acre">
+                            <option value="1" selected>Pas d'ACRE</option>
+                            <option value="0.75">Création depuis le 1er juillet 2026 (-25 %)</option>
+                            <option value="0.5">Création avant le 1er juillet 2026 (-50 %)</option>
+                        </select>
+                    </div>
                     <label class="checkbox-label">
                         <input type="checkbox" id="versementLib">
                         <span>Option pour le Versement Libératoire de l'impôt</span>
@@ -820,7 +826,8 @@
                                 <th style="padding: 0.75rem;">Cotisations URSSAF</th>
                                 <th style="padding: 0.75rem;">Formation (CFP)</th>
                                 <th style="padding: 0.75rem;">Taux Global</th>
-                                <th style="padding: 0.75rem;">Avec ACRE (1ère année)</th>
+                                <th style="padding: 0.75rem;">ACRE création depuis le 01/07/2026 (-25 %)</th>
+                                <th style="padding: 0.75rem;">ACRE création avant le 01/07/2026 (-50 %)</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -829,6 +836,7 @@
                                 <td style="padding: 0.75rem;">12,3%</td>
                                 <td style="padding: 0.75rem;">0,1%</td>
                                 <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">12,4%</td>
+                                <td style="padding: 0.75rem;">~9,3%</td>
                                 <td style="padding: 0.75rem;">~6,25%</td>
                             </tr>
                             <tr>
@@ -836,6 +844,7 @@
                                 <td style="padding: 0.75rem;">21,2%</td>
                                 <td style="padding: 0.75rem;">0,3%</td>
                                 <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">21,5%</td>
+                                <td style="padding: 0.75rem;">~16,2%</td>
                                 <td style="padding: 0.75rem;">~10,9%</td>
                             </tr>
                             <tr>
@@ -843,6 +852,7 @@
                                 <td style="padding: 0.75rem;">25,6%</td>
                                 <td style="padding: 0.75rem;">0,2%</td>
                                 <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">25,8%</td>
+                                <td style="padding: 0.75rem;">~19,4%</td>
                                 <td style="padding: 0.75rem;">~13,0%</td>
                             </tr>
                             <tr>
@@ -850,6 +860,7 @@
                                 <td style="padding: 0.75rem;">23,2%</td>
                                 <td style="padding: 0.75rem;">0,2%</td>
                                 <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">23,4%</td>
+                                <td style="padding: 0.75rem;">~17,6%</td>
                                 <td style="padding: 0.75rem;">~11,8%</td>
                             </tr>
                         </tbody>
@@ -888,7 +899,7 @@
                     </div>
                     <div>
                         <h4 style="margin: 0 0 0.35rem 0; color: var(--secondary);">Comment fonctionne l'ACRE en 2026 pour les nouveaux auto-entrepreneurs ?</h3>
-                        <p style="margin: 0; font-size: 0.95rem;">L'ACRE permet une exonération de 50% de vos cotisations sociales durant vos 4 premiers trimestres d'activité sous réserve d'éligibilité (demandeurs d'emploi indemnisés ou non indemnisés inscrits depuis 6 mois, jeunes de 18 à 25 ans, bénéficiaires du RSA). La demande doit être déposée auprès de l'URSSAF dans les 45 jours suivant la création.</p>
+                        <p style="margin: 0; font-size: 0.95rem;">L'ACRE a été réformée par le décret n° 2026-69 du 6 février 2026. Pour une micro-entreprise créée ou reprise depuis le 1er juillet 2026, l'exonération est de 25 % : vous cotisez à 75 % du taux normal pendant vos 4 premiers trimestres (par exemple 19,2 % au lieu de 25,6 % en BNC). Pour une création avant le 1er juillet 2026, l'exonération reste de 50 %. Depuis le 1er janvier 2026, l'ACRE n'est plus automatique : la demande doit être faite auprès de l'URSSAF au plus tard 60 jours après la création, et les critères d'éligibilité sont recentrés sur les publics les plus fragiles (demandeurs d'emploi, bénéficiaires de minima sociaux, etc.).</p>
                     </div>
                     <div>
                         <h4 style="margin: 0 0 0.35rem 0; color: var(--secondary);">Peut-on déduire ses frais réels (matériel, internet, déplacements) ?</h3>
@@ -1025,7 +1036,7 @@
             
             const ca = parseFloat(document.getElementById('caBrut').value) || 0;
             const act = document.getElementById('activite').value;
-            const hasAcre = document.getElementById('acre').checked;
+            const acreFactor = parseFloat(document.getElementById('acre').value) || 1; // 0,75 depuis le 01/07/2026, 0,5 avant (décret 2026-69)
             const hasVL = document.getElementById('versementLib').checked;
             const frais = parseFloat(document.getElementById('fraisEstimes').value) || 0;
             const periode = document.getElementById('periode').value;
@@ -1046,7 +1057,7 @@
                 cfp = 0.002;
             }
 
-            if (hasAcre) tauxUrssaf = tauxUrssaf / 2;
+            tauxUrssaf = tauxUrssaf * acreFactor;
 
             let tauxVL = 0;
             if (hasVL) {
