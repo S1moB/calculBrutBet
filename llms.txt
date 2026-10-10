@@ -13,18 +13,18 @@
 
 ## Fiches et Grilles de Salaires
 
-- [Salaire SMIC 2026 Brut en Net](https://monbrutnet.fr/smic-brut-net/): 1 867,02 € brut (12,31 €/h depuis le 1er juin 2026) = 1 477,93 € net non-cadre, ~1 400 € net cadre. Tableau des taux horaires de 11 € à 20 €.
-- [Salaire 1 500 € Brut en Net](https://monbrutnet.fr/1500-brut-en-net/): 1 170 € net non-cadre, 1 125 € net cadre (temps partiel ~80% au SMIC).
-- [Salaire 2 000 € Brut en Net](https://monbrutnet.fr/2000-brut-en-net/): 1 560 € net non-cadre, 1 500 € net cadre.
-- [Salaire 2 500 € Brut en Net](https://monbrutnet.fr/2500-brut-en-net/): 1 950 € net non-cadre, 1 875 € net cadre.
-- [Salaire 3 000 € Brut en Net](https://monbrutnet.fr/3000-brut-en-net/): 2 340 € net non-cadre, 2 250 € net cadre.
-- [Statut Cadre Brut en Net](https://monbrutnet.fr/cadre-brut-en-net/): Déduction moyenne de 25% : cotisation APEC, prévoyance 1,5%, retraite Agirc-Arrco tranche 1 et 2.
+- [Salaire SMIC 2026 Brut en Net](https://monbrutnet.fr/smic-brut-net/): 1 867,02 € brut (12,31 €/h depuis le 1er juin 2026) = 1 477,93 € net non-cadre (cotisations légales de 20,84 %), ~1 477 € net cadre. Tableau des taux horaires de 11 € à 20 €.
+- [Salaire 1 500 € Brut en Net](https://monbrutnet.fr/1500-brut-en-net/): ~1 187 € net, non-cadre comme cadre (temps partiel ~80% au SMIC).
+- [Salaire 2 000 € Brut en Net](https://monbrutnet.fr/2000-brut-en-net/): ~1 583 € net, non-cadre comme cadre.
+- [Salaire 2 500 € Brut en Net](https://monbrutnet.fr/2500-brut-en-net/): ~1 979 € net, non-cadre comme cadre.
+- [Salaire 3 000 € Brut en Net](https://monbrutnet.fr/3000-brut-en-net/): ~2 375 € net, non-cadre comme cadre.
+- [Statut Cadre Brut en Net](https://monbrutnet.fr/cadre-brut-en-net/): Cotisations légales ~20,86 % : depuis la fusion Agirc-Arrco de 2019, seule la cotisation APEC (0,024%) distingue un cadre d'un non-cadre.
 - [Fonctionnaire Brut en Net](https://monbrutnet.fr/fonctionnaire-brut-en-net/): Retenue pension civile (~11%), RAFP et primes non soumises à cotisations.
 - [Alternance & Apprentissage Brut en Net](https://monbrutnet.fr/alternance-brut-en-net/): Exonération des cotisations salariales jusqu'à 50% du SMIC (933,51 €) pour les contrats signés depuis le 1er mars 2025, 79% (1 474,95 €) pour les contrats antérieurs.
 
 ## Informations Légales & Confiance (E-E-A-T)
 
-- [À Propos & Méthodologie](https://monbrutnet.fr/a-propos/): Présentation de l'équipe éditoriale, méthodologie de calcul des cotisations sociales (estimations : non-cadre 22%, cadre 25%, fonctionnaire 15%), historique daté des mises à jour, sources officielles et gouvernance.
+- [À Propos & Méthodologie](https://monbrutnet.fr/a-propos/): Présentation de l'équipe éditoriale, méthodologie de calcul des cotisations sociales (taux légaux 2026 : 20,84% non-cadre, 20,86% cadre sous le plafond de la Sécurité sociale ; fonctionnaire ~15%), historique daté des mises à jour, sources officielles et gouvernance.
 - [Mentions Légales](https://monbrutnet.fr/mentions-legales/): Informations éditeur conformes LCEN, hébergement Netlify, directeur de la publication et propriété intellectuelle.
 - [Politique de Confidentialité](https://monbrutnet.fr/politique-de-confidentialite/): Architecture Privacy by Design : calculs 100% exécutés localement côté client dans le navigateur, aucune donnée financière transmise sur nos serveurs, conformité RGPD.
 

@@ -976,6 +976,7 @@
         </div>
     </footer>
 
+    <script src="/taux-2026.js"></script>
     <script>
         const eur = (n, d = 2) => n.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR', minimumFractionDigits: d, maximumFractionDigits: d });
         const num1 = n => n.toLocaleString('fr-FR', { maximumFractionDigits: 1 });
@@ -993,29 +994,29 @@
             const sjr = (sal * 12) / 365;
             
             // France Travail : comparaison des 2 formules officielles
-            const methode1 = (sjr * 0.404) + 13.18; // Valeur officielle 2026 (13,18 € / jour)
-            const methode2 = sjr * 0.57;             // 57% du SJR
+            const methode1 = (sjr * TAUX_2026.are.tauxFormule1) + TAUX_2026.are.partieFixe; // Valeur officielle 2026 (13,18 € / jour)
+            const methode2 = sjr * TAUX_2026.are.tauxFormule2;             // 57% du SJR
             let areBruteJour = Math.max(methode1, methode2);
 
             // Plancher et plafond légaux Unédic
-            const plancher = 32.13; // Plancher revalorisé à 32,13 € / jour
+            const plancher = TAUX_2026.are.plancher; // Plancher revalorisé à 32,13 € / jour
             if (areBruteJour < plancher) areBruteJour = plancher;
-            if (areBruteJour > sjr * 0.75) areBruteJour = sjr * 0.75; // Plafond 75% du SJR
+            if (areBruteJour > sjr * TAUX_2026.are.plafondSjr) areBruteJour = sjr * TAUX_2026.are.plafondSjr; // Plafond 75% du SJR
 
             // Retraite complémentaire (3% du SJR) :
             // Prélevée uniquement si elle ne fait pas baisser l'allocation sous le plancher de 32,13 €
             let retraiteComp = 0;
             if (areBruteJour > plancher) {
-                retraiteComp = Math.min(sjr * 0.03, areBruteJour - plancher);
+                retraiteComp = Math.min(sjr * TAUX_2026.are.retraiteComp, areBruteJour - plancher);
             }
 
             // CSG & CRDS (6,70% sur 98,25%) : Exonération totale si allocation journalière <= 61 €
             let csgCrds = 0;
-            if (areBruteJour > 61.00) {
-                csgCrds = areBruteJour * 0.9825 * 0.067;
+            if (areBruteJour > TAUX_2026.are.seuilCsg) {
+                csgCrds = areBruteJour * TAUX_2026.salarie.assietteCsg * TAUX_2026.are.csgCrds;
                 // Écrêtement pour ne pas faire passer sous le seuil d'exonération
-                if ((areBruteJour - retraiteComp - csgCrds) < 61.00) {
-                    csgCrds = Math.max(0, areBruteJour - retraiteComp - 61.00);
+                if ((areBruteJour - retraiteComp - csgCrds) < TAUX_2026.are.seuilCsg) {
+                    csgCrds = Math.max(0, areBruteJour - retraiteComp - TAUX_2026.are.seuilCsg);
                 }
             }
 

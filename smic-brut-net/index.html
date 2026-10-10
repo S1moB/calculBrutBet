@@ -748,8 +748,8 @@
                 <div class="form-group">
                     <label for="statut">Statut professionnel</label>
                     <select id="statut">
-                        <option value="nonCadre" selected>Non-cadre (20,84 %)</option>
-                        <option value="cadre">Cadre (~25%)</option>
+                        <option value="nonCadre" selected>Non-cadre (~21%)</option>
+                        <option value="cadre">Cadre (~21%)</option>
                         <option value="fonctionnaire">Fonctionnaire (~15%)</option>
                         <option value="alternant">Alternant / Apprenti (~0%)</option>
                     </select>
@@ -866,7 +866,7 @@
                             <th style="padding: 0.75rem;">Période de référence</th>
                             <th style="padding: 0.75rem;">SMIC Brut</th>
                             <th style="padding: 0.75rem;">Net Salarié Non-Cadre (20,84 %)</th>
-                            <th style="padding: 0.75rem;">Net Salarié Cadre (~25%)</th>
+                            <th style="padding: 0.75rem;">Net Salarié Cadre (~20,86 %)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -874,19 +874,19 @@
                             <td style="padding: 0.75rem;"><strong>Taux Horaire</strong></td>
                             <td style="padding: 0.75rem;">12,31 €</td>
                             <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">9,74 €</td>
-                            <td style="padding: 0.75rem;">~9,23 €</td>
+                            <td style="padding: 0.75rem;">~9,74 €</td>
                         </tr>
                         <tr>
                             <td style="padding: 0.75rem;"><strong>Mensuel (35 heures / semaine)</strong></td>
                             <td style="padding: 0.75rem;">1 867,02 €</td>
                             <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">1 477,93 €</td>
-                            <td style="padding: 0.75rem;">~1 400,27 €</td>
+                            <td style="padding: 0.75rem;">~1 477,48 €</td>
                         </tr>
                         <tr>
                             <td style="padding: 0.75rem;"><strong>Annuel (12 mois)</strong></td>
                             <td style="padding: 0.75rem;">22 404,24 €</td>
                             <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">17 735,16 €</td>
-                            <td style="padding: 0.75rem;">~16 803,18 €</td>
+                            <td style="padding: 0.75rem;">~17 729,76 €</td>
                         </tr>
                     </tbody>
                 </table>
@@ -1048,7 +1048,7 @@
                     <div>
                         <span class="badge-tag">1 500 € Brut</span>
                         <h3>1 500 € Brut en Net</h3>
-                        <p>Temps partiel ou SMIC à 80 % : 1 170 € net non-cadre, détail des cotisations.</p>
+                        <p>Temps partiel ou SMIC à 80 % : environ 1 187 € net, détail des cotisations.</p>
                     </div>
                     <span style="font-weight: 600; color: var(--secondary); margin-top: 1rem; font-size: 0.9rem;">Voir la simulation →</span>
                 </a>
@@ -1056,7 +1056,7 @@
                     <div>
                         <span class="badge-tag">2 000 € Brut</span>
                         <h3>2 000 € Brut en Net</h3>
-                        <p>1 560 € net non-cadre, 1 500 € net cadre : simulation complète avec impôts.</p>
+                        <p>environ 1 583 € net, en non-cadre comme en cadre : simulation complète avec impôts.</p>
                     </div>
                     <span style="font-weight: 600; color: var(--secondary); margin-top: 1rem; font-size: 0.9rem;">Voir la simulation →</span>
                 </a>
@@ -1072,7 +1072,7 @@
                     <div>
                         <span class="badge-tag">Statut Cadre</span>
                         <h3>Salaire Cadre Brut en Net</h3>
-                        <p>Retraite Agirc-Arrco, APEC, prévoyance : tout savoir sur la déduction de 25% cadre.</p>
+                        <p>Retraite Agirc-Arrco, APEC, prévoyance : ce qui change vraiment entre cadre et non-cadre.</p>
                     </div>
                     <span style="font-weight: 600; color: var(--secondary); margin-top: 1rem; font-size: 0.9rem;">Fiche Cadre →</span>
                 </a>
@@ -1131,6 +1131,7 @@
         </div>
     </footer>
 
+    <script src="/taux-2026.js"></script>
     <script>
         const eur = (n, d = 2) => n.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR', minimumFractionDigits: d, maximumFractionDigits: d });
         const num1 = n => n.toLocaleString('fr-FR', { maximumFractionDigits: 1 });
@@ -1139,33 +1140,10 @@
         const emailEl = document.getElementById("email-contact"); if (emailEl) emailEl.innerHTML = `<a href="mailto:${u}@${d}">${u}@${d}</a>`;
 
         const STATUTS = {
-            nonCadre: {
-                nom: "Non-cadre (20,84 %)",
-                tauxGlobal: 0.2084,
-                tauxSecuRetraite: 0.1131, // Vieillesse 7,30 % + Agirc-Arrco T1 3,15 % + CEG 0,86 %
-                tauxCsgCrds: 0.0953,      // CSG 9,20 % + CRDS 0,50 % sur 98,25 % du brut
-                tauxEmployeur: 1.42
-            },
-            cadre: {
-                nom: "Cadre (~25%)",
-                tauxGlobal: 0.25,
-                tauxSecuRetraite: 0.155, // Retraite cadre T1/T2, APEC (0.024%), prévoyance cadre 1,5%
-                tauxCsgCrds: 0.095,
-                tauxEmployeur: 1.45
-            },
-            fonctionnaire: {
-                nom: "Fonctionnaire (~15%)",
-                tauxGlobal: 0.15,
-                tauxSecuRetraite: 0.100, // Retenue pension civile (11.1%) et RAFP
-                tauxCsgCrds: 0.050,      // CSG/CRDS nette de compensation
-                tauxEmployeur: 1.30
-            },
-            alternant: {
-                nom: "Alternant / Apprenti",
-                tauxGlobal: 0.00,
-                seuilExo: 933.51,        // Exonération sous 50% du SMIC 2026 (contrats depuis le 01/03/2025, art. L. 6243-2 C. trav.)
-                tauxEmployeur: 1.05
-            }
+            nonCadre: { nom: "Non-cadre (~21%)", tauxEmployeur: TAUX_2026.employeur.nonCadre },
+            cadre: { nom: "Cadre (~21%)", tauxEmployeur: TAUX_2026.employeur.cadre },
+            fonctionnaire: { nom: "Fonctionnaire (~15%)", tauxEmployeur: TAUX_2026.employeur.fonctionnaire },
+            alternant: { nom: "Alternant / Apprenti", tauxEmployeur: TAUX_2026.employeur.alternant }
         };
 
         const form = document.getElementById('calcForm');
@@ -1201,20 +1179,11 @@
             let montantCsgCrds = 0;
             let totalCotisations = 0;
 
-            if (statut === 'alternant') {
-                let seuilMois = cfg.seuilExo;
-                let seuil = (periode === 'annuel') ? seuilMois * 12 : ((periode === 'horaire') ? seuilMois / 151.67 : seuilMois);
-                if (brut > seuil) {
-                    const surplus = brut - seuil;
-                    montantSecuRetraite = surplus * 0.125;
-                    montantCsgCrds = surplus * 0.095;
-                    totalCotisations = surplus * 0.22;
-                }
-            } else {
-                montantSecuRetraite = brut * cfg.tauxSecuRetraite;
-                montantCsgCrds = brut * cfg.tauxCsgCrds;
-                totalCotisations = brut * cfg.tauxGlobal;
-            }
+            const contrat = document.getElementById('contratApprenti') ? document.getElementById('contratApprenti').value : 'depuis2025';
+            const c = cotisationsSalariales(brut, periode, statut, contrat);
+            montantSecuRetraite = c.secuRetraite;
+            montantCsgCrds = c.csgCrds;
+            totalCotisations = c.total;
 
             const netAvantImpot = brut - totalCotisations;
             const montantImpot = netAvantImpot * (tauxImpot / 100);
@@ -1238,11 +1207,11 @@
                     <td style="text-align: right;"><strong>${eur(brut)}</strong></td>
                 </tr>
                 <tr>
-                    <td>Sécurité Sociale & Retraite (~${num1((cfg.tauxSecuRetraite * 100))} %)</td>
+                    <td>Sécurité Sociale & Retraite (~${num1(brut > 0 ? montantSecuRetraite / brut * 100 : 0)} %)</td>
                     <td style="text-align: right; color: var(--primary)">- ${eur(montantSecuRetraite)}</td>
                 </tr>
                 <tr>
-                    <td>CSG & CRDS (~${num1((cfg.tauxCsgCrds * 100))} %)</td>
+                    <td>CSG & CRDS (~${num1(brut > 0 ? montantCsgCrds / brut * 100 : 0)} %)</td>
                     <td style="text-align: right; color: var(--primary)">- ${eur(montantCsgCrds)}</td>
                 </tr>
                 <tr>

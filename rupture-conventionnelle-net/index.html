@@ -994,6 +994,7 @@
         </div>
     </footer>
 
+    <script src="/taux-2026.js"></script>
     <script>
         const eur = (n, d = 2) => n.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR', minimumFractionDigits: d, maximumFractionDigits: d });
         const num1 = n => n.toLocaleString('fr-FR', { maximumFractionDigits: 1 });
@@ -1026,12 +1027,12 @@
             // 2. CSG/CRDS de 9.7% sur 98.25% appliquée uniquement sur la part excédant l'indemnité légale
             let montantCsgCrds = 0;
             if (supra > 0) {
-                montantCsgCrds = supra * 0.9825 * 0.097;
+                montantCsgCrds = supra * TAUX_2026.salarie.assietteCsg * TAUX_2026.salarie.csgCrds;
             }
             const netSalarie = totalIndemnite - montantCsgCrds;
 
             // 3. Contribution patronale spécifique 2026 (LFSS 2026, art. L. 137-12 CSS) : 40%
-            const contributionPatronale = totalIndemnite * 0.40;
+            const contributionPatronale = totalIndemnite * TAUX_2026.rupture.contributionPatronale;
             const coutEmployeur = totalIndemnite + contributionPatronale;
 
             document.getElementById('netAvantResult').textContent = `${eur(netSalarie)} Net perçu`;

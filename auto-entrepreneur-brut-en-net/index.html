@@ -1022,6 +1022,7 @@
         </div>
     </footer>
 
+    <script src="/taux-2026.js"></script>
     <script>
         const eur = (n, d = 2) => n.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR', minimumFractionDigits: d, maximumFractionDigits: d });
         const num1 = n => n.toLocaleString('fr-FR', { maximumFractionDigits: 1 });
@@ -1040,30 +1041,10 @@
             const frais = parseFloat(document.getElementById('fraisEstimes').value) || 0;
             const periode = document.getElementById('periode').value;
 
-            let tauxUrssaf = 0.256;
-            let cfp = 0.002;
-            if (act === 'vente') {
-                tauxUrssaf = 0.123;
-                cfp = 0.001;
-            } else if (act === 'bic') {
-                tauxUrssaf = 0.212;
-                cfp = 0.002;
-            } else if (act === 'cipav') {
-                tauxUrssaf = 0.232;
-                cfp = 0.002;
-            } else { // bnc
-                tauxUrssaf = 0.256;
-                cfp = 0.002;
-            }
-
-            tauxUrssaf = tauxUrssaf * acreFactor;
-
-            let tauxVL = 0;
-            if (hasVL) {
-                if (act === 'vente') tauxVL = 0.01;
-                else if (act === 'bic') tauxVL = 0.017;
-                else tauxVL = 0.022;
-            }
+            const m = TAUX_2026.micro[act] || TAUX_2026.micro.bnc;
+            const tauxUrssaf = m.urssaf * acreFactor;
+            const cfp = m.cfp;
+            const tauxVL = hasVL ? m.vl : 0;
 
             const montantUrssaf = ca * (tauxUrssaf + cfp);
             const montantVL = ca * tauxVL;

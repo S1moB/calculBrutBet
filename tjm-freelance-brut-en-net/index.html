@@ -754,7 +754,7 @@
             <div class="form-group">
                 <label for="statutPro">Statut Juridique</label>
                 <select id="statutPro">
-                    <option value="micro" selected>Micro-entreprise (~22% charges + 2.2% impôt)</option>
+                    <option value="micro" selected>Micro-entreprise (~25,8 % charges + 2,2 % impôt)</option>
                     <option value="sasu">SASU (Régime assimilé salarié ~45% de charges)</option>
                     <option value="eurl">EURL (Régime TNS travailleur non salarié ~35%)</option>
                     <option value="portage">Portage salarial (~50% brut en net)</option>
@@ -975,7 +975,7 @@
                 <ol>
                     <li><strong>Chiffre d'affaires généré :</strong> TJM × jours facturés dans l'année.</li>
                     <li><strong>Budget salarial :</strong> chiffre d'affaires × (1 − marge de l'ESN). La marge dépend de l'ESN et du client ; demandez-la lors de la négociation.</li>
-                    <li><strong>Salaire brut :</strong> budget salarial ÷ 1,45 (coût employeur moyen d'un cadre), puis net ≈ brut × 0,75.</li>
+                    <li><strong>Salaire brut :</strong> budget salarial ÷ 1,45 (coût employeur moyen d'un cadre), puis net ≈ brut × 0,79.</li>
                 </ol>
                 <p><strong>Exemple :</strong> un TJM de 500 € facturé 200 jours génère 100 000 € de chiffre d'affaires. Avec une marge ESN de 35 %, le budget salarial est de 65 000 €, soit environ <strong>44 800 € brut par an</strong> (≈ 3 740 € brut par mois) et <strong>≈ 2 800 € net par mois</strong> avant impôt.</p>
                 <p>Le même TJM de 500 € en freelance rapporte entre 4 800 € et 5 800 € net lissés par mois selon le statut (voir la grille ci-dessus), mais sans congés payés, chômage ni période sans mission couverts par un employeur. Pour comparer à situation égale, saisissez votre TJM et vos jours facturés dans le simulateur en haut de page.</p>
@@ -1092,6 +1092,7 @@
         </div>
     </footer>
 
+    <script src="/taux-2026.js"></script>
     <script>
         const eur = (n, d = 2) => n.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR', minimumFractionDigits: d, maximumFractionDigits: d });
         const num1 = n => n.toLocaleString('fr-FR', { maximumFractionDigits: 1 });
@@ -1115,7 +1116,7 @@
 
             if (statut === 'micro') {
                 // Micro-entreprise BNC 2026 : charges sociales directes sur le CA (25,8% URSSAF + CFP)
-                charges = caMensuel * 0.258;
+                charges = caMensuel * (TAUX_2026.micro.bnc.urssaf + TAUX_2026.micro.bnc.cfp);
                 netMensuel = caMensuel - charges - frais;
                 detailCotis = "Cotisations URSSAF & CFP BNC 2026 (~25,8%)";
             } else if (statut === 'sasu') {

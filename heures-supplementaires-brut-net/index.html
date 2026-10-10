@@ -979,6 +979,7 @@
         </div>
     </footer>
 
+    <script src="/taux-2026.js"></script>
     <script>
         const eur = (n, d = 2) => n.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR', minimumFractionDigits: d, maximumFractionDigits: d });
         const num1 = n => n.toLocaleString('fr-FR', { maximumFractionDigits: 1 });
@@ -1003,11 +1004,12 @@
             const gainBrutTotal = gainBrut25 + gainBrut50;
 
             // Réduction légale de cotisations salariales (art. L. 241-17 CSS) : 11,31%
-            // Cotisations salariales réduites de ~22% à ~10.69% (89,31% conservé)
-            const tauxConservation = 1 - (0.22 - 0.1131); // 0.8931
+            // Cotisations salariales légales (~20,84 %) diminuées de la réduction de 11,31 %
+            const reduction = TAUX_2026.heuresSup.reductionSalariale;
+            const tauxConservation = 1 - Math.max(tauxSalarie(sal, 'nonCadre').total - reduction, 0);
             const gainNetTotal = gainBrutTotal * tauxConservation;
             const tauxNetMaj25 = tauxMaj25 * tauxConservation;
-            const economieCotis = gainBrutTotal * 0.1131;
+            const economieCotis = gainBrutTotal * reduction;
 
             document.getElementById('netAvantResult').textContent = `+ ${eur(gainNetTotal)} Net en plus`;
             document.getElementById('netApresResult').textContent = `${eur(tauxNetMaj25)} Net / h (+25%)`;
