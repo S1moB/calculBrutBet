@@ -12,13 +12,15 @@
 
     <style>
         :root {
-            --primary: #ef4444;
-            --primary-hover: #dc2626;
-            --secondary: #3b82f6;
-            --secondary-hover: #2563eb;
-            --bg-color: #f3f4f6;
+            --primary: #b91c1c;
+            --primary-hover: #991b1b;
+            --primary-light: #fee2e2;
+            --secondary: #1e3a8a;
+            --secondary-hover: #172554;
+            --bg-color: #f9fafb;
             --card-bg: #ffffff;
             --text-main: #1f2937;
+            --text-dark: #1f2937;
             --text-muted: #6b7280;
             --border: #e5e7eb;
         }
@@ -27,7 +29,7 @@
         html, body { overflow-x: hidden; width: 100%; max-width: 100%; }
 
         body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
             margin: 0;
@@ -65,14 +67,14 @@
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 0.4rem;
+            gap: 0.25rem;
             overflow-x: auto;
             max-width: 100%;
             padding-bottom: 0.25rem;
             -webkit-overflow-scrolling: touch;
         }
         .nav-link {
-            padding: 0.4rem 0.75rem;
+            padding: 0.5rem 0.6rem;
             border-radius: 6px;
             text-decoration: none;
             color: var(--text-muted);
@@ -81,7 +83,7 @@
             white-space: nowrap;
             transition: color 0.15s, background-color 0.15s, border-color 0.15s, box-shadow 0.15s, transform 0.15s;
         }
-        .nav-link:hover { background: #f3f4f6; color: var(--text-main); }
+        .nav-link:hover { background: var(--primary-light); color: var(--primary); }
 
         .main-wrapper {
             padding: 3rem 1rem;
@@ -228,16 +230,16 @@
                 <span translate="no">monbrutnet.fr</span>
             </a>
             <nav class="nav-links" aria-label="Menu principal">
-                <a href="/" class="nav-link">💼 Salarié</a>
-                <a href="/smic-brut-net/" class="nav-link">💰 SMIC</a>
-                <a href="/cadre-brut-en-net/" class="nav-link">👔 Cadre</a>
-                <a href="/fonctionnaire-brut-en-net/" class="nav-link">🏛️ Fonctionnaire</a>
-                <a href="/alternance-brut-en-net/" class="nav-link">🎓 Alternance</a>
-                <a href="/auto-entrepreneur-brut-en-net/" class="nav-link">🚀 Auto-Entrepreneur</a>
-                <a href="/tjm-freelance-brut-en-net/" class="nav-link">💻 TJM Freelance</a>
-                <a href="/rupture-conventionnelle-net/" class="nav-link">⚖️ Rupture</a>
-                <a href="/chomage-brut-en-net/" class="nav-link">🏥 Chômage</a>
-                <a href="/heures-supplementaires-brut-net/" class="nav-link">⏱️ Heures Sup</a>
+                <a href="/" class="nav-link">Salarié</a>
+                <a href="/smic-brut-net/" class="nav-link">SMIC</a>
+                <a href="/cadre-brut-en-net/" class="nav-link">Cadre</a>
+                <a href="/fonctionnaire-brut-en-net/" class="nav-link">Fonctionnaire</a>
+                <a href="/alternance-brut-en-net/" class="nav-link">Alternance</a>
+                <a href="/auto-entrepreneur-brut-en-net/" class="nav-link">Auto-Entrepreneur</a>
+                <a href="/tjm-freelance-brut-en-net/" class="nav-link">TJM Freelance</a>
+                <a href="/rupture-conventionnelle-net/" class="nav-link">Rupture Conv.</a>
+                <a href="/chomage-brut-en-net/" class="nav-link">Chômage</a>
+                <a href="/heures-supplementaires-brut-net/" class="nav-link">Heures Sup</a>
             </nav>
         </div>
     </header>
@@ -256,15 +258,15 @@
             <div class="tools-grid">
                 <h2>Accéder directement à un simulateur :</h2>
                 <div class="cards-list">
-                    <a href="/smic-brut-net/" class="tool-link-card">💰 SMIC 2026 Brut en Net</a>
-                    <a href="/cadre-brut-en-net/" class="tool-link-card">👔 Salaire Cadre Brut en Net</a>
-                    <a href="/fonctionnaire-brut-en-net/" class="tool-link-card">🏛️ Fonctionnaire Brut en Net</a>
-                    <a href="/alternance-brut-en-net/" class="tool-link-card">🎓 Alternance & Apprenti</a>
-                    <a href="/auto-entrepreneur-brut-en-net/" class="tool-link-card">🚀 Auto-Entrepreneur</a>
-                    <a href="/tjm-freelance-brut-en-net/" class="tool-link-card">💻 TJM Freelance en Salaire</a>
-                    <a href="/rupture-conventionnelle-net/" class="tool-link-card">⚖️ Rupture Conventionnelle</a>
-                    <a href="/chomage-brut-en-net/" class="tool-link-card">🏥 Allocation Chômage ARE</a>
-                    <a href="/heures-supplementaires-brut-net/" class="tool-link-card">⏱️ Heures Supplémentaires</a>
+                    <a href="/smic-brut-net/" class="tool-link-card">SMIC 2026 Brut en Net</a>
+                    <a href="/cadre-brut-en-net/" class="tool-link-card">Salaire Cadre Brut en Net</a>
+                    <a href="/fonctionnaire-brut-en-net/" class="tool-link-card">Fonctionnaire Brut en Net</a>
+                    <a href="/alternance-brut-en-net/" class="tool-link-card">Alternance & Apprenti</a>
+                    <a href="/auto-entrepreneur-brut-en-net/" class="tool-link-card">Auto-Entrepreneur</a>
+                    <a href="/tjm-freelance-brut-en-net/" class="tool-link-card">TJM Freelance en Salaire</a>
+                    <a href="/rupture-conventionnelle-net/" class="tool-link-card">Rupture Conventionnelle</a>
+                    <a href="/chomage-brut-en-net/" class="tool-link-card">Allocation Chômage ARE</a>
+                    <a href="/heures-supplementaires-brut-net/" class="tool-link-card">Heures Supplémentaires</a>
                 </div>
             </div>
         </main>

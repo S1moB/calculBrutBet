@@ -106,17 +106,23 @@
 
     <style>
         :root {
-            --primary: #1e40af;
-            --primary-light: #dbeafe;
-            --success: #059669;
+            --primary: #b91c1c;
+            --primary-light: #fee2e2;
+            --success: #047857;
             --text-dark: #1f2937;
             --text-mid: #4b5563;
-            --text-light: #9ca3af;
+            --text-light: #6b7280;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --secondary: #1e3a8a;
             --border: #e5e7eb;
             --bg: #f9fafb;
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
             --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
         }
+
+        a { color: var(--primary); }
+        a:hover { color: #991b1b; }
 
         * {
             margin: 0;
@@ -173,13 +179,14 @@
 
         .nav-links {
             display: flex;
+            min-width: 0;
             gap: 0.25rem;
             overflow-x: auto;
             padding-bottom: 0.25rem;
         }
 
         .nav-link {
-            padding: 0.6rem 1rem;
+            padding: 0.5rem 0.6rem;
             text-decoration: none;
             color: var(--text-mid);
             font-size: 0.9rem;
@@ -227,20 +234,20 @@
             font-size: 1.05rem;
             color: var(--text-mid);
             max-width: 600px;
-            margin: 0 auto;
+            margin: 0.5rem 0 1.5rem;
         }
 
         /* Grid Layout */
         .container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 2rem;
             margin-bottom: 3rem;
         }
 
         @media (max-width: 900px) {
             .container {
-                grid-template-columns: 1fr;
+                grid-template-columns: minmax(0, 1fr);
             }
         }
 
@@ -295,7 +302,7 @@
         select:focus-visible {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.35);
+            box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.35);
         }
 
         input::placeholder {
@@ -329,7 +336,7 @@
         }
 
         .btn-primary:hover {
-            background: #1e3a8a;
+            background: #991b1b;
         }
 
         .btn-secondary {
@@ -350,7 +357,7 @@
         }
 
         .btn-success:hover {
-            background: #047857;
+            background: #065f46;
         }
 
         .btn-row {
@@ -368,7 +375,7 @@
 
         /* Results */
         .results-header {
-            background: linear-gradient(135deg, #f0f9ff 0%, #f8fafc 100%);
+            background: linear-gradient(135deg, #fef2f2 0%, #f8fafc 100%);
             border: 1px solid var(--border);
             border-radius: 8px;
             padding: 2rem;
@@ -710,13 +717,17 @@
                 <svg viewBox="0 0 100 100" aria-hidden="true" focusable="false"><circle cx="50" cy="50" r="45" fill="#ef4444"/><text x="50" y="68" font-family="Arial" font-size="55" font-weight="bold" fill="white" text-anchor="middle">€</text></svg>
                 <span translate="no">monbrutnet.fr</span>
             </a>
-            <nav class="nav-links" aria-label="Menu des simulateurs">
-                <a href="/" class="nav-link">💼 Salarié</a>
-                <a href="/auto-entrepreneur-brut-en-net/" class="nav-link ">🚀 Auto-Entrepreneur</a>
-                <a href="/tjm-freelance-brut-en-net/" class="nav-link active">💻 TJM Freelance</a>
-                <a href="/rupture-conventionnelle-net/" class="nav-link ">⚖️ Rupture Conv.</a>
-                <a href="/chomage-brut-en-net/" class="nav-link ">🏥 Chômage (ARE)</a>
-                <a href="/heures-supplementaires-brut-net/" class="nav-link ">⏱️ Heures Sup</a>
+            <nav class="nav-links" aria-label="Menu principal">
+                <a href="/" class="nav-link">Salarié</a>
+                <a href="/smic-brut-net/" class="nav-link">SMIC</a>
+                <a href="/cadre-brut-en-net/" class="nav-link">Cadre</a>
+                <a href="/fonctionnaire-brut-en-net/" class="nav-link">Fonctionnaire</a>
+                <a href="/alternance-brut-en-net/" class="nav-link">Alternance</a>
+                <a href="/auto-entrepreneur-brut-en-net/" class="nav-link">Auto-Entrepreneur</a>
+                <a href="/tjm-freelance-brut-en-net/" class="nav-link active" aria-current="page">TJM Freelance</a>
+                <a href="/rupture-conventionnelle-net/" class="nav-link">Rupture Conv.</a>
+                <a href="/chomage-brut-en-net/" class="nav-link">Chômage</a>
+                <a href="/heures-supplementaires-brut-net/" class="nav-link">Heures Sup</a>
             </nav>
         </div>
     </header>
@@ -766,7 +777,7 @@
                 <input type="number" id="fraisPro" name="fraisPro" inputmode="decimal" autocomplete="off" value="250" min="0" placeholder="Ex : 250 (matériel, mutuelle, comptable)…">
             </div>
         
-                    <button type="submit" style="margin-top: 1rem;">Calculer en direct</button>
+                    <button type="submit" class="btn-primary" style="margin-top: 1rem;">Calculer en direct</button>
                 </form>
             </div>
 
@@ -793,14 +804,14 @@
                             </tbody>
                         </table>
                     </div>
-                    <div style="text-align: center; margin-top: 1rem; font-size: 0.8rem; color: #94a3b8; display: none;" id="pdfSignature">
+                    <div style="text-align: center; margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted); display: none;" id="pdfSignature">
                         Généré gratuitement via monbrutnet.fr
                     </div>
                 </div>
                 
                 <div class="btn-row" aria-live="polite">
-                    <button type="button" class="btn-pdf" onclick="genPdf()"><span aria-hidden="true">📄</span> Télécharger le PDF</button>
-                    <button type="button" class="btn-share" id="btnShare" onclick="copyShareLink()"><span aria-hidden="true">🔗</span> Copier le lien</button>
+                    <button type="button" class="btn-pdf" onclick="genPdf()">Télécharger le PDF</button>
+                    <button type="button" class="btn-share" id="btnShare" onclick="copyShareLink()">Copier le lien</button>
                 </div>
             </div>
 
@@ -823,7 +834,7 @@
                 <div class="table-responsive" style="margin: 1.5rem 0;">
                     <table style="width: 100%; border-collapse: collapse; text-align: left;">
                         <thead>
-                            <tr style="background-color: #f8fafc; border-bottom: 2px solid var(--border);">
+                            <tr style="background-color: var(--bg); border-bottom: 2px solid var(--border);">
                                 <th style="padding: 0.75rem;">Statut Juridique</th>
                                 <th style="padding: 0.75rem;">Cotisations Sociales</th>
                                 <th style="padding: 0.75rem;">Déduction des Frais</th>
@@ -869,7 +880,7 @@
                 <div class="table-responsive" style="margin: 1.5rem 0;">
                     <table style="width: 100%; border-collapse: collapse; text-align: left;">
                         <thead>
-                            <tr style="background-color: #f8fafc; border-bottom: 2px solid var(--border);">
+                            <tr style="background-color: var(--bg); border-bottom: 2px solid var(--border);">
                                 <th style="padding: 0.75rem;">TJM (€ HT)</th>
                                 <th style="padding: 0.75rem;">CA Annuel (200 j)</th>
                                 <th style="padding: 0.75rem;">Net Mensuel Indépendant (Lissé)</th>
@@ -914,19 +925,19 @@
                 <h3>Foire aux questions des freelances sur le TJM</h3>
                 <div class="faq-section" style="margin-top: 1.5rem;">
                     <div style="margin-bottom: 1.25rem;">
-                        <h4 style="color: var(--text-main); margin-bottom: 0.25rem;">Quel est le meilleur statut pour maximiser son revenu net en freelance ?</h3>
+                        <h4 style="color: var(--text-main); margin-bottom: 0.25rem;">Quel est le meilleur statut pour maximiser son revenu net en freelance ?</h4>
                         <p style="color: var(--text-muted); margin-top: 0;">Pour débuter avec peu de charges réelles et un CA inférieur à 77 700 €, la micro-entreprise offre le ratio net/brut le plus direct. Au-delà, l'EURL à l'IS offre les cotisations sociales les plus faibles (~32-35%). La SASU est privilégiée pour cumuler des allocations chômage (ARE de France Travail) sans se verser de salaire, ou pour optimiser sa sortie en dividendes avec la flat tax de 30%.</p>
                     </div>
                     <div style="margin-bottom: 1.25rem;">
-                        <h4 style="color: var(--text-main); margin-bottom: 0.25rem;">Faut-il facturer la TVA en freelance ?</h3>
+                        <h4 style="color: var(--text-main); margin-bottom: 0.25rem;">Faut-il facturer la TVA en freelance ?</h4>
                         <p style="color: var(--text-muted); margin-top: 0;">En micro-entreprise, vous bénéficiez de la franchise en base de TVA jusqu'à 36 800 € de CA (seuil majoré à 39 100 €). Au-delà de ce seuil, ou en société (SASU, EURL), vous devez collecter la TVA à 20% sur vos factures et vous pouvez en contrepartie déduire la TVA payée sur vos achats professionnels (ordinateur, abonnements SaaS, matériel).</p>
                     </div>
                     <div style="margin-bottom: 1.25rem;">
-                        <h4 style="color: var(--text-main); margin-bottom: 0.25rem;">Pourquoi le portage salarial séduit-il les freelances ?</h3>
+                        <h4 style="color: var(--text-main); margin-bottom: 0.25rem;">Pourquoi le portage salarial séduit-il les freelances ?</h4>
                         <p style="color: var(--text-muted); margin-top: 0;">Le portage salarial permet d'exercer en toute indépendance sans créer d'entreprise. Vous obtenez des fiches de paie de salarié cadre, vous cotisez au régime général de retraite et vous conservez vos droits au chômage ARE en cas d'arrêt de mission. Bien que le taux de retenue global approche 50%, c'est le statut le plus sécurisant pour obtenir un prêt immobilier ou un bail locatif.</p>
                     </div>
                     <div style="margin-bottom: 1.25rem;">
-                        <h4 style="color: var(--text-main); margin-bottom: 0.25rem;">Comment fixer et négocier son TJM face aux clients ou ESN ?</h3>
+                        <h4 style="color: var(--text-main); margin-bottom: 0.25rem;">Comment fixer et négocier son TJM face aux clients ou ESN ?</h4>
                         <p style="color: var(--text-muted); margin-top: 0;">Pour calculer votre TJM plancher, prenez votre salaire brut annuel visé en CDI, ajoutez 30% à 40% pour compenser les congés non payés, les charges et l'intercontrat, puis divisez par 200 jours ouvrés. Exemple : pour viser 60 000 € brut, visez un chiffre d'affaires de 80 000 €, soit un TJM minimal de 400 € HT.</p>
                     </div>
                 </div>
@@ -934,7 +945,7 @@
                 <h3>Comparaison Approfondie : SASU vs EURL pour les Freelances</h3>
                 <p>Le choix entre SASU et EURL détermine largement votre revenu net final et vos protections. Voici les principales différences en 2026 :</p>
 
-                <h4 style="margin-top: 1.5rem; font-weight: 700; color: var(--secondary);">SASU (Société par Actions Simplifiée Unipersonnelle)</h3>
+                <h4 style="margin-top: 1.5rem; font-weight: 700; color: var(--secondary);">SASU (Société par Actions Simplifiée Unipersonnelle)</h4>
                 <ul style="font-size: 0.95rem; line-height: 1.6;">
                     <li><strong>Régime social :</strong> Assimilé-salarié (régime général CPAM). Vous cotisez comme un salarié cadre (~45% du salaire super-brut).</li>
                     <li><strong>Rémunération optimale :</strong> Versez-vous un petit salaire minimal (cotisations réduites) et distribuez le reste en dividendes. Les dividendes ne cotisent pas aux charges sociales mais subissent la flat tax de 30% (17,2% IR + 12,8% PS).</li>
@@ -949,7 +960,7 @@
                     <li><strong>Inconvénient :</strong> Comptabilité plus lourde (micro-comptabilité minimale), frais d'expert-comptable (~1 200 €/an).</li>
                 </ul>
 
-                <h4 style="margin-top: 1.5rem; font-weight: 700; color: var(--secondary);">EURL (Entreprise Unipersonnelle à Responsabilité Limitée)</h3>
+                <h4 style="margin-top: 1.5rem; font-weight: 700; color: var(--secondary);">EURL (Entreprise Unipersonnelle à Responsabilité Limitée)</h4>
                 <ul style="font-size: 0.95rem; line-height: 1.6;">
                     <li><strong>Régime social :</strong> Travailleur Non Salarié (TNS) assujetti au SSI (ex-RSI). Cotisations plus faibles (~32-35%) mais pas d'ARE ni d'assurance chômage.</li>
                     <li><strong>Rémunération optimale :</strong> Vous vous versez un salaire/rémunération personnelle appelée "prélèvement". Pas de dividendes : le bénéfice revient au gérant.</li>
@@ -967,7 +978,7 @@
                 </ul>
 
                 <p style="margin-top: 1.5rem; padding: 1rem; background: #f0fdf4; border-left: 4px solid var(--success); font-size: 0.9rem;">
-                    <strong style="color: var(--success);">💡 Conseil d'expert :</strong> Pour un freelance sans besoin immédiat de protection chômage, la SASU + dividendes offre généralement le meilleur ratio net/brut grâce à la flat tax sur dividendes. Basculez en EURL si vous avez des charges réelles importantes et un revenu stable.
+                    <strong style="color: var(--success);">Conseil d'expert :</strong> Pour un freelance sans besoin immédiat de protection chômage, la SASU + dividendes offre généralement le meilleur ratio net/brut grâce à la flat tax sur dividendes. Basculez en EURL si vous avez des charges réelles importantes et un revenu stable.
                 </p>
 
                 <h3>TJM en ESN / SSII : quel salaire net en CDI ?</h3>
@@ -1156,7 +1167,7 @@
                     <td>Frais de fonctionnement réels déduits</td>
                     <td style="text-align: right; color: var(--text-muted)">- ${eur(frais)}</td>
                 </tr>
-                <tr style="background-color: #f8fafc;">
+                <tr style="background-color: var(--bg);">
                     <td style="padding-top: 1rem;"><strong>Rémunération Nette Mensuelle Estimée</strong></td>
                     <td style="text-align: right; padding-top: 1rem; color: var(--success); font-size: 1.1rem;"><strong>${eur(netMensuel)}</strong></td>
                 </tr>
@@ -1175,7 +1186,7 @@
             navigator.clipboard.writeText(window.location.href).then(() => {
                 const btn = document.getElementById('btnShare');
                 const orig = btn.textContent;
-                btn.textContent = "✅ Lien copié !";
+                btn.textContent = "Lien copié !";
                 setTimeout(() => { btn.textContent = orig; }, 2500);
             });
         }
@@ -1194,7 +1205,7 @@
             const btn = document.querySelector('.btn-pdf');
             const originalText = btn.innerHTML;
             let failed = false;
-            btn.textContent = "⏳ Préparation du PDF…";
+            btn.textContent = "Préparation du PDF…";
             btn.disabled = true;
             try {
                 if (typeof html2pdf === 'undefined') {
@@ -1215,7 +1226,7 @@
             } catch (err) {
                 failed = true;
             } finally {
-                btn.innerHTML = failed ? "⚠️ Échec du PDF, cliquez pour réessayer" : originalText;
+                btn.innerHTML = failed ? "Échec du PDF, cliquez pour réessayer" : originalText;
                 btn.disabled = false;
                 if (failed) setTimeout(() => { btn.innerHTML = originalText; }, 4000);
             }

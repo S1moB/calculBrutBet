@@ -67,17 +67,23 @@
 
     <style>
         :root {
-            --primary: #1e40af;
-            --primary-light: #dbeafe;
-            --success: #059669;
+            --primary: #b91c1c;
+            --primary-light: #fee2e2;
+            --success: #047857;
             --text-dark: #1f2937;
             --text-mid: #4b5563;
-            --text-light: #9ca3af;
+            --text-light: #6b7280;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --secondary: #1e3a8a;
             --border: #e5e7eb;
             --bg: #f9fafb;
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
             --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
         }
+
+        a { color: var(--primary); }
+        a:hover { color: #991b1b; }
 
         * {
             margin: 0;
@@ -134,13 +140,14 @@
 
         .nav-links {
             display: flex;
+            min-width: 0;
             gap: 0.25rem;
             overflow-x: auto;
             padding-bottom: 0.25rem;
         }
 
         .nav-link {
-            padding: 0.6rem 1rem;
+            padding: 0.5rem 0.6rem;
             text-decoration: none;
             color: var(--text-mid);
             font-size: 0.9rem;
@@ -188,20 +195,20 @@
             font-size: 1.05rem;
             color: var(--text-mid);
             max-width: 600px;
-            margin: 0 auto;
+            margin: 0.5rem 0 1.5rem;
         }
 
         /* Grid Layout */
         .container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 2rem;
             margin-bottom: 3rem;
         }
 
         @media (max-width: 900px) {
             .container {
-                grid-template-columns: 1fr;
+                grid-template-columns: minmax(0, 1fr);
             }
         }
 
@@ -256,7 +263,7 @@
         select:focus-visible {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.35);
+            box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.35);
         }
 
         input::placeholder {
@@ -290,7 +297,7 @@
         }
 
         .btn-primary:hover {
-            background: #1e3a8a;
+            background: #991b1b;
         }
 
         .btn-secondary {
@@ -311,7 +318,7 @@
         }
 
         .btn-success:hover {
-            background: #047857;
+            background: #065f46;
         }
 
         .btn-row {
@@ -329,7 +336,7 @@
 
         /* Results */
         .results-header {
-            background: linear-gradient(135deg, #f0f9ff 0%, #f8fafc 100%);
+            background: linear-gradient(135deg, #fef2f2 0%, #f8fafc 100%);
             border: 1px solid var(--border);
             border-radius: 8px;
             padding: 2rem;
@@ -673,16 +680,16 @@
                 <span translate="no">monbrutnet.fr</span>
             </a>
             <nav class="nav-links" aria-label="Menu principal">
-                <a href="/" class="nav-link">💼 Salarié</a>
-                <a href="/smic-brut-net/" class="nav-link">💰 SMIC</a>
-                <a href="/cadre-brut-en-net/" class="nav-link">👔 Cadre</a>
-                <a href="/fonctionnaire-brut-en-net/" class="nav-link">🏛️ Fonctionnaire</a>
-                <a href="/alternance-brut-en-net/" class="nav-link">🎓 Alternance</a>
-                <a href="/auto-entrepreneur-brut-en-net/" class="nav-link">🚀 Auto-Entrepreneur</a>
-                <a href="/tjm-freelance-brut-en-net/" class="nav-link">💻 TJM Freelance</a>
-                <a href="/rupture-conventionnelle-net/" class="nav-link">⚖️ Rupture</a>
-                <a href="/chomage-brut-en-net/" class="nav-link">🏥 Chômage</a>
-                <a href="/heures-supplementaires-brut-net/" class="nav-link">⏱️ Heures Sup</a>
+                <a href="/" class="nav-link">Salarié</a>
+                <a href="/smic-brut-net/" class="nav-link">SMIC</a>
+                <a href="/cadre-brut-en-net/" class="nav-link">Cadre</a>
+                <a href="/fonctionnaire-brut-en-net/" class="nav-link">Fonctionnaire</a>
+                <a href="/alternance-brut-en-net/" class="nav-link">Alternance</a>
+                <a href="/auto-entrepreneur-brut-en-net/" class="nav-link">Auto-Entrepreneur</a>
+                <a href="/tjm-freelance-brut-en-net/" class="nav-link">TJM Freelance</a>
+                <a href="/rupture-conventionnelle-net/" class="nav-link">Rupture Conv.</a>
+                <a href="/chomage-brut-en-net/" class="nav-link">Chômage</a>
+                <a href="/heures-supplementaires-brut-net/" class="nav-link">Heures Sup</a>
             </nav>
         </div>
     </header>
@@ -701,19 +708,19 @@
             <h2>Notre Mission et Nos Principes Fondateurs</h2>
             <div class="feature-grid">
                 <div class="feature-item">
-                    <h3>⚡ Zéro friction, 100% direct</h3>
+                    <h3>Zéro friction, 100% direct</h3>
                     <p>Aucune inscription requise, aucune publicité intrusive masquant les chiffres. Les calculs s'exécutent en temps réel à chaque touche de clavier.</p>
                 </div>
                 <div class="feature-item">
-                    <h3>🔒 Confidentialité absolue</h3>
+                    <h3>Confidentialité absolue</h3>
                     <p>L'ensemble des algorithmes s'exécute côté client (dans votre navigateur). Aucun montant de salaire ni aucune donnée financière n'est transmise sur nos serveurs.</p>
                 </div>
                 <div class="feature-item">
-                    <h3>🎯 Rigueur réglementaire 2026</h3>
+                    <h3>Rigueur réglementaire 2026</h3>
                     <p>Mise à jour annuelle et continue des formules dès la parution des arrêtés fixant le SMIC, le Plafond de la Sécurité Sociale (PASS) et les taux URSSAF.</p>
                 </div>
                 <div class="feature-item">
-                    <h3>📄 Outils pratiques</h3>
+                    <h3>Outils pratiques</h3>
                     <p>Exportation gratuite des bilans au format PDF prêt à imprimer et partage instantané de vos simulations grâce à une URL paramétrée.</p>
                 </div>
             </div>

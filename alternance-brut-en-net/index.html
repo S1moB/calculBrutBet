@@ -106,17 +106,23 @@
 
     <style>
         :root {
-            --primary: #1e40af;
-            --primary-light: #dbeafe;
-            --success: #059669;
+            --primary: #b91c1c;
+            --primary-light: #fee2e2;
+            --success: #047857;
             --text-dark: #1f2937;
             --text-mid: #4b5563;
-            --text-light: #9ca3af;
+            --text-light: #6b7280;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --secondary: #1e3a8a;
             --border: #e5e7eb;
             --bg: #f9fafb;
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
             --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
         }
+
+        a { color: var(--primary); }
+        a:hover { color: #991b1b; }
 
         * {
             margin: 0;
@@ -173,13 +179,14 @@
 
         .nav-links {
             display: flex;
+            min-width: 0;
             gap: 0.25rem;
             overflow-x: auto;
             padding-bottom: 0.25rem;
         }
 
         .nav-link {
-            padding: 0.6rem 1rem;
+            padding: 0.5rem 0.6rem;
             text-decoration: none;
             color: var(--text-mid);
             font-size: 0.9rem;
@@ -227,20 +234,20 @@
             font-size: 1.05rem;
             color: var(--text-mid);
             max-width: 600px;
-            margin: 0 auto;
+            margin: 0.5rem 0 1.5rem;
         }
 
         /* Grid Layout */
         .container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 2rem;
             margin-bottom: 3rem;
         }
 
         @media (max-width: 900px) {
             .container {
-                grid-template-columns: 1fr;
+                grid-template-columns: minmax(0, 1fr);
             }
         }
 
@@ -295,7 +302,7 @@
         select:focus-visible {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.35);
+            box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.35);
         }
 
         input::placeholder {
@@ -329,7 +336,7 @@
         }
 
         .btn-primary:hover {
-            background: #1e3a8a;
+            background: #991b1b;
         }
 
         .btn-secondary {
@@ -350,7 +357,7 @@
         }
 
         .btn-success:hover {
-            background: #047857;
+            background: #065f46;
         }
 
         .btn-row {
@@ -368,7 +375,7 @@
 
         /* Results */
         .results-header {
-            background: linear-gradient(135deg, #f0f9ff 0%, #f8fafc 100%);
+            background: linear-gradient(135deg, #fef2f2 0%, #f8fafc 100%);
             border: 1px solid var(--border);
             border-radius: 8px;
             padding: 2rem;
@@ -712,12 +719,16 @@
                 </svg>
                 <span translate="no">monbrutnet.fr</span>
             </a>
-            <nav class="nav-links">
-                <a href="/" class="nav-link">Salaire Brut Net</a>
+            <nav class="nav-links" aria-label="Menu principal">
+                <a href="/" class="nav-link">Salarié</a>
+                <a href="/smic-brut-net/" class="nav-link">SMIC</a>
+                <a href="/cadre-brut-en-net/" class="nav-link">Cadre</a>
+                <a href="/fonctionnaire-brut-en-net/" class="nav-link">Fonctionnaire</a>
+                <a href="/alternance-brut-en-net/" class="nav-link active" aria-current="page">Alternance</a>
                 <a href="/auto-entrepreneur-brut-en-net/" class="nav-link">Auto-Entrepreneur</a>
                 <a href="/tjm-freelance-brut-en-net/" class="nav-link">TJM Freelance</a>
                 <a href="/rupture-conventionnelle-net/" class="nav-link">Rupture Conv.</a>
-                <a href="/chomage-brut-en-net/" class="nav-link">Chômage ARE</a>
+                <a href="/chomage-brut-en-net/" class="nav-link">Chômage</a>
                 <a href="/heures-supplementaires-brut-net/" class="nav-link">Heures Sup</a>
             </nav>
         </div>
@@ -774,7 +785,7 @@
                 </div>
 
                 <details class="advanced-options">
-                    <summary>⚙️ Options avancées (13e mois, temps de travail)</summary>
+                    <summary>Options avancées (13e mois, temps de travail)</summary>
                     <div class="advanced-content">
                         <div class="form-group" style="margin-bottom: 0;">
                             <label for="tempsTravail">Temps de travail hebdomadaire</label>
@@ -792,7 +803,7 @@
                     </div>
                 </details>
 
-                <button type="submit">Calculer mon Net</button>
+                <button type="submit" class="btn-primary">Calculer mon Net</button>
             </form>
 
             <div class="history-section">
@@ -834,14 +845,14 @@
                         </tbody>
                     </table>
                 </div>
-                <div style="text-align: center; margin-top: 1rem; font-size: 0.8rem; color: #94a3b8; display: none;" id="pdfSignature">
+                <div style="text-align: center; margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted); display: none;" id="pdfSignature">
                     Généré gratuitement via monbrutnet.fr
                 </div>
             </div>
             
             <div class="btn-row" aria-live="polite">
-                <button type="button" class="btn-pdf" onclick="genPdf()"><span aria-hidden="true">📄</span> Télécharger le PDF</button>
-                <button type="button" class="btn-share" id="btnShare" onclick="copyShareLink()"><span aria-hidden="true">🔗</span> Copier le lien</button>
+                <button type="button" class="btn-pdf" onclick="genPdf()">Télécharger le PDF</button>
+                <button type="button" class="btn-share" id="btnShare" onclick="copyShareLink()">Copier le lien</button>
             </div>
         </div>
 
@@ -868,7 +879,7 @@
             <div class="table-responsive" style="margin: 1.5rem 0;">
                 <table style="width: 100%; border-collapse: collapse; text-align: left;">
                     <thead>
-                        <tr style="background-color: #f8fafc; border-bottom: 2px solid var(--border);">
+                        <tr style="background-color: var(--bg); border-bottom: 2px solid var(--border);">
                             <th style="padding: 0.75rem;">Tranche d'âge</th>
                             <th style="padding: 0.75rem;">1ère année (% SMIC)</th>
                             <th style="padding: 0.75rem;">2ème année (% SMIC)</th>
@@ -880,23 +891,23 @@
                             <td style="padding: 0.75rem;"><strong>Moins de 18 ans</strong></td>
                             <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">27% = 504,10 € net</td>
                             <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">39% = 728,14 € net</td>
-                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">55% = 1 026,86 € brut ➔ 1 007,41 € net</td>
+                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">55% = 1 026,86 € brut → 1 007,41 € net</td>
                         </tr>
                         <tr>
                             <td style="padding: 0.75rem;"><strong>18 à 20 ans</strong></td>
                             <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">43% = 802,82 € net</td>
-                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">51% = 952,18 € brut ➔ 948,29 € net</td>
-                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">67% = 1 250,90 € brut ➔ 1 184,76 € net</td>
+                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">51% = 952,18 € brut → 948,29 € net</td>
+                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">67% = 1 250,90 € brut → 1 184,76 € net</td>
                         </tr>
                         <tr>
                             <td style="padding: 0.75rem;"><strong>21 à 25 ans</strong></td>
-                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">53% = 989,52 € brut ➔ 977,85 € net</td>
-                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">61% = 1 138,88 € brut ➔ 1 096,08 € net</td>
-                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">78% = 1 456,28 € brut ➔ 1 347,33 € net</td>
+                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">53% = 989,52 € brut → 977,85 € net</td>
+                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">61% = 1 138,88 € brut → 1 096,08 € net</td>
+                            <td style="padding: 0.75rem; color: var(--success); font-weight: 600;">78% = 1 456,28 € brut → 1 347,33 € net</td>
                         </tr>
                         <tr>
                             <td style="padding: 0.75rem;"><strong>26 ans et plus</strong></td>
-                            <td colspan="3" style="padding: 0.75rem; color: var(--success); font-weight: 600; text-align: center;">100% du SMIC (1 867,02 € brut ➔ ~1 672,47 € net) ou 100% du salaire minimum conventionnel</td>
+                            <td colspan="3" style="padding: 0.75rem; color: var(--success); font-weight: 600; text-align: center;">100% du SMIC (1 867,02 € brut → ~1 672,47 € net) ou 100% du salaire minimum conventionnel</td>
                         </tr>
                     </tbody>
                 </table>
@@ -916,19 +927,19 @@
             <h3>Foire aux questions sur le salaire en alternance</h3>
             <div class="faq-section" style="margin-top: 1.5rem;">
                 <div style="margin-bottom: 1.25rem;">
-                    <h4 style="color: var(--text-main); margin-bottom: 0.25rem;">Un apprenti a-t-il droit aux congés payés et aux avantages de l'entreprise ?</h3>
+                    <h4 style="color: var(--text-main); margin-bottom: 0.25rem;">Un apprenti a-t-il droit aux congés payés et aux avantages de l'entreprise ?</h4>
                     <p style="color: var(--text-muted); margin-top: 0;">Oui, l'apprenti est un salarié à part entière. Il bénéficie des mêmes droits que les autres collaborateurs : 5 semaines de congés payés (2,5 jours ouvrables par mois), 5 jours de congés supplémentaires pour la préparation des examens (art. L. 6222-35), la prise en charge à 50% des frais de transport en commun et l'accès aux titres-restaurant ou au comité d'entreprise (CSE).</p>
                 </div>
                 <div style="margin-bottom: 1.25rem;">
-                    <h4 style="color: var(--text-main); margin-bottom: 0.25rem;">Un alternant a-t-il droit à la Prime d'activité versée par la CAF ?</h3>
+                    <h4 style="color: var(--text-main); margin-bottom: 0.25rem;">Un alternant a-t-il droit à la Prime d'activité versée par la CAF ?</h4>
                     <p style="color: var(--text-muted); margin-top: 0;">Oui, à condition de percevoir des revenus professionnels d'au moins 78% du SMIC net (soit environ 1 153 € par mois) pendant les trois mois précédant la demande. Les apprentis de 21 ans et plus en 2e ou 3e année franchissent facilement ce seuil et peuvent toucher entre 100 € et 200 € d'aide complémentaire par mois.</p>
                 </div>
                 <div style="margin-bottom: 1.25rem;">
-                    <h4 style="color: var(--text-main); margin-bottom: 0.25rem;">L'employeur peut-il payer un apprenti au-dessus de la grille légale ?</h3>
+                    <h4 style="color: var(--text-main); margin-bottom: 0.25rem;">L'employeur peut-il payer un apprenti au-dessus de la grille légale ?</h4>
                     <p style="color: var(--text-muted); margin-top: 0;">Oui, la grille légale du Code du travail constitue un plancher absolu. De nombreuses conventions collectives de branche (comme le Syntec, la métallurgie ou le BTP) fixent des rémunérations minimales plus élevées pour les apprentis selon leur niveau de diplôme préparé (Bac+3, Master, école d'ingénieurs).</p>
                 </div>
                 <div style="margin-bottom: 1.25rem;">
-                    <h4 style="color: var(--text-main); margin-bottom: 0.25rem;">Comment est rémunéré le temps passé au centre de formation (CFA) ?</h3>
+                    <h4 style="color: var(--text-main); margin-bottom: 0.25rem;">Comment est rémunéré le temps passé au centre de formation (CFA) ?</h4>
                     <p style="color: var(--text-muted); margin-top: 0;">Le temps passé en cours au CFA ou à l'université fait partie intégrante du temps de travail effectif. L'apprenti perçoit l'intégralité de son salaire mensuel, qu'il soit en entreprise ou sur les bancs de l'école.</p>
                 </div>
             </div>
@@ -1068,7 +1079,7 @@
                 return;
             }
             historyList.innerHTML = historique.map(item => 
-                `<li>${item.periode}: <strong>${eur(+item.brut)}</strong> ➔ Net <strong>${eur(+item.net)}</strong></li>`
+                `<li>${item.periode}: <strong>${eur(+item.brut)}</strong> → Net <strong>${eur(+item.net)}</strong></li>`
             ).join('');
         }
         updateHistoryUI();
@@ -1130,7 +1141,7 @@
                     <td>Impôt sur le revenu (${tauxImpot}%)</td>
                     <td style="text-align: right; color: var(--primary)">- ${eur(montantImpot)}</td>
                 </tr>
-                <tr style="background-color: #f8fafc;">
+                <tr style="background-color: var(--bg);">
                     <td style="padding-top: 1rem;"><strong>Coût Total Employeur</strong></td>
                     <td style="text-align: right; padding-top: 1rem;"><strong>${eur(coutEmployeur)}</strong></td>
                 </tr>
@@ -1154,7 +1165,7 @@
             navigator.clipboard.writeText(window.location.href).then(() => {
                 const btn = document.getElementById('btnShare');
                 const orig = btn.textContent;
-                btn.textContent = "✅ Lien copié !";
+                btn.textContent = "Lien copié !";
                 setTimeout(() => { btn.textContent = orig; }, 2500);
             });
         }
@@ -1173,7 +1184,7 @@
             const btn = document.querySelector('.btn-pdf');
             const originalText = btn.innerHTML;
             let failed = false;
-            btn.textContent = "⏳ Préparation du PDF…";
+            btn.textContent = "Préparation du PDF…";
             btn.disabled = true;
             try {
                 if (typeof html2pdf === 'undefined') {
@@ -1194,7 +1205,7 @@
             } catch (err) {
                 failed = true;
             } finally {
-                btn.innerHTML = failed ? "⚠️ Échec du PDF, cliquez pour réessayer" : originalText;
+                btn.innerHTML = failed ? "Échec du PDF, cliquez pour réessayer" : originalText;
                 btn.disabled = false;
                 if (failed) setTimeout(() => { btn.innerHTML = originalText; }, 4000);
             }

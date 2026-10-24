@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#f9fafb"> 
     <title>SMIC Net 2026 : 1 477,93 € par Mois, 9,74 €/h | monbrutnet.fr</title>
-    <meta name="description" content="SMIC net 2026 : 1 477,93 € par mois pour 1 867,02 € brut (35 h), soit 9,74 € net de l'heure depuis le 1er juin 2026. Calculez votre net exact, votre impôt et la Prime d'activité.">
+    <meta name="description" content="SMIC net 2026 : 1 477,93 € par mois (1 867,02 € brut, 35 h), 9,74 € net de l'heure et 17 735 € net par an. Calculez votre net exact et votre impôt.">
     
     <link rel="canonical" href="https://monbrutnet.fr/smic-brut-net/" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -106,17 +106,23 @@
 
     <style>
         :root {
-            --primary: #1e40af;
-            --primary-light: #dbeafe;
-            --success: #059669;
+            --primary: #b91c1c;
+            --primary-light: #fee2e2;
+            --success: #047857;
             --text-dark: #1f2937;
             --text-mid: #4b5563;
-            --text-light: #9ca3af;
+            --text-light: #6b7280;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --secondary: #1e3a8a;
             --border: #e5e7eb;
             --bg: #f9fafb;
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
             --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
         }
+
+        a { color: var(--primary); }
+        a:hover { color: #991b1b; }
 
         * {
             margin: 0;
@@ -173,13 +179,14 @@
 
         .nav-links {
             display: flex;
+            min-width: 0;
             gap: 0.25rem;
             overflow-x: auto;
             padding-bottom: 0.25rem;
         }
 
         .nav-link {
-            padding: 0.6rem 1rem;
+            padding: 0.5rem 0.6rem;
             text-decoration: none;
             color: var(--text-mid);
             font-size: 0.9rem;
@@ -227,20 +234,20 @@
             font-size: 1.05rem;
             color: var(--text-mid);
             max-width: 600px;
-            margin: 0 auto;
+            margin: 0.5rem 0 1.5rem;
         }
 
         /* Grid Layout */
         .container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 2rem;
             margin-bottom: 3rem;
         }
 
         @media (max-width: 900px) {
             .container {
-                grid-template-columns: 1fr;
+                grid-template-columns: minmax(0, 1fr);
             }
         }
 
@@ -295,7 +302,7 @@
         select:focus-visible {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.35);
+            box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.35);
         }
 
         input::placeholder {
@@ -329,7 +336,7 @@
         }
 
         .btn-primary:hover {
-            background: #1e3a8a;
+            background: #991b1b;
         }
 
         .btn-secondary {
@@ -350,7 +357,7 @@
         }
 
         .btn-success:hover {
-            background: #047857;
+            background: #065f46;
         }
 
         .btn-row {
@@ -368,7 +375,7 @@
 
         /* Results */
         .results-header {
-            background: linear-gradient(135deg, #f0f9ff 0%, #f8fafc 100%);
+            background: linear-gradient(135deg, #fef2f2 0%, #f8fafc 100%);
             border: 1px solid var(--border);
             border-radius: 8px;
             padding: 2rem;
@@ -712,12 +719,16 @@
                 </svg>
                 <span translate="no">monbrutnet.fr</span>
             </a>
-            <nav class="nav-links">
-                <a href="/" class="nav-link">Salaire Brut Net</a>
+            <nav class="nav-links" aria-label="Menu principal">
+                <a href="/" class="nav-link">Salarié</a>
+                <a href="/smic-brut-net/" class="nav-link active" aria-current="page">SMIC</a>
+                <a href="/cadre-brut-en-net/" class="nav-link">Cadre</a>
+                <a href="/fonctionnaire-brut-en-net/" class="nav-link">Fonctionnaire</a>
+                <a href="/alternance-brut-en-net/" class="nav-link">Alternance</a>
                 <a href="/auto-entrepreneur-brut-en-net/" class="nav-link">Auto-Entrepreneur</a>
                 <a href="/tjm-freelance-brut-en-net/" class="nav-link">TJM Freelance</a>
                 <a href="/rupture-conventionnelle-net/" class="nav-link">Rupture Conv.</a>
-                <a href="/chomage-brut-en-net/" class="nav-link">Chômage ARE</a>
+                <a href="/chomage-brut-en-net/" class="nav-link">Chômage</a>
                 <a href="/heures-supplementaires-brut-net/" class="nav-link">Heures Sup</a>
             </nav>
         </div>
@@ -766,7 +777,7 @@
                 </div>
 
                 <details class="advanced-options">
-                    <summary>⚙️ Options avancées (13e mois, temps de travail)</summary>
+                    <summary>Options avancées (13e mois, temps de travail)</summary>
                     <div class="advanced-content">
                         <div class="form-group" style="margin-bottom: 0;">
                             <label for="tempsTravail">Temps de travail hebdomadaire</label>
@@ -784,7 +795,7 @@
                     </div>
                 </details>
 
-                <button type="submit">Calculer mon Net</button>
+                <button type="submit" class="btn-primary">Calculer mon Net</button>
             </form>
 
             <div class="history-section">
@@ -835,21 +846,21 @@
                                 <td>Impôt sur le revenu (0%)</td>
                                 <td style="text-align: right; color: var(--primary)">- 0,00 €</td>
                             </tr>
-                            <tr style="background-color: #f8fafc;">
+                            <tr style="background-color: var(--bg);">
                                 <td style="padding-top: 1rem;"><strong>Coût Total Employeur</strong></td>
                                 <td style="text-align: right; padding-top: 1rem;"><strong>2 651,17 €</strong></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <div style="text-align: center; margin-top: 1rem; font-size: 0.8rem; color: #94a3b8; display: none;" id="pdfSignature">
+                <div style="text-align: center; margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted); display: none;" id="pdfSignature">
                     Généré gratuitement via monbrutnet.fr
                 </div>
             </div>
             
             <div class="btn-row" aria-live="polite">
-                <button type="button" class="btn-pdf" onclick="genPdf()"><span aria-hidden="true">📄</span> Télécharger le PDF</button>
-                <button type="button" class="btn-share" id="btnShare" onclick="copyShareLink()"><span aria-hidden="true">🔗</span> Copier le lien</button>
+                <button type="button" class="btn-pdf" onclick="genPdf()">Télécharger le PDF</button>
+                <button type="button" class="btn-share" id="btnShare" onclick="copyShareLink()">Copier le lien</button>
             </div>
         </div>
 
@@ -862,7 +873,7 @@
             <div class="table-responsive" style="margin: 1.5rem 0;">
                 <table style="width: 100%; border-collapse: collapse; text-align: left;">
                     <thead>
-                        <tr style="background-color: #f8fafc; border-bottom: 2px solid var(--border);">
+                        <tr style="background-color: var(--bg); border-bottom: 2px solid var(--border);">
                             <th style="padding: 0.75rem;">Période de référence</th>
                             <th style="padding: 0.75rem;">SMIC Brut</th>
                             <th style="padding: 0.75rem;">Net Salarié Non-Cadre (20,84 %)</th>
@@ -897,7 +908,7 @@
             <div class="table-responsive" style="margin: 1.5rem 0;">
                 <table style="width: 100%; border-collapse: collapse; text-align: left;">
                     <thead>
-                        <tr style="background-color: #f8fafc; border-bottom: 2px solid var(--border);">
+                        <tr style="background-color: var(--bg); border-bottom: 2px solid var(--border);">
                             <th style="padding: 0.75rem;">Cotisation salariale</th>
                             <th style="padding: 0.75rem;">Assiette / Taux indicatif</th>
                             <th style="padding: 0.75rem; text-align: right;">Montant mensuel prélevé</th>
@@ -929,7 +940,7 @@
                             <td style="padding: 0.75rem;">Selon convention collective</td>
                             <td style="padding: 0.75rem; text-align: right;">Non incluses</td>
                         </tr>
-                        <tr style="background-color: #f8fafc; font-weight: bold; border-top: 2px solid var(--border);">
+                        <tr style="background-color: var(--bg); font-weight: bold; border-top: 2px solid var(--border);">
                             <td style="padding: 0.75rem;">Total cotisations salariales (20,84 %)</td>
                             <td style="padding: 0.75rem;">-</td>
                             <td style="padding: 0.75rem; text-align: right; color: var(--primary);">- 389,09 €</td>
@@ -955,7 +966,7 @@
             <div class="table-responsive" style="margin: 1.5rem 0;">
                 <table style="width: 100%; border-collapse: collapse; text-align: left;">
                     <thead>
-                        <tr style="background-color: #f8fafc; border-bottom: 2px solid var(--border);">
+                        <tr style="background-color: var(--bg); border-bottom: 2px solid var(--border);">
                             <th style="padding: 0.75rem;">Durée hebdomadaire</th>
                             <th style="padding: 0.75rem;">Heures mensuelles</th>
                             <th style="padding: 0.75rem;">Salaire Brut Mensuel</th>
@@ -999,7 +1010,7 @@
             <div class="table-responsive" style="margin: 1.5rem 0;">
                 <table style="width: 100%; border-collapse: collapse; text-align: left;">
                     <thead>
-                        <tr style="background-color: #f8fafc; border-bottom: 2px solid var(--border);"><th style="padding: 0.75rem;">Brut horaire</th><th style="padding: 0.75rem;">Net horaire</th><th style="padding: 0.75rem;">Brut mensuel 35h</th><th style="padding: 0.75rem;">Net mensuel 35h</th><th style="padding: 0.75rem;">Brut mensuel 39h</th><th style="padding: 0.75rem;">Net mensuel 39h</th></tr>
+                        <tr style="background-color: var(--bg); border-bottom: 2px solid var(--border);"><th style="padding: 0.75rem;">Brut horaire</th><th style="padding: 0.75rem;">Net horaire</th><th style="padding: 0.75rem;">Brut mensuel 35h</th><th style="padding: 0.75rem;">Net mensuel 35h</th><th style="padding: 0.75rem;">Brut mensuel 39h</th><th style="padding: 0.75rem;">Net mensuel 39h</th></tr>
                     </thead>
                     <tbody>
                         <tr><td style="padding: 0.75rem;">11,00 € (inférieur au SMIC)</td><td style="padding: 0.75rem; color: var(--success); font-weight: 600;">8,71 €</td><td style="padding: 0.75rem;">1 668,37 €</td><td style="padding: 0.75rem; color: var(--success); font-weight: 600;">1 320,68 €</td><td style="padding: 0.75rem;">1 906,66 €</td><td style="padding: 0.75rem; color: var(--success); font-weight: 600;">1 536,26 €</td></tr>
@@ -1020,19 +1031,19 @@
             <h3>Foire aux questions sur le SMIC en 2026</h3>
             <div class="faq-section" style="margin-top: 1.5rem;">
                 <div style="margin-bottom: 1.25rem;">
-                    <h4 style="color: var(--text-main); margin-bottom: 0.25rem;">Quel est le montant exact du SMIC net en 2026 ?</h3>
+                    <h4 style="color: var(--text-main); margin-bottom: 0.25rem;">Quel est le montant exact du SMIC net en 2026 ?</h4>
                     <p style="color: var(--text-muted); margin-top: 0;">Depuis le 1er juin 2026, le SMIC brut mensuel est de 1 867,02 € pour 35 heures par semaine (12,31 € brut de l'heure). Après déduction des cotisations salariales obligatoires (20,84 %), un salarié non-cadre touche 1 477,93 € net par mois, soit environ 9,74 € net de l'heure.</p>
                 </div>
                 <div style="margin-bottom: 1.25rem;">
-                    <h4 style="color: var(--text-main); margin-bottom: 0.25rem;">Le SMIC s'applique-t-il obligatoirement à tous les salariés ?</h3>
+                    <h4 style="color: var(--text-main); margin-bottom: 0.25rem;">Le SMIC s'applique-t-il obligatoirement à tous les salariés ?</h4>
                     <p style="color: var(--text-muted); margin-top: 0;">Oui, aucun salarié majeur du secteur privé ne peut percevoir une rémunération inférieure au SMIC horaire (12,31 €). Cependant, certaines conventions collectives prévoient des salaires minima conventionnels (SMC) supérieurs au SMIC qui s'imposent alors à l'employeur. Des abattements légaux existent uniquement pour les mineurs ayant moins de 6 mois de pratique professionnelle et les apprentis sous contrat d'apprentissage.</p>
                 </div>
                 <div style="margin-bottom: 1.25rem;">
-                    <h4 style="color: var(--text-main); margin-bottom: 0.25rem;">Quel est le coût total du SMIC pour l'employeur (super-brut) ?</h3>
+                    <h4 style="color: var(--text-main); margin-bottom: 0.25rem;">Quel est le coût total du SMIC pour l'employeur (super-brut) ?</h4>
                     <p style="color: var(--text-muted); margin-top: 0;">Grâce à la réduction générale des cotisations patronales (ex-réduction Fillon), les cotisations patronales de sécurité sociale au niveau du SMIC sont fortement réduites. Le coût global pour l'entreprise s'établit à environ 1 950 € à 2 050 € par mois, contre plus de 2 550 € sans les allègements patronaux de l'État.</p>
                 </div>
                 <div style="margin-bottom: 1.25rem;">
-                    <h4 style="color: var(--text-main); margin-bottom: 0.25rem;">Comment demander la prime d'activité si l'on gagne le SMIC ?</h3>
+                    <h4 style="color: var(--text-main); margin-bottom: 0.25rem;">Comment demander la prime d'activité si l'on gagne le SMIC ?</h4>
                     <p style="color: var(--text-muted); margin-top: 0;">La demande se fait entièrement en ligne sur caf.fr ou msa.fr. Vous devez renseigner les revenus de votre foyer des trois derniers mois. Si vous êtes éligible, la prime est versée chaque mois le 5 et son montant reste fixe pendant un trimestre complet.</p>
                 </div>
             </div>
@@ -1156,7 +1167,7 @@
                 return;
             }
             historyList.innerHTML = historique.map(item => 
-                `<li>${item.periode}: <strong>${eur(+item.brut)}</strong> ➔ Net <strong>${eur(+item.net)}</strong></li>`
+                `<li>${item.periode}: <strong>${eur(+item.brut)}</strong> → Net <strong>${eur(+item.net)}</strong></li>`
             ).join('');
         }
         updateHistoryUI();
@@ -1218,7 +1229,7 @@
                     <td>Impôt sur le revenu (${tauxImpot}%)</td>
                     <td style="text-align: right; color: var(--primary)">- ${eur(montantImpot)}</td>
                 </tr>
-                <tr style="background-color: #f8fafc;">
+                <tr style="background-color: var(--bg);">
                     <td style="padding-top: 1rem;"><strong>Coût Total Employeur</strong></td>
                     <td style="text-align: right; padding-top: 1rem;"><strong>${eur(coutEmployeur)}</strong></td>
                 </tr>
@@ -1243,7 +1254,7 @@
             navigator.clipboard.writeText(window.location.href).then(() => {
                 const btn = document.getElementById('btnShare');
                 const orig = btn.textContent;
-                btn.textContent = "✅ Lien copié !";
+                btn.textContent = "Lien copié !";
                 setTimeout(() => { btn.textContent = orig; }, 2500);
             });
         }
@@ -1262,7 +1273,7 @@
             const btn = document.querySelector('.btn-pdf');
             const originalText = btn.innerHTML;
             let failed = false;
-            btn.textContent = "⏳ Préparation du PDF…";
+            btn.textContent = "Préparation du PDF…";
             btn.disabled = true;
             try {
                 if (typeof html2pdf === 'undefined') {
@@ -1283,7 +1294,7 @@
             } catch (err) {
                 failed = true;
             } finally {
-                btn.innerHTML = failed ? "⚠️ Échec du PDF, cliquez pour réessayer" : originalText;
+                btn.innerHTML = failed ? "Échec du PDF, cliquez pour réessayer" : originalText;
                 btn.disabled = false;
                 if (failed) setTimeout(() => { btn.innerHTML = originalText; }, 4000);
             }

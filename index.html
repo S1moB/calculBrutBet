@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#f9fafb"> 
     <title>Calcul Salaire Brut en Net 2026 : Simulateur Gratuit | monbrutnet.fr</title>
-    <meta name="description" content="Convertissez votre salaire brut en net en 2026. Calculez votre net mensuel, horaire ou annuel (cadre, non-cadre, SMIC) avec le prélèvement à la source.">
+    <meta name="description" content="Convertissez votre salaire brut en net, ou net en brut, en 2026 : net mensuel, horaire ou annuel (cadre, non-cadre, SMIC) avec prélèvement à la source.">
     
     <link rel="canonical" href="https://monbrutnet.fr/" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -137,17 +137,23 @@
 
     <style>
         :root {
-            --primary: #1e40af;
-            --primary-light: #dbeafe;
-            --success: #059669;
+            --primary: #b91c1c;
+            --primary-light: #fee2e2;
+            --success: #047857;
             --text-dark: #1f2937;
             --text-mid: #4b5563;
-            --text-light: #9ca3af;
+            --text-light: #6b7280;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --secondary: #1e3a8a;
             --border: #e5e7eb;
             --bg: #f9fafb;
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
             --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
         }
+
+        a { color: var(--primary); }
+        a:hover { color: #991b1b; }
 
         * {
             margin: 0;
@@ -204,13 +210,14 @@
 
         .nav-links {
             display: flex;
+            min-width: 0;
             gap: 0.25rem;
             overflow-x: auto;
             padding-bottom: 0.25rem;
         }
 
         .nav-link {
-            padding: 0.6rem 1rem;
+            padding: 0.5rem 0.6rem;
             text-decoration: none;
             color: var(--text-mid);
             font-size: 0.9rem;
@@ -258,20 +265,20 @@
             font-size: 1.05rem;
             color: var(--text-mid);
             max-width: 600px;
-            margin: 0 auto;
+            margin: 0.5rem 0 1.5rem;
         }
 
         /* Grid Layout */
         .container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 2rem;
             margin-bottom: 3rem;
         }
 
         @media (max-width: 900px) {
             .container {
-                grid-template-columns: 1fr;
+                grid-template-columns: minmax(0, 1fr);
             }
         }
 
@@ -326,7 +333,7 @@
         select:focus-visible {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.35);
+            box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.35);
         }
 
         input::placeholder {
@@ -360,7 +367,7 @@
         }
 
         .btn-primary:hover {
-            background: #1e3a8a;
+            background: #991b1b;
         }
 
         .btn-secondary {
@@ -381,7 +388,7 @@
         }
 
         .btn-success:hover {
-            background: #047857;
+            background: #065f46;
         }
 
         .btn-row {
@@ -399,7 +406,7 @@
 
         /* Results */
         .results-header {
-            background: linear-gradient(135deg, #f0f9ff 0%, #f8fafc 100%);
+            background: linear-gradient(135deg, #fef2f2 0%, #f8fafc 100%);
             border: 1px solid var(--border);
             border-radius: 8px;
             padding: 2rem;
@@ -743,12 +750,16 @@
                 </svg>
                 <span translate="no">monbrutnet.fr</span>
             </a>
-            <nav class="nav-links">
-                <a href="/" class="nav-link active">Salaire Brut Net</a>
+            <nav class="nav-links" aria-label="Menu principal">
+                <a href="/" class="nav-link active" aria-current="page">Salarié</a>
+                <a href="/smic-brut-net/" class="nav-link">SMIC</a>
+                <a href="/cadre-brut-en-net/" class="nav-link">Cadre</a>
+                <a href="/fonctionnaire-brut-en-net/" class="nav-link">Fonctionnaire</a>
+                <a href="/alternance-brut-en-net/" class="nav-link">Alternance</a>
                 <a href="/auto-entrepreneur-brut-en-net/" class="nav-link">Auto-Entrepreneur</a>
                 <a href="/tjm-freelance-brut-en-net/" class="nav-link">TJM Freelance</a>
                 <a href="/rupture-conventionnelle-net/" class="nav-link">Rupture Conv.</a>
-                <a href="/chomage-brut-en-net/" class="nav-link">Chômage ARE</a>
+                <a href="/chomage-brut-en-net/" class="nav-link">Chômage</a>
                 <a href="/heures-supplementaires-brut-net/" class="nav-link">Heures Sup</a>
             </nav>
         </div>
@@ -801,7 +812,7 @@
                 </div>
 
                 <details class="advanced-options">
-                    <summary>⚙️ Options avancées (13e mois, temps de travail)</summary>
+                    <summary>Options avancées (13e mois, temps de travail)</summary>
                     <div class="advanced-content">
                         <div class="form-group" style="margin-bottom: 0;">
                             <label for="tempsTravail">Temps de travail hebdomadaire</label>
@@ -819,7 +830,7 @@
                     </div>
                 </details>
 
-                <button type="submit">Calculer mon Net</button>
+                <button type="submit" class="btn-primary">Calculer mon Net</button>
             </form>
 
             <div class="history-section">
@@ -859,14 +870,14 @@
                         </tbody>
                     </table>
                 </div>
-                <div style="text-align: center; margin-top: 1rem; font-size: 0.8rem; color: #94a3b8; display: none;" id="pdfSignature">
+                <div style="text-align: center; margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted); display: none;" id="pdfSignature">
                     Généré gratuitement via monbrutnet.fr
                 </div>
             </div>
             
             <div class="btn-row" aria-live="polite">
-                <button type="button" class="btn-pdf" onclick="genPdf()"><span aria-hidden="true">📄</span> Télécharger le PDF</button>
-                <button type="button" class="btn-share" id="btnShare" onclick="copyShareLink()"><span aria-hidden="true">🔗</span> Copier le lien</button>
+                <button type="button" class="btn-pdf" onclick="genPdf()">Télécharger le PDF</button>
+                <button type="button" class="btn-share" id="btnShare" onclick="copyShareLink()">Copier le lien</button>
             </div>
         </div>
         <div class="card seo-content" style="grid-column: 1 / -1;">
@@ -878,7 +889,7 @@
             <div class="table-responsive" style="margin: 1.5rem 0;">
                 <table style="width: 100%; border-collapse: collapse; text-align: left;">
                     <thead>
-                        <tr style="background-color: #f8fafc; border-bottom: 2px solid var(--border);">
+                        <tr style="background-color: var(--bg); border-bottom: 2px solid var(--border);">
                             <th style="padding: 0.75rem;">Salaire Brut Mensuel</th>
                             <th style="padding: 0.75rem;">Net Non-Cadre (~20,84 %)</th>
                             <th style="padding: 0.75rem;">Net Cadre (~20,86 %)</th>
@@ -937,19 +948,19 @@
             <h3>Foire Aux Questions (FAQ) : Tout savoir sur le Salaire Brut en Net</h3>
             <div style="margin-top: 1.5rem; display: grid; gap: 1.25rem;">
                 <div>
-                    <h4 style="margin: 0 0 0.35rem 0; color: var(--secondary);">Quel est le pourcentage moyen de charges entre brut et net en 2026 ?</h3>
+                    <h4 style="margin: 0 0 0.35rem 0; color: var(--secondary);">Quel est le pourcentage moyen de charges entre brut et net en 2026 ?</h4>
                     <p style="margin: 0; font-size: 0.95rem;">Pour un salarié du privé, les cotisations salariales légales représentent environ <strong>20,84 %</strong> du salaire brut sous le plafond de la Sécurité sociale (pour 2 000 € brut, vous touchez environ 1 583 € net). Depuis la fusion Agirc-Arrco de 2019, un cadre paie quasiment le même taux : seule la cotisation APEC (0,024 %) s'ajoute. La mutuelle et la prévoyance d'entreprise viennent en plus.</p>
                 </div>
                 <div>
-                    <h4 style="margin: 0 0 0.35rem 0; color: var(--secondary);">Un salarié au SMIC paie-t-il l'impôt sur le revenu à la source ?</h3>
+                    <h4 style="margin: 0 0 0.35rem 0; color: var(--secondary);">Un salarié au SMIC paie-t-il l'impôt sur le revenu à la source ?</h4>
                     <p style="margin: 0; font-size: 0.95rem;">Une personne seule célibataire rémunérée au SMIC à temps plein (1 867,02 € brut par mois) se situe en dessous du seuil d'imposition en France en 2026. Son taux de prélèvement à la source personnalisé est donc généralement de <strong>0%</strong>, sauf en présence d'autres revenus ou au sein d'un foyer fiscal imposable.</p>
                 </div>
                 <div>
-                    <h4 style="margin: 0 0 0.35rem 0; color: var(--secondary);">Comment le 13ème mois est-il pris en compte dans le calcul ?</h3>
+                    <h4 style="margin: 0 0 0.35rem 0; color: var(--secondary);">Comment le 13ème mois est-il pris en compte dans le calcul ?</h4>
                     <p style="margin: 0; font-size: 0.95rem;">Si vous cochez l'option 13ème mois, le salaire brut annuel contractuel est divisé par 13 mensualités. Le simulateur lisse le montant perçu mensuellement pour vous donner une vision budgétaire exacte sur 12 et 13 mois.</p>
                 </div>
                 <div>
-                    <h4 style="margin: 0 0 0.35rem 0; color: var(--secondary);">Quels sont les éléments du salaire qui ne subissent pas de cotisations ?</h3>
+                    <h4 style="margin: 0 0 0.35rem 0; color: var(--secondary);">Quels sont les éléments du salaire qui ne subissent pas de cotisations ?</h4>
                     <p style="margin: 0; font-size: 0.95rem;">Certaines indemnités sont exonérées de cotisations sociales et d'impôt sur le revenu dans les limites légales : le remboursement des frais de transport public (à hauteur minimale de 50%), la part patronale des titres-restaurant, et les indemnités kilométriques justifiées selon le barème fiscal officiel.</p>
                 </div>
             </div>
@@ -958,27 +969,27 @@
             <p style="font-size: 0.95rem;">Retrouvez les fiches spécialisées pour votre situation :</p>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
                 <a href="/fonctionnaire-brut-en-net/" class="tool-link" style="padding: 1rem; border: 1px solid var(--border); border-radius: 8px; text-decoration: none; color: var(--text-main); transition: color 0.15s, background-color 0.15s, border-color 0.15s, box-shadow 0.15s, transform 0.15s;">
-                    <strong style="color: var(--secondary);">📋 Fonctionnaire</strong>
+                    <strong style="color: var(--secondary);">Fonctionnaire</strong>
                     <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; color: var(--text-muted);">Retenues réduites (~15%) spécifiques aux agents publics.</p>
                 </a>
                 <a href="/smic-brut-net/" class="tool-link" style="padding: 1rem; border: 1px solid var(--border); border-radius: 8px; text-decoration: none; color: var(--text-main); transition: color 0.15s, background-color 0.15s, border-color 0.15s, box-shadow 0.15s, transform 0.15s;">
-                    <strong style="color: var(--secondary);">💰 SMIC 2026</strong>
+                    <strong style="color: var(--secondary);">SMIC 2026</strong>
                     <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; color: var(--text-muted);">1 867,02 € brut → environ 1 478 € net.</p>
                 </a>
                 <a href="/alternance-brut-en-net/" class="tool-link" style="padding: 1rem; border: 1px solid var(--border); border-radius: 8px; text-decoration: none; color: var(--text-main); transition: color 0.15s, background-color 0.15s, border-color 0.15s, box-shadow 0.15s, transform 0.15s;">
-                    <strong style="color: var(--secondary);">🎓 Alternant/Apprenti</strong>
+                    <strong style="color: var(--secondary);">Alternant/Apprenti</strong>
                     <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; color: var(--text-muted);">Exonération de cotisations sociales spécifiques.</p>
                 </a>
                 <a href="/tjm-freelance-brut-en-net/" class="tool-link" style="padding: 1rem; border: 1px solid var(--border); border-radius: 8px; text-decoration: none; color: var(--text-main); transition: color 0.15s, background-color 0.15s, border-color 0.15s, box-shadow 0.15s, transform 0.15s;">
-                    <strong style="color: var(--secondary);">💼 Freelance / TJM</strong>
+                    <strong style="color: var(--secondary);">Freelance / TJM</strong>
                     <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; color: var(--text-muted);">Convertissez votre TJM en net réel.</p>
                 </a>
                 <a href="/rupture-conventionnelle-net/" class="tool-link" style="padding: 1rem; border: 1px solid var(--border); border-radius: 8px; text-decoration: none; color: var(--text-main); transition: color 0.15s, background-color 0.15s, border-color 0.15s, box-shadow 0.15s, transform 0.15s;">
-                    <strong style="color: var(--secondary);">⚖️ Rupture Convention</strong>
+                    <strong style="color: var(--secondary);">Rupture Convention</strong>
                     <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; color: var(--text-muted);">Indemnité légale selon ancienneté.</p>
                 </a>
                 <a href="/chomage-brut-en-net/" class="tool-link" style="padding: 1rem; border: 1px solid var(--border); border-radius: 8px; text-decoration: none; color: var(--text-main); transition: color 0.15s, background-color 0.15s, border-color 0.15s, box-shadow 0.15s, transform 0.15s;">
-                    <strong style="color: var(--secondary);">🏥 Chômage (ARE)</strong>
+                    <strong style="color: var(--secondary);">Chômage (ARE)</strong>
                     <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; color: var(--text-muted);">Allocations journalières France Travail.</p>
                 </a>
             </div>
@@ -996,7 +1007,7 @@
                     <div>
                         <span class="badge-tag">SMIC 2026</span>
                         <h3>SMIC Brut en Net</h3>
-                        <p>Découvrez le montant exact du SMIC net (1 867,02 € brut ➔ 1 477,93 € net) horaire, mensuel et annuel.</p>
+                        <p>Découvrez le montant exact du SMIC net (1 867,02 € brut → 1 477,93 € net) horaire, mensuel et annuel.</p>
                     </div>
                     <span style="font-weight: 600; color: var(--secondary); margin-top: 1rem; font-size: 0.9rem;">Calculer le SMIC →</span>
                 </a>
@@ -1065,7 +1076,7 @@
 
                 <a href="/auto-entrepreneur-brut-en-net/" class="guide-card">
                     <div>
-                        <span class="badge-tag" style="background:#ecfdf5; color:#059669;">Nouveau Simulateur</span>
+                        <span class="badge-tag" style="background:#ecfdf5; color:var(--success);">Nouveau Simulateur</span>
                         <h3>Auto-Entrepreneur Brut en Net</h3>
                         <p>Simulateur chiffre d'affaires en net réel disponible : cotisations URSSAF 2026, ACRE, frais et versement libératoire.</p>
                     </div>
@@ -1074,7 +1085,7 @@
 
                 <a href="/tjm-freelance-brut-en-net/" class="guide-card">
                     <div>
-                        <span class="badge-tag" style="background:#ecfdf5; color:#059669;">Nouveau Simulateur</span>
+                        <span class="badge-tag" style="background:#ecfdf5; color:var(--success);">Nouveau Simulateur</span>
                         <h3>TJM Freelance en Salaire Net</h3>
                         <p>Convertissez votre Taux Journalier Moyen (TJM) en salaire net mensuel équivalent (Micro-Entreprise, SASU, EURL).</p>
                     </div>
@@ -1083,7 +1094,7 @@
 
                 <a href="/rupture-conventionnelle-net/" class="guide-card">
                     <div>
-                        <span class="badge-tag" style="background:#ecfdf5; color:#059669;">Nouveau Simulateur</span>
+                        <span class="badge-tag" style="background:#ecfdf5; color:var(--success);">Nouveau Simulateur</span>
                         <h3>Rupture Conventionnelle</h3>
                         <p>Estimez votre indemnité légale de rupture selon votre ancienneté, cadre d'exonération fiscale et montant net perçu.</p>
                     </div>
@@ -1092,7 +1103,7 @@
 
                 <a href="/chomage-brut-en-net/" class="guide-card">
                     <div>
-                        <span class="badge-tag" style="background:#ecfdf5; color:#059669;">Nouveau Simulateur</span>
+                        <span class="badge-tag" style="background:#ecfdf5; color:var(--success);">Nouveau Simulateur</span>
                         <h3>Indemnités Chômage ARE</h3>
                         <p>Calculez vos allocations chômage France Travail à partir de votre salaire journalier de référence (SJR).</p>
                     </div>
@@ -1101,7 +1112,7 @@
 
                 <a href="/heures-supplementaires-brut-net/" class="guide-card">
                     <div>
-                        <span class="badge-tag" style="background:#ecfdf5; color:#059669;">Nouveau Simulateur</span>
+                        <span class="badge-tag" style="background:#ecfdf5; color:var(--success);">Nouveau Simulateur</span>
                         <h3>Heures Supplémentaires</h3>
                         <p>Majoration de 25% et 50%, défiscalisation loi TEPA et exonération de cotisations salariales : calculez votre net.</p>
                     </div>
@@ -1181,7 +1192,7 @@
                 return;
             }
             historyList.innerHTML = historique.map(item => 
-                `<li>${item.periode}: <strong>${eur(+item.brut)}</strong> ➔ Net <strong>${eur(+item.net)}</strong></li>`
+                `<li>${item.periode}: <strong>${eur(+item.brut)}</strong> → Net <strong>${eur(+item.net)}</strong></li>`
             ).join('');
         }
         updateHistoryUI();
@@ -1283,7 +1294,7 @@
                     <td>Impôt sur le revenu (${tauxImpot}%)</td>
                     <td style="text-align: right; color: var(--primary)">- ${eur(montantImpot)}</td>
                 </tr>
-                <tr style="background-color: #f8fafc;">
+                <tr style="background-color: var(--bg);">
                     <td style="padding-top: 0.8rem;"><strong>Net après impôt perçu</strong></td>
                     <td style="text-align: right; padding-top: 0.8rem; color: var(--success); font-size: 1.1rem;"><strong>${eur(netApresImpot)}</strong></td>
                 </tr>
@@ -1373,7 +1384,7 @@
             navigator.clipboard.writeText(url).then(() => {
                 const btn = document.getElementById('btnShare');
                 const orig = btn.innerHTML;
-                btn.innerHTML = "✅ Lien copié !";
+                btn.innerHTML = "Lien copié !";
                 setTimeout(() => { btn.innerHTML = orig; }, 2500);
             }).catch(() => {
                 prompt("Copiez le lien suivant :", window.location.href);
@@ -1401,7 +1412,7 @@
             const btn = document.querySelector('.btn-pdf');
             const originalText = btn.innerHTML;
             let failed = false;
-            btn.textContent = "⏳ Préparation du PDF…";
+            btn.textContent = "Préparation du PDF…";
             btn.disabled = true;
 
             try {
@@ -1427,7 +1438,7 @@
             } catch (err) {
                 failed = true;
             } finally {
-                btn.innerHTML = failed ? "⚠️ Échec du PDF, cliquez pour réessayer" : originalText;
+                btn.innerHTML = failed ? "Échec du PDF, cliquez pour réessayer" : originalText;
                 btn.disabled = false;
                 if (failed) setTimeout(() => { btn.innerHTML = originalText; }, 4000);
             }

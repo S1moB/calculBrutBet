@@ -3,3 +3,14 @@ monbrutnet.fr-audit/
 apply-phases.py
 baremes-2026.js
 .claude/
+
+# OS / editor / tooling junk
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+__pycache__/
+*.pyc
+node_modules/
+*.log
